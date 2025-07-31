@@ -4,6 +4,7 @@ import { APIResource } from '../../core/resource';
 import * as ResponseAPI from './response/response';
 import { Chart, Response, ResponseCreateParams, ResponseCreateResponse, Table } from './response/response';
 import { APIPromise } from '../../core/api-promise';
+import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
 import { path } from '../../internal/utils/path';
 
@@ -30,10 +31,15 @@ export class Conversations extends APIResource {
   list(
     query: ConversationListParams | null | undefined = {},
     options?: RequestOptions,
-  ): APIPromise<ConversationListResponse> {
-    return this._client.get('/conversations', { query, ...options });
+  ): PagePromise<InconvoConversationsConversationsCursor, InconvoConversation> {
+    return this._client.getAPIList('/conversations', ConversationsCursor<InconvoConversation>, {
+      query,
+      ...options,
+    });
   }
 }
+
+export type InconvoConversationsConversationsCursor = ConversationsCursor<InconvoConversation>;
 
 export interface InconvoConversation {
   id: string;
@@ -64,12 +70,6 @@ export interface ConversationCreateResponse {
   id?: string;
 }
 
-export interface ConversationListResponse {
-  items: Array<InconvoConversation>;
-
-  nextCursor?: string;
-}
-
 export interface ConversationCreateParams {
   /**
    * Context key-values used for tenancy / filtering.
@@ -77,12 +77,8 @@ export interface ConversationCreateParams {
   context: { [key: string]: unknown };
 }
 
-export interface ConversationListParams {
+export interface ConversationListParams extends ConversationsCursorParams {
   context?: ConversationListParams.Context;
-
-  cursor?: string;
-
-  limit?: number;
 }
 
 export namespace ConversationListParams {
@@ -100,7 +96,7 @@ export declare namespace Conversations {
   export {
     type InconvoConversation as InconvoConversation,
     type ConversationCreateResponse as ConversationCreateResponse,
-    type ConversationListResponse as ConversationListResponse,
+    type InconvoConversationsConversationsCursor as InconvoConversationsConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
     type ConversationListParams as ConversationListParams,
   };

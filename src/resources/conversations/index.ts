@@ -4,9 +4,9 @@ export {
   Conversations,
   type InconvoConversation,
   type ConversationCreateResponse,
-  type ConversationListResponse,
   type ConversationCreateParams,
   type ConversationListParams,
+  type InconvoConversationsConversationsCursor,
 } from './conversations';
 export {
   Response,

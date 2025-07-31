@@ -4,13 +4,12 @@ Types:
 
 - <code><a href="./src/resources/conversations/conversations.ts">InconvoConversation</a></code>
 - <code><a href="./src/resources/conversations/conversations.ts">ConversationCreateResponse</a></code>
-- <code><a href="./src/resources/conversations/conversations.ts">ConversationListResponse</a></code>
 
 Methods:
 
 - <code title="post /conversations">client.conversations.<a href="./src/resources/conversations/conversations.ts">create</a>({ ...params }) -> ConversationCreateResponse</code>
 - <code title="get /conversations/{id}">client.conversations.<a href="./src/resources/conversations/conversations.ts">retrieve</a>(id) -> InconvoConversation</code>
-- <code title="get /conversations">client.conversations.<a href="./src/resources/conversations/conversations.ts">list</a>({ ...params }) -> ConversationListResponse</code>
+- <code title="get /conversations">client.conversations.<a href="./src/resources/conversations/conversations.ts">list</a>({ ...params }) -> InconvoConversationsConversationsCursor</code>
 
 ## Response
 
