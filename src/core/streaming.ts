@@ -1,5 +1,3 @@
-// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
 import * as Errors from './error';
 import type { Response } from '../internal/builtin-types';
 

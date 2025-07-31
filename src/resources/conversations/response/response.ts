@@ -59,21 +59,23 @@ export class Response extends APIResource {
       __binaryResponse: true,
     };
 
-    // Get the raw response promise
-    const apiPromise = this._client.post(path`/conversations/${id}/response`, {
+    // When __binaryResponse is true, post() returns the raw Response directly
+    const responsePromise = this._client.post(path`/conversations/${id}/response`, {
       body,
       ...requestOptions,
-    });
-
-    // Extract the response promise
-    const responsePromise = apiPromise.asResponse();
+    }) as Promise<globalThis.Response>;
 
     return createSSEStream<ResponseCreateResponse>(responsePromise, controller, (event: StreamEvent) => {
       if (event.data) {
+        // Handle special [DONE] marker
+        if (event.data === '[DONE]') {
+          return undefined;
+        }
         try {
           return JSON.parse(event.data) as ResponseCreateResponse;
         } catch (error) {
-          // Silently ignore parse errors for now
+          console.error('Error parsing SSE data:', error);
+          return undefined;
         }
       }
       return undefined;
