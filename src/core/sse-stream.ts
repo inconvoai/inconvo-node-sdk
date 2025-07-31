@@ -1,7 +1,8 @@
 import * as Errors from './error';
 import type { Response } from '../internal/builtin-types';
+import type { StreamEvent } from './streaming-events';
 
-export class SSEStream implements AsyncIterable<string> {
+export class SSEStream implements AsyncIterable<StreamEvent> {
   private reader: any; // ReadableStreamDefaultReader<Uint8Array>
   private decoder: any; // TextDecoder
   private controller: any; // AbortController
@@ -13,19 +14,35 @@ export class SSEStream implements AsyncIterable<string> {
     this.decoder = new (globalThis as any).TextDecoder();
   }
 
-  async *[Symbol.asyncIterator](): AsyncIterator<string> {
+  async *[Symbol.asyncIterator](): AsyncIterator<StreamEvent> {
     const response = await this.responsePromise;
     if (!response.body) {
       throw new Errors.InconvoError('Missing response body for streaming response');
     }
     this.reader = response.body.getReader();
+    let buffer = '';
     try {
       while (true) {
         const { done, value } = await this.reader.read();
         if (done) break;
 
-        // Yield the raw SSE data
-        yield this.decoder.decode(value, { stream: true });
+        buffer += this.decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+
+        for (const line of lines) {
+          if (line.trim() === '') continue;
+          if (line.startsWith('data: ')) {
+            const data = line.slice(6);
+            if (data === '[DONE]') continue;
+            try {
+              const event = JSON.parse(data) as StreamEvent;
+              yield event;
+            } catch (e) {
+              // Skip malformed events
+            }
+          }
+        }
       }
     } finally {
       this.reader.releaseLock();
@@ -41,3 +58,5 @@ export class SSEStream implements AsyncIterable<string> {
 export function createSSEStream(responsePromise: Promise<Response>, controller: any): SSEStream {
   return new SSEStream(responsePromise, controller);
 }
+
+export type { StreamEvent } from './streaming-events';

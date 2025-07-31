@@ -7,6 +7,13 @@ export { APIPromise } from './core/api-promise';
 export { Inconvo, type ClientOptions } from './client';
 export { PagePromise } from './core/pagination';
 export { SSEStream } from './core/sse-stream';
+export type {
+  StreamEvent,
+  StreamEventType,
+  ResponseCreatedEvent,
+  ResponseAgentStepEvent,
+  ResponseCompletedEvent,
+} from './core/streaming-events';
 export {
   InconvoError,
   APIError,
