@@ -31,15 +31,15 @@ export class Conversations extends APIResource {
   list(
     query: ConversationListParams | null | undefined = {},
     options?: RequestOptions,
-  ): PagePromise<InconvoConversationsConversationsCursor, InconvoConversation> {
-    return this._client.getAPIList('/conversations', ConversationsCursor<InconvoConversation>, {
+  ): PagePromise<ConversationListResponsesConversationsCursor, ConversationListResponse> {
+    return this._client.getAPIList('/conversations', ConversationsCursor<ConversationListResponse>, {
       query,
       ...options,
     });
   }
 }
 
-export type InconvoConversationsConversationsCursor = ConversationsCursor<InconvoConversation>;
+export type ConversationListResponsesConversationsCursor = ConversationsCursor<ConversationListResponse>;
 
 export interface InconvoConversation {
   id: string;
@@ -70,6 +70,16 @@ export interface ConversationCreateResponse {
   id?: string;
 }
 
+export interface ConversationListResponse {
+  id: string;
+
+  createdAt: string;
+
+  requestContext: { [key: string]: string | number };
+
+  title: string;
+}
+
 export interface ConversationCreateParams {
   /**
    * Context key-values used for tenancy / filtering.
@@ -96,7 +106,8 @@ export declare namespace Conversations {
   export {
     type InconvoConversation as InconvoConversation,
     type ConversationCreateResponse as ConversationCreateResponse,
-    type InconvoConversationsConversationsCursor as InconvoConversationsConversationsCursor,
+    type ConversationListResponse as ConversationListResponse,
+    type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
     type ConversationListParams as ConversationListParams,
   };
