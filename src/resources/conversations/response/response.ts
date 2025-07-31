@@ -18,7 +18,7 @@ export class Response extends APIResource {
     id: string,
     body: ResponseCreateParams,
     options?: RequestOptions,
-  ): APIPromise<ResponseCreateResponse> | SSEStream;
+  ): APIPromise<ResponseCreateResponse>;
   create(
     id: string,
     body: ResponseCreateParams & { stream?: false },
