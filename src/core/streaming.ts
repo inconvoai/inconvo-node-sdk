@@ -33,7 +33,6 @@ export class Stream<T> implements AsyncIterable<T> {
       throw new Errors.InconvoError('Missing response body for streaming response');
     }
     this.reader = response.body.getReader();
-    
     try {
       while (true) {
         const { done, value } = await this.reader.read();
