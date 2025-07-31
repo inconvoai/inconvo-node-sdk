@@ -23,9 +23,10 @@ import {
   ConversationCreateParams,
   ConversationCreateResponse,
   ConversationListParams,
+  ConversationListResponse,
+  ConversationListResponsesConversationsCursor,
   Conversations,
   InconvoConversation,
-  InconvoConversationsConversationsCursor,
 } from './resources/conversations/conversations';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -743,7 +744,8 @@ export declare namespace Inconvo {
     Conversations as Conversations,
     type InconvoConversation as InconvoConversation,
     type ConversationCreateResponse as ConversationCreateResponse,
-    type InconvoConversationsConversationsCursor as InconvoConversationsConversationsCursor,
+    type ConversationListResponse as ConversationListResponse,
+    type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
     type ConversationListParams as ConversationListParams,
   };

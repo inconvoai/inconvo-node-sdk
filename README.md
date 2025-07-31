@@ -132,13 +132,13 @@ List methods in the Inconvo API are paginated.
 You can use the `for await … of` syntax to iterate through items across all pages:
 
 ```ts
-async function fetchAllInconvoConversations(params) {
-  const allInconvoConversations = [];
+async function fetchAllConversationListResponses(params) {
+  const allConversationListResponses = [];
   // Automatically fetches more pages as needed.
-  for await (const inconvoConversation of client.conversations.list({ limit: 20 })) {
-    allInconvoConversations.push(inconvoConversation);
+  for await (const conversationListResponse of client.conversations.list({ limit: 20 })) {
+    allConversationListResponses.push(conversationListResponse);
   }
-  return allInconvoConversations;
+  return allConversationListResponses;
 }
 ```
 
@@ -146,8 +146,8 @@ Alternatively, you can request a single page at a time:
 
 ```ts
 let page = await client.conversations.list({ limit: 20 });
-for (const inconvoConversation of page.items) {
-  console.log(inconvoConversation);
+for (const conversationListResponse of page.items) {
+  console.log(conversationListResponse);
 }
 
 // Convenience methods are provided for manually paginating:
