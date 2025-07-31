@@ -10,7 +10,7 @@ const client = new Inconvo({
 describe('resource conversations', () => {
   // skipped: tests are disabled for the time being
   test.skip('create: only required params', async () => {
-    const responsePromise = client.conversations.create({ context: {} });
+    const responsePromise = client.conversations.create({ context: { foo: 'bar' } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource conversations', () => {
 
   // skipped: tests are disabled for the time being
   test.skip('create: required and optional params', async () => {
-    const response = await client.conversations.create({ context: {} });
+    const response = await client.conversations.create({ context: { foo: 'bar' } });
   });
 
   // skipped: tests are disabled for the time being
