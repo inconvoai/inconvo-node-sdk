@@ -6,7 +6,7 @@ import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams 
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
-import { Stream, StreamEvent, createSSEStream } from '../../../core/streaming';
+import { SSEStream, createSSEStream } from '../../../core/sse-stream';
 
 export class Response extends APIResource {
   feedback: FeedbackAPI.FeedbackResource = new FeedbackAPI.FeedbackResource(this._client);
@@ -18,33 +18,25 @@ export class Response extends APIResource {
     id: string,
     body: ResponseCreateParams,
     options?: RequestOptions,
-  ): APIPromise<ResponseCreateResponse> | Stream<ResponseCreateResponse>;
+  ): APIPromise<ResponseCreateResponse> | SSEStream;
   create(
     id: string,
     body: ResponseCreateParams & { stream?: false },
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse>;
-  create(
-    id: string,
-    body: ResponseCreateParams & { stream: true },
-    options?: RequestOptions,
-  ): Stream<ResponseCreateResponse>;
+  create(id: string, body: ResponseCreateParams & { stream: true }, options?: RequestOptions): SSEStream;
   create(
     id: string,
     body: ResponseCreateParams,
     options?: RequestOptions,
-  ): APIPromise<ResponseCreateResponse> | Stream<ResponseCreateResponse> {
+  ): APIPromise<ResponseCreateResponse> | SSEStream {
     if (body.stream === true) {
       return this._createStreaming(id, body, options);
     }
     return this._client.post(path`/conversations/${id}/response`, { body, ...options });
   }
 
-  private _createStreaming(
-    id: string,
-    body: ResponseCreateParams,
-    options?: RequestOptions,
-  ): Stream<ResponseCreateResponse> {
+  private _createStreaming(id: string, body: ResponseCreateParams, options?: RequestOptions): SSEStream {
     // Create a controller for aborting the request if needed
     const controller =
       (globalThis as any).AbortController ? new (globalThis as any).AbortController() : undefined;
@@ -65,21 +57,7 @@ export class Response extends APIResource {
       ...requestOptions,
     }) as Promise<globalThis.Response>;
 
-    return createSSEStream<ResponseCreateResponse>(responsePromise, controller, (event: StreamEvent) => {
-      if (event.data) {
-        // Handle special [DONE] marker
-        if (event.data === '[DONE]') {
-          return undefined;
-        }
-        try {
-          return JSON.parse(event.data) as ResponseCreateResponse;
-        } catch (error) {
-          console.error('Error parsing SSE data:', error);
-          return undefined;
-        }
-      }
-      return undefined;
-    });
+    return createSSEStream(responsePromise, controller);
   }
 }
 
