@@ -6,6 +6,7 @@ import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams 
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
+import { Stream, StreamEvent, createSSEStream } from '../../../core/streaming';
 
 export class Response extends APIResource {
   feedback: FeedbackAPI.FeedbackResource = new FeedbackAPI.FeedbackResource(this._client);
@@ -17,8 +18,66 @@ export class Response extends APIResource {
     id: string,
     body: ResponseCreateParams,
     options?: RequestOptions,
-  ): APIPromise<ResponseCreateResponse> {
+  ): APIPromise<ResponseCreateResponse> | Stream<ResponseCreateResponse>;
+  create(
+    id: string,
+    body: ResponseCreateParams & { stream?: false },
+    options?: RequestOptions,
+  ): APIPromise<ResponseCreateResponse>;
+  create(
+    id: string,
+    body: ResponseCreateParams & { stream: true },
+    options?: RequestOptions,
+  ): Stream<ResponseCreateResponse>;
+  create(
+    id: string,
+    body: ResponseCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<ResponseCreateResponse> | Stream<ResponseCreateResponse> {
+    if (body.stream === true) {
+      return this._createStreaming(id, body, options);
+    }
     return this._client.post(path`/conversations/${id}/response`, { body, ...options });
+  }
+
+  private _createStreaming(
+    id: string,
+    body: ResponseCreateParams,
+    options?: RequestOptions,
+  ): Stream<ResponseCreateResponse> {
+    // Create a controller for aborting the request if needed
+    const controller =
+      (globalThis as any).AbortController ? new (globalThis as any).AbortController() : undefined;
+
+    const requestOptions = {
+      ...options,
+      headers: {
+        ...options?.headers,
+        Accept: 'text/event-stream',
+      },
+      signal: controller?.signal,
+      __binaryResponse: true,
+    };
+
+    // Get the raw response promise
+    const apiPromise = this._client.post(path`/conversations/${id}/response`, {
+      body,
+      ...requestOptions,
+    });
+
+    // Extract the response promise
+    const responsePromise = apiPromise.asResponse();
+
+    return createSSEStream<ResponseCreateResponse>(responsePromise, controller, (event: StreamEvent) => {
+      if (event.data) {
+        try {
+          return JSON.parse(event.data) as ResponseCreateResponse;
+        } catch (error) {
+          // Silently ignore parse errors for now
+        }
+      }
+      return undefined;
+    });
   }
 }
 
