@@ -29,7 +29,20 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const conversation = await client.conversations.create({ context: 'REPLACE_ME' });
+const conversation = await client.conversations.create({
+  context: {
+    '0': 'bar',
+    '1': 'bar',
+    '2': 'bar',
+    '3': 'bar',
+    '4': 'bar',
+    '5': 'bar',
+    '6': 'bar',
+    '7': 'bar',
+    '8': 'bar',
+    '9': 'bar',
+  },
+});
 
 console.log(conversation.id);
 ```
@@ -46,7 +59,20 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Inconvo.ConversationCreateParams = { context: 'REPLACE_ME' };
+const params: Inconvo.ConversationCreateParams = {
+  context: {
+    '0': 'bar',
+    '1': 'bar',
+    '2': 'bar',
+    '3': 'bar',
+    '4': 'bar',
+    '5': 'bar',
+    '6': 'bar',
+    '7': 'bar',
+    '8': 'bar',
+    '9': 'bar',
+  },
+};
 const conversation: Inconvo.ConversationCreateResponse = await client.conversations.create(params);
 ```
 
@@ -60,15 +86,30 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const conversation = await client.conversations.create({ context: 'REPLACE_ME' }).catch(async (err) => {
-  if (err instanceof Inconvo.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const conversation = await client.conversations
+  .create({
+    context: {
+      '0': 'bar',
+      '1': 'bar',
+      '2': 'bar',
+      '3': 'bar',
+      '4': 'bar',
+      '5': 'bar',
+      '6': 'bar',
+      '7': 'bar',
+      '8': 'bar',
+      '9': 'bar',
+    },
+  })
+  .catch(async (err) => {
+    if (err instanceof Inconvo.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -100,7 +141,7 @@ const client = new Inconvo({
 });
 
 // Or, configure per-request:
-await client.conversations.create({ context: 'REPLACE_ME' }, {
+await client.conversations.create({ context: { '0': 'bar', '1': 'bar', '2': 'bar', '3': 'bar', '4': 'bar', '5': 'bar', '6': 'bar', '7': 'bar', '8': 'bar', '9': 'bar' } }, {
   maxRetries: 5,
 });
 ```
@@ -117,7 +158,7 @@ const client = new Inconvo({
 });
 
 // Override per-request:
-await client.conversations.create({ context: 'REPLACE_ME' }, {
+await client.conversations.create({ context: { '0': 'bar', '1': 'bar', '2': 'bar', '3': 'bar', '4': 'bar', '5': 'bar', '6': 'bar', '7': 'bar', '8': 'bar', '9': 'bar' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -140,12 +181,40 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Inconvo();
 
-const response = await client.conversations.create({ context: 'REPLACE_ME' }).asResponse();
+const response = await client.conversations
+  .create({
+    context: {
+      '0': 'bar',
+      '1': 'bar',
+      '2': 'bar',
+      '3': 'bar',
+      '4': 'bar',
+      '5': 'bar',
+      '6': 'bar',
+      '7': 'bar',
+      '8': 'bar',
+      '9': 'bar',
+    },
+  })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: conversation, response: raw } = await client.conversations
-  .create({ context: 'REPLACE_ME' })
+  .create({
+    context: {
+      '0': 'bar',
+      '1': 'bar',
+      '2': 'bar',
+      '3': 'bar',
+      '4': 'bar',
+      '5': 'bar',
+      '6': 'bar',
+      '7': 'bar',
+      '8': 'bar',
+      '9': 'bar',
+    },
+  })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(conversation.id);

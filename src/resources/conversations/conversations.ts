@@ -74,7 +74,7 @@ export interface ConversationCreateParams {
   /**
    * Context key-values used for tenancy / filtering.
    */
-  context: unknown;
+  context: { [key: string]: unknown };
 }
 
 export interface ConversationListParams {
