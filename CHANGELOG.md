@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Refactors
+
+* update SSEStream to use generic type and move streaming event types to response module ([7cb9901](https://github.com/ten-dev/inconvo-node-sdk/commit/7cb9901eb1efb3655ae047d3a22202bdfa85e8c3))
+
 ## 0.1.0-alpha.1 (2025-08-01)
 
 Full Changelog: [v0.0.1-alpha.1...v0.1.0-alpha.1](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.0.1-alpha.1...v0.1.0-alpha.1)
