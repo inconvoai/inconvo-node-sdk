@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'inconvo/internal/uploads';
-import { toFile } from 'inconvo/core/uploads';
+import { multipartFormRequestOptions, createForm } from '@inconvoai/node/internal/uploads';
+import { toFile } from '@inconvoai/node/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

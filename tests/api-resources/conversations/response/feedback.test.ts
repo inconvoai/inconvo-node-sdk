@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Inconvo from 'inconvo';
+import Inconvo from '@inconvoai/node';
 
 const client = new Inconvo({
   apiKey: 'My API Key',

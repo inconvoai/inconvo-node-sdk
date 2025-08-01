@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'inconvo/core/api-promise';
+import { APIPromise } from '@inconvoai/node/core/api-promise';
 
 import util from 'node:util';
-import Inconvo from 'inconvo';
-import { APIUserAbortError } from 'inconvo';
+import Inconvo from '@inconvoai/node';
+import { APIUserAbortError } from '@inconvoai/node';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
