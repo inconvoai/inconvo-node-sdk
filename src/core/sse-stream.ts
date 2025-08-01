@@ -1,8 +1,7 @@
 import * as Errors from './error';
 import type { Response } from '../internal/builtin-types';
-import type { StreamEvent } from './streaming-events';
 
-export class SSEStream implements AsyncIterable<StreamEvent> {
+export class SSEStream<T = any> implements AsyncIterable<T> {
   private reader: any; // ReadableStreamDefaultReader<Uint8Array>
   private decoder: any; // TextDecoder
   private controller: any; // AbortController
@@ -14,7 +13,7 @@ export class SSEStream implements AsyncIterable<StreamEvent> {
     this.decoder = new (globalThis as any).TextDecoder();
   }
 
-  async *[Symbol.asyncIterator](): AsyncIterator<StreamEvent> {
+  async *[Symbol.asyncIterator](): AsyncIterator<T> {
     const response = await this.responsePromise;
     if (!response.body) {
       throw new Errors.InconvoError('Missing response body for streaming response');
@@ -36,7 +35,7 @@ export class SSEStream implements AsyncIterable<StreamEvent> {
             const data = line.slice(6);
             if (data === '[DONE]') continue;
             try {
-              const event = JSON.parse(data) as StreamEvent;
+              const event = JSON.parse(data) as T;
               yield event;
             } catch (e) {
               // Skip malformed events
@@ -55,8 +54,10 @@ export class SSEStream implements AsyncIterable<StreamEvent> {
   }
 }
 
-export function createSSEStream(responsePromise: Promise<Response>, controller: any): SSEStream {
-  return new SSEStream(responsePromise, controller);
+export function createSSEStream<T = any>(
+  responsePromise: Promise<Response>,
+  controller: any,
+): SSEStream<T> {
+  return new SSEStream<T>(responsePromise, controller);
 }
 
-export type { StreamEvent } from './streaming-events';

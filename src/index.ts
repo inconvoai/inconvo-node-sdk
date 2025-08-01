@@ -8,12 +8,12 @@ export { Inconvo, type ClientOptions } from './client';
 export { PagePromise } from './core/pagination';
 export { SSEStream } from './core/sse-stream';
 export type {
-  StreamEvent,
-  StreamEventType,
+  ResponseStreamEvent,
+  ResponseStreamEventType,
   ResponseCreatedEvent,
   ResponseAgentStepEvent,
   ResponseCompletedEvent,
-} from './core/streaming-events';
+} from './resources/conversations/response/response';
 export {
   InconvoError,
   APIError,

@@ -24,19 +24,27 @@ export class Response extends APIResource {
     body: ResponseCreateParams & { stream?: false },
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse>;
-  create(id: string, body: ResponseCreateParams & { stream: true }, options?: RequestOptions): SSEStream;
+  create(
+    id: string,
+    body: ResponseCreateParams & { stream: true },
+    options?: RequestOptions,
+  ): SSEStream<ResponseStreamEvent>;
   create(
     id: string,
     body: ResponseCreateParams,
     options?: RequestOptions,
-  ): APIPromise<ResponseCreateResponse> | SSEStream {
+  ): APIPromise<ResponseCreateResponse> | SSEStream<ResponseStreamEvent> {
     if (body.stream === true) {
       return this._createStreaming(id, body, options);
     }
     return this._client.post(path`/conversations/${id}/response`, { body, ...options });
   }
 
-  private _createStreaming(id: string, body: ResponseCreateParams, options?: RequestOptions): SSEStream {
+  private _createStreaming(
+    id: string,
+    body: ResponseCreateParams,
+    options?: RequestOptions,
+  ): SSEStream<ResponseStreamEvent> {
     // Create a controller for aborting the request if needed
     const controller =
       (globalThis as any).AbortController ? new (globalThis as any).AbortController() : undefined;
@@ -81,6 +89,9 @@ export interface Table {
   head: Array<string>;
 }
 
+/**
+ * Response type for non-streaming create response
+ */
 export interface ResponseCreateResponse {
   id: string;
 
@@ -94,6 +105,41 @@ export interface ResponseCreateResponse {
 
   table?: Table;
 }
+
+/**
+ * Event types for streaming responses
+ */
+export type ResponseStreamEventType = 'response.created' | 'response.agent_step' | 'response.completed';
+
+export interface BaseResponseStreamEvent {
+  type: ResponseStreamEventType;
+  id: string;
+}
+
+export interface ResponseCreatedEvent extends BaseResponseStreamEvent {
+  type: 'response.created';
+}
+
+export interface ResponseAgentStepEvent extends BaseResponseStreamEvent {
+  type: 'response.agent_step';
+  step: string;
+  message: string;
+}
+
+export interface ResponseCompletedEvent extends BaseResponseStreamEvent {
+  type: 'response.completed';
+  response: ResponseCreateResponse;
+}
+
+export type ResponseStreamEvent =
+  | ResponseCreatedEvent
+  | ResponseAgentStepEvent
+  | ResponseCompletedEvent;
+
+/**
+ * Response type for streaming create response - wraps SSEStream with typed events
+ */
+export type ResponseCreateStreamResponse = SSEStream<ResponseStreamEvent>;
 
 export interface ResponseCreateParams {
   message: string;
@@ -112,7 +158,14 @@ export declare namespace Response {
     type Chart as Chart,
     type Table as Table,
     type ResponseCreateResponse as ResponseCreateResponse,
+    type ResponseCreateStreamResponse as ResponseCreateStreamResponse,
     type ResponseCreateParams as ResponseCreateParams,
+    type ResponseStreamEventType as ResponseStreamEventType,
+    type BaseResponseStreamEvent as BaseResponseStreamEvent,
+    type ResponseCreatedEvent as ResponseCreatedEvent,
+    type ResponseAgentStepEvent as ResponseAgentStepEvent,
+    type ResponseCompletedEvent as ResponseCompletedEvent,
+    type ResponseStreamEvent as ResponseStreamEvent,
   };
 
   export {
