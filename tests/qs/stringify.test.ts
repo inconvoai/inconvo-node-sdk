@@ -1,7 +1,7 @@
 import iconv from 'iconv-lite';
-import { stringify } from 'inconvo/internal/qs';
-import { encode } from 'inconvo/internal/qs/utils';
-import { StringifyOptions } from 'inconvo/internal/qs/types';
+import { stringify } from 'inconvo-js/internal/qs';
+import { encode } from 'inconvo-js/internal/qs/utils';
+import { StringifyOptions } from 'inconvo-js/internal/qs/types';
 import { empty_test_cases } from './empty-keys-cases';
 import assert from 'assert';
 
