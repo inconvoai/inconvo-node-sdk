@@ -72,13 +72,13 @@ export class Response extends APIResource {
 export interface Chart {
   data: Array<Chart.Data>;
 
+  title: string;
+
   type: 'line' | 'bar';
 
-  title?: string;
+  xLabel: string;
 
-  xLabel?: string;
-
-  yLable?: string;
+  yLabel: string;
 }
 
 export namespace Chart {

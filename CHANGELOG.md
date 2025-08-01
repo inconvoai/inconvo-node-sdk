@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Features
+
+* **api:** update via SDK Studio ([a3febd3](https://github.com/ten-dev/inconvo-node-sdk/commit/a3febd39d8bc00bd244830e4112c3a0694909a07))
+
+## 0.1.0-alpha.5 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Features
+
+* **api:** update via SDK Studio ([fc3052c](https://github.com/ten-dev/inconvo-node-sdk/commit/fc3052c23958f8bcdb90b3dd5a2990034c1e9cc1))
+
+## 0.1.0-alpha.4 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** update via SDK Studio ([427f46d](https://github.com/ten-dev/inconvo-node-sdk/commit/427f46d117a54611aef930f502716e284b2392fd))
+
+
+### Refactors
+
+* remove unused APIPromise import in response tests ([0a72154](https://github.com/ten-dev/inconvo-node-sdk/commit/0a721545cb8c50d9ccc8f554cd5edffc7a14a69a))
+
 ## 0.1.0-alpha.3 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
