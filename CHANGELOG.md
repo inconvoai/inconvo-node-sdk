@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** update via SDK Studio ([427f46d](https://github.com/ten-dev/inconvo-node-sdk/commit/427f46d117a54611aef930f502716e284b2392fd))
+
+
+### Refactors
+
+* remove unused APIPromise import in response tests ([0a72154](https://github.com/ten-dev/inconvo-node-sdk/commit/0a721545cb8c50d9ccc8f554cd5edffc7a14a69a))
+
 ## 0.1.0-alpha.3 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
