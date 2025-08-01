@@ -131,10 +131,7 @@ export interface ResponseCompletedEvent extends BaseResponseStreamEvent {
   response: ResponseCreateResponse;
 }
 
-export type ResponseStreamEvent =
-  | ResponseCreatedEvent
-  | ResponseAgentStepEvent
-  | ResponseCompletedEvent;
+export type ResponseStreamEvent = ResponseCreatedEvent | ResponseAgentStepEvent | ResponseCompletedEvent;
 
 /**
  * Response type for streaming create response - wraps SSEStream with typed events

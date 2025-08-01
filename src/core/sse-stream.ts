@@ -54,10 +54,6 @@ export class SSEStream<T = any> implements AsyncIterable<T> {
   }
 }
 
-export function createSSEStream<T = any>(
-  responsePromise: Promise<Response>,
-  controller: any,
-): SSEStream<T> {
+export function createSSEStream<T = any>(responsePromise: Promise<Response>, controller: any): SSEStream<T> {
   return new SSEStream<T>(responsePromise, controller);
 }
-
