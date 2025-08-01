@@ -55,12 +55,12 @@ $ cd inconvo-node-sdk
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link inconvo-js
+$ yarn link @inconvoai/node
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global inconvo-js
+$ pnpm link -—global @inconvoai/node
 ```
 
 ## Running tests

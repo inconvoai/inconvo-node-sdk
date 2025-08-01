@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'inconvo-js/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from '@inconvoai/node/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 
