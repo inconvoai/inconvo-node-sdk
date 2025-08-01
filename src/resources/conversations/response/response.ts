@@ -31,7 +31,7 @@ export interface Chart {
 
   xLabel?: string;
 
-  yLable?: string;
+  yLabel?: string;
 }
 
 export namespace Chart {
