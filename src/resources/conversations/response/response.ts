@@ -16,9 +16,9 @@ export class Response extends APIResource {
    */
   create(
     id: string,
-    body: ResponseCreateParams,
+    body: ResponseCreateParams & { stream: true },
     options?: RequestOptions,
-  ): APIPromise<ResponseCreateResponse>;
+  ): SSEStream<ResponseStreamEvent>;
   create(
     id: string,
     body: ResponseCreateParams & { stream?: false },
@@ -26,9 +26,9 @@ export class Response extends APIResource {
   ): APIPromise<ResponseCreateResponse>;
   create(
     id: string,
-    body: ResponseCreateParams & { stream: true },
+    body: ResponseCreateParams,
     options?: RequestOptions,
-  ): SSEStream<ResponseStreamEvent>;
+  ): APIPromise<ResponseCreateResponse>;
   create(
     id: string,
     body: ResponseCreateParams,
