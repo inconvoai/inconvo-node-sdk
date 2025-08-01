@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "inconvo-js/*": ["dist/src/*"],
-      "inconvo-js": ["dist/src/index.ts"]
+      "@inconvoai/node/*": ["dist/src/*"],
+      "@inconvoai/node": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

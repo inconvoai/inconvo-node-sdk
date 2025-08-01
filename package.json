@@ -1,5 +1,5 @@
 {
-  "name": "inconvo-js",
+  "name": "@inconvoai/node",
   "version": "0.0.1-alpha.0",
   "description": "The official TypeScript library for the Inconvo API",
   "author": "Inconvo <support@inconvo.ai>",
