@@ -18,8 +18,21 @@ export interface ResponseAgentStepEvent extends BaseStreamEvent {
 export interface ResponseCompletedEvent extends BaseStreamEvent {
   type: 'response.completed';
   response: {
-    type: 'text' | 'chart' | 'table';
+    id: string;
+    conversationId: string;
     message: string;
+    type: 'text' | 'chart' | 'table';
+    chart?: {
+      type: 'line' | 'bar';
+      data: {
+        label: string;
+        value: number;
+      }[];
+    };
+    table?: {
+      head: string[];
+      body: string[][];
+    };
   };
 }
 
