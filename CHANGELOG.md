@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Refactors
+
+* streamline createSSEStream function and simplify ResponseStreamEvent type definition ([2d9a90f](https://github.com/ten-dev/inconvo-node-sdk/commit/2d9a90f0dcb4e276b50dd205ae188783b8fc964a))
+
 ## 0.1.0-alpha.2 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
