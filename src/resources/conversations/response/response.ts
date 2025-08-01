@@ -73,6 +73,12 @@ export interface Chart {
   data: Array<Chart.Data>;
 
   type: 'line' | 'bar';
+
+  title?: string;
+
+  xLabel?: string;
+
+  yLable?: string;
 }
 
 export namespace Chart {
