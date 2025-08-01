@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Inconvo, { APIPromise } from '@inconvoai/node';
+import Inconvo from '@inconvoai/node';
 
 const client = new Inconvo({
   apiKey: 'My API Key',
@@ -12,7 +12,7 @@ describe('resource response', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.conversations.response.create('id', {
       message: 'message',
-    }) as APIPromise<Inconvo.Conversations.Response.ResponseCreateResponse>;
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
