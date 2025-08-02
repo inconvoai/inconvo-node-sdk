@@ -88,16 +88,11 @@ export interface ConversationCreateParams {
 }
 
 export interface ConversationListParams extends ConversationsCursorParams {
-  context?: ConversationListParams.Context;
-}
-
-export namespace ConversationListParams {
-  export interface Context {
-    /**
-     * Filter by arbitrary context key/value.
-     */
-    '{key}'?: string | number;
-  }
+  /**
+   * Arbitrary context filters, encoded as a deep object. Example: GET
+   * /conversations?context[userId]=42&context[orgId]=12
+   */
+  context?: { [key: string]: string | number };
 }
 
 Conversations.Response = Response;
