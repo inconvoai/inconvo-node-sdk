@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-08-01)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Bug Fixes
+
+* **response:** update create method signatures for streaming responses ([4a76a46](https://github.com/ten-dev/inconvo-node-sdk/commit/4a76a46bfe317dab09ab0a83dc20af8b854677f1))
+
 ## 0.1.0-alpha.6 (2025-08-01)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
