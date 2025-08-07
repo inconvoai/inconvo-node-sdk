@@ -48,6 +48,11 @@ export interface ClientOptions {
   apiKey?: string | undefined;
 
   /**
+   * Override the API base URL via INCONVO_API_URL
+   */
+  baseURL?: string | undefined;
+
+  /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
    * Defaults to process.env['INCONVO_BASE_URL'].
@@ -121,6 +126,7 @@ export interface ClientOptions {
  */
 export class Inconvo {
   apiKey: string;
+  baseURL: string;
 
   baseURL: string;
   maxRetries: number;
@@ -138,6 +144,7 @@ export class Inconvo {
    * API Client for interfacing with the Inconvo API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['INCONVO_API_KEY'] ?? undefined]
+   * @param {string | undefined} [opts.baseURL=process.env['INCONVO_API_URL'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['INCONVO_BASE_URL'] ?? https://app.inconvo.ai/api/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -149,6 +156,7 @@ export class Inconvo {
   constructor({
     baseURL = readEnv('INCONVO_BASE_URL'),
     apiKey = readEnv('INCONVO_API_KEY'),
+    baseURL = readEnv('INCONVO_API_URL'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
@@ -156,9 +164,15 @@ export class Inconvo {
         "The INCONVO_API_KEY environment variable is missing or empty; either provide it, or instantiate the Inconvo client with an apiKey option, like new Inconvo({ apiKey: 'My API Key' }).",
       );
     }
+    if (baseURL === undefined) {
+      throw new Errors.InconvoError(
+        "The INCONVO_API_URL environment variable is missing or empty; either provide it, or instantiate the Inconvo client with an baseURL option, like new Inconvo({ baseURL: 'My Base URL' }).",
+      );
+    }
 
     const options: ClientOptions = {
       apiKey,
+      baseURL,
       ...opts,
       baseURL: baseURL || `https://app.inconvo.ai/api/v1`,
     };
@@ -181,6 +195,7 @@ export class Inconvo {
     this._options = options;
 
     this.apiKey = apiKey;
+    this.baseURL = baseURL;
   }
 
   /**
@@ -197,6 +212,7 @@ export class Inconvo {
       fetch: this.fetch,
       fetchOptions: this.fetchOptions,
       apiKey: this.apiKey,
+      baseURL: this.baseURL,
       ...options,
     });
     return client;
