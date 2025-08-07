@@ -47,7 +47,10 @@ export interface ClientOptions {
    */
   apiKey?: string | undefined;
 
-  baseURL: string;
+  /**
+   * Defaults to process.env['INCONVO_BASE_URL'].
+   */
+  baseURL?: string | null | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -123,7 +126,7 @@ export interface ClientOptions {
  */
 export class Inconvo {
   apiKey: string;
-  baseURL: string;
+  baseURL: string | null;
 
   baseURL: string;
   maxRetries: number;
@@ -141,7 +144,7 @@ export class Inconvo {
    * API Client for interfacing with the Inconvo API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['INCONVO_API_KEY'] ?? undefined]
-   * @param {string} opts.baseURL
+   * @param {string | null | undefined} [opts.baseURL=process.env['INCONVO_BASE_URL'] ?? null]
    * @param {string} [opts.baseURL=process.env['INCONVO_BASE_URL'] ?? https://app.inconvo.ai/api/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -153,17 +156,12 @@ export class Inconvo {
   constructor({
     baseURL = readEnv('INCONVO_BASE_URL'),
     apiKey = readEnv('INCONVO_API_KEY'),
-    baseURL,
+    baseURL = readEnv('INCONVO_BASE_URL') ?? null,
     ...opts
-  }: ClientOptions) {
+  }: ClientOptions = {}) {
     if (apiKey === undefined) {
       throw new Errors.InconvoError(
         "The INCONVO_API_KEY environment variable is missing or empty; either provide it, or instantiate the Inconvo client with an apiKey option, like new Inconvo({ apiKey: 'My API Key' }).",
-      );
-    }
-    if (baseURL === undefined) {
-      throw new Errors.InconvoError(
-        "Missing required client option baseURL; you need to instantiate the Inconvo client with an baseURL option, like new Inconvo({ baseURL: 'My Base URL' }).",
       );
     }
 
