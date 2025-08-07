@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-08-07)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Chores
+
+* **internal:** move publish config ([81b3dc3](https://github.com/ten-dev/inconvo-node-sdk/commit/81b3dc3f9c552c94be0be2947030eda447a93a55))
+
 ## 0.1.0-alpha.10 (2025-08-03)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
