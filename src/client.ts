@@ -48,7 +48,7 @@ export interface ClientOptions {
   apiKey?: string | undefined;
 
   /**
-   * Defaults to process.env['INCONVO_BASE_URL'].
+   * Defaults to process.env['INCONVO_API_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -144,7 +144,7 @@ export class Inconvo {
    * API Client for interfacing with the Inconvo API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['INCONVO_API_KEY'] ?? undefined]
-   * @param {string | null | undefined} [opts.baseURL=process.env['INCONVO_BASE_URL'] ?? null]
+   * @param {string | null | undefined} [opts.baseURL=process.env['INCONVO_API_BASE_URL'] ?? null]
    * @param {string} [opts.baseURL=process.env['INCONVO_BASE_URL'] ?? https://app.inconvo.ai/api/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -156,7 +156,7 @@ export class Inconvo {
   constructor({
     baseURL = readEnv('INCONVO_BASE_URL'),
     apiKey = readEnv('INCONVO_API_KEY'),
-    baseURL = readEnv('INCONVO_BASE_URL') ?? null,
+    baseURL = readEnv('INCONVO_API_BASE_URL') ?? null,
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
