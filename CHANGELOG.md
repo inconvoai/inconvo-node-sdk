@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2025-08-09)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Chores
+
+* **internal:** update comment in script ([37d3fb5](https://github.com/ten-dev/inconvo-node-sdk/commit/37d3fb5f8d71a934aab6588195c042821d0e9965))
+* update @stainless-api/prism-cli to v5.15.0 ([b52c0dc](https://github.com/ten-dev/inconvo-node-sdk/commit/b52c0dcfcfcf6cbb56dae5b8f1b73487f5fe311a))
+
 ## 0.1.0-alpha.13 (2025-08-07)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
