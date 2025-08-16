@@ -730,7 +730,9 @@ export class Inconvo {
 
   conversations: API.Conversations = new API.Conversations(this);
 }
+
 Inconvo.Conversations = Conversations;
+
 export declare namespace Inconvo {
   export type RequestOptions = Opts.RequestOptions;
 
