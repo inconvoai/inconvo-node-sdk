@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2025-08-29)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Features
+
+* **mcp:** add code execution tool ([fef3698](https://github.com/ten-dev/inconvo-node-sdk/commit/fef3698e72ec48e00e472e02fd1c287918a82e3e))
+
+
+### Chores
+
+* add package to package.json ([31505f6](https://github.com/ten-dev/inconvo-node-sdk/commit/31505f6ef9bd2ae00f47d2417197f74f686c4248))
+* **client:** qualify global Blob ([d41aabc](https://github.com/ten-dev/inconvo-node-sdk/commit/d41aabc091ead6c29b4e06e27eedf67761af2582))
+* **deps:** update dependency @types/node to v20.17.58 ([74e64f6](https://github.com/ten-dev/inconvo-node-sdk/commit/74e64f6e9897852c6cbef5364855164d29013ca5))
+* **internal:** codegen related update ([26e1d40](https://github.com/ten-dev/inconvo-node-sdk/commit/26e1d40c722621710fcbff572be0ec9e174a37ec))
+* **internal:** formatting change ([5c5f31d](https://github.com/ten-dev/inconvo-node-sdk/commit/5c5f31d9aeb109da0f939874d35fb698bb2fc294))
+* **internal:** update global Error reference ([864f44e](https://github.com/ten-dev/inconvo-node-sdk/commit/864f44e1a8a2cda801e230314e42d479acb6447b))
+* update CI script ([2645da1](https://github.com/ten-dev/inconvo-node-sdk/commit/2645da1b81e33dba0fdfbc178314fa5a836ac0c5))
+
 ## 0.1.0-alpha.14 (2025-08-09)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
