@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2025-09-09)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([cb2672c](https://github.com/ten-dev/inconvo-node-sdk/commit/cb2672c72f6c92f5156a798479491c831ed220f8))
+
+
+### Chores
+
+* ci build action ([6e56077](https://github.com/ten-dev/inconvo-node-sdk/commit/6e56077257debf0bc390fb30d0108e6ae0d404c9))
+
 ## 0.1.0-alpha.15 (2025-08-29)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
