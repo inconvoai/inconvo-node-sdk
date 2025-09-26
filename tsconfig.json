@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@inconvoai/node/*": ["src/*"],
-      "@inconvoai/node": ["src/index.ts"]
+      "@inconvoai/node/*": ["./src/*"],
+      "@inconvoai/node": ["./src/index.ts"]
     },
     "noEmit": true,
 
