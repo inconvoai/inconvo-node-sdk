@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Features
+
+* **api:** add mcpservers ([4471689](https://github.com/ten-dev/inconvo-node-sdk/commit/447168988004b119d02235176c9c5025ad9b6be4))
+
 ## 0.1.0-alpha.17 (2025-09-27)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
