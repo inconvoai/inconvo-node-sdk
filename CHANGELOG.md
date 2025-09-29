@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Features
+
+* **api:** mcp servers bodyparamname + param ordering ([f55d1cc](https://github.com/ten-dev/inconvo-node-sdk/commit/f55d1ccaa0bb2b6606f4254d5e9f6605f8e28741))
+
 ## 0.1.0-alpha.21 (2025-09-29)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
