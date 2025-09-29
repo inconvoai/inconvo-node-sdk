@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Bug Fixes
+
+* **api:** delete mcp server tenant function signature ([b04ebe5](https://github.com/ten-dev/inconvo-node-sdk/commit/b04ebe5249d1b0684c3e3f74e0e2bbb47050f70f))
+
 ## 0.1.0-alpha.22 (2025-09-29)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
