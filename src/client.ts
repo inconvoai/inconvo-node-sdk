@@ -20,12 +20,6 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import {
-  McpServerDeleteTenantParams,
-  McpServerUpsertTenantsParams,
-  McpServers,
-  TenantsUpsertRequest,
-} from './resources/mcp-servers';
-import {
   ConversationCreateParams,
   ConversationCreateResponse,
   ConversationListParams,
@@ -34,6 +28,7 @@ import {
   Conversations,
   InconvoConversation,
 } from './resources/conversations/conversations';
+import { McpServers } from './resources/mcp-servers/mcp-servers';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -760,10 +755,5 @@ export declare namespace Inconvo {
     type ConversationListParams as ConversationListParams,
   };
 
-  export {
-    McpServers as McpServers,
-    type TenantsUpsertRequest as TenantsUpsertRequest,
-    type McpServerDeleteTenantParams as McpServerDeleteTenantParams,
-    type McpServerUpsertTenantsParams as McpServerUpsertTenantsParams,
-  };
+  export { McpServers as McpServers };
 }
