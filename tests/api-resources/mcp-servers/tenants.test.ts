@@ -11,7 +11,7 @@ describe('resource tenants', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.mcpServers.tenants.create('mcpserver_id', {
-      body: { 'fromapi@api.com': { organisationId: 'bar' } },
+      tenant: { 'fromapi@api.com': { organisationId: 'bar' } },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,13 +25,13 @@ describe('resource tenants', () => {
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.mcpServers.tenants.create('mcpserver_id', {
-      body: { 'fromapi@api.com': { organisationId: 'bar' } },
+      tenant: { 'fromapi@api.com': { organisationId: 'bar' } },
     });
   });
 
   // Prism tests are disabled
-  test.skip('delete: only required params', async () => {
-    const responsePromise = client.mcpServers.tenants.delete('tenant_key', { mcpserver_id: 'mcpserver_id' });
+  test.skip('delete', async () => {
+    const responsePromise = client.mcpServers.tenants.delete('mcpserver_id', 'tenant_key');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -39,10 +39,5 @@ describe('resource tenants', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Prism tests are disabled
-  test.skip('delete: required and optional params', async () => {
-    const response = await client.mcpServers.tenants.delete('tenant_key', { mcpserver_id: 'mcpserver_id' });
   });
 });
