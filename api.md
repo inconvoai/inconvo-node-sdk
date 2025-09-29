@@ -37,4 +37,9 @@ Methods:
 
 # McpServers
 
-## Methods
+## Tenants
+
+Methods:
+
+- <code title="post /mcpservers/{mcpserver_id}/tenants">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">create</a>(mcpserverID, { ...params }) -> void</code>
+- <code title="delete /mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">delete</a>(tenantKey, { ...params }) -> void</code>
