@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Bug Fixes
+
+* **api:** mcp_servers stainless config ([313797d](https://github.com/ten-dev/inconvo-node-sdk/commit/313797dd26e90839423532e87b347d31e438b206))
+
 ## 0.1.0-alpha.20 (2025-09-29)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
