@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2025-09-27)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Performance Improvements
+
+* faster formatting ([0c7de56](https://github.com/ten-dev/inconvo-node-sdk/commit/0c7de5670eabfe0691fbadb498fafaecf066f884))
+
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([0a20d69](https://github.com/ten-dev/inconvo-node-sdk/commit/0a20d69dc134a6f4cf3594d174f9e29b3a0b5b08))
+* **internal:** codegen related update ([8fc7a08](https://github.com/ten-dev/inconvo-node-sdk/commit/8fc7a08ac2d9a6aee38c43741ea6eb42a5a6a9d7))
+* **internal:** fix incremental formatting in some cases ([2cfa7e5](https://github.com/ten-dev/inconvo-node-sdk/commit/2cfa7e579a9e5afb645506f40432e70ebbf5cac8))
+* **internal:** ignore .eslintcache ([bdf4548](https://github.com/ten-dev/inconvo-node-sdk/commit/bdf454820cbee180b1fca18aa43471adf594ffcf))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([561ae80](https://github.com/ten-dev/inconvo-node-sdk/commit/561ae80e136c9b6723277238b1590c8f306f7e31))
+
 ## 0.1.0-alpha.16 (2025-09-09)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
