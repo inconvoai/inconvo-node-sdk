@@ -12,18 +12,23 @@ export class Tenants extends APIResource {
    *
    * @example
    * ```ts
-   * await client.mcpServers.tenants.create('mcpserver_id', {
-   *   body: { 'fromapi@api.com': { organisationId: 'bar' } },
-   * });
+   * const tenant = await client.mcpServers.tenants.create(
+   *   'mcpserver_id',
+   *   {
+   *     tenant: {
+   *       'fromapi@api.com': { organisationId: 'bar' },
+   *     },
+   *   },
+   * );
    * ```
    */
-  create(mcpserverID: string, params: TenantCreateParams, options?: RequestOptions): APIPromise<void> {
-    const { body } = params;
-    return this._client.post(path`/mcpservers/${mcpserverID}/tenants`, {
-      body: body,
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+  create(
+    mcpserverID: string,
+    params: TenantCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<TenantCreateResponse> {
+    const { tenant } = params;
+    return this._client.post(path`/mcpservers/${mcpserverID}/tenants`, { body: tenant, ...options });
   }
 
   /**
@@ -31,19 +36,27 @@ export class Tenants extends APIResource {
    *
    * @example
    * ```ts
-   * await client.mcpServers.tenants.delete('tenant_key', {
-   *   mcpserver_id: 'mcpserver_id',
-   * });
+   * await client.mcpServers.tenants.delete(
+   *   'mcpserver_id',
+   *   'tenant_key',
+   * );
    * ```
    */
-  delete(tenantKey: string, params: TenantDeleteParams, options?: RequestOptions): APIPromise<void> {
-    const { mcpserver_id } = params;
-    return this._client.delete(path`/mcpservers/${mcpserver_id}/tenants/${tenantKey}`, {
+  delete(mcpserverID: string, tenantKey: string, options?: RequestOptions): APIPromise<void> {
+    return this._client.delete(path`/mcpservers/${mcpserverID}/tenants/${tenantKey}`, {
       ...options,
       headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
   }
 }
+
+/**
+ * Arbitrary key-value mapping.
+ *
+ * - Keys are strings.
+ * - Values are JSON objects with arbitrary properties.
+ */
+export type TenantCreateResponse = { [key: string]: { [key: string]: unknown } };
 
 export interface TenantCreateParams {
   /**
@@ -52,13 +65,9 @@ export interface TenantCreateParams {
    * - Keys are strings.
    * - Values are JSON objects with arbitrary properties.
    */
-  body: { [key: string]: { [key: string]: unknown } };
-}
-
-export interface TenantDeleteParams {
-  mcpserver_id: string;
+  tenant: { [key: string]: { [key: string]: unknown } };
 }
 
 export declare namespace Tenants {
-  export { type TenantCreateParams as TenantCreateParams, type TenantDeleteParams as TenantDeleteParams };
+  export { type TenantCreateResponse as TenantCreateResponse, type TenantCreateParams as TenantCreateParams };
 }
