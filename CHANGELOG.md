@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-alpha.19 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
 ## 0.1.0-alpha.18 (2025-09-29)
 
 Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
