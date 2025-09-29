@@ -20,6 +20,12 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import {
+  McpServerDeleteTenantParams,
+  McpServerUpsertTenantsParams,
+  McpServers,
+  TenantsUpsertRequest,
+} from './resources/mcp-servers';
+import {
   ConversationCreateParams,
   ConversationCreateResponse,
   ConversationListParams,
@@ -729,9 +735,11 @@ export class Inconvo {
   static toFile = Uploads.toFile;
 
   conversations: API.Conversations = new API.Conversations(this);
+  mcpServers: API.McpServers = new API.McpServers(this);
 }
 
 Inconvo.Conversations = Conversations;
+Inconvo.McpServers = McpServers;
 
 export declare namespace Inconvo {
   export type RequestOptions = Opts.RequestOptions;
@@ -750,5 +758,12 @@ export declare namespace Inconvo {
     type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
     type ConversationListParams as ConversationListParams,
+  };
+
+  export {
+    McpServers as McpServers,
+    type TenantsUpsertRequest as TenantsUpsertRequest,
+    type McpServerDeleteTenantParams as McpServerDeleteTenantParams,
+    type McpServerUpsertTenantsParams as McpServerUpsertTenantsParams,
   };
 }

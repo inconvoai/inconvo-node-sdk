@@ -34,3 +34,14 @@ Methods:
 
 - <code title="post /conversations/{id}/response/{response_id}/feedback">client.conversations.response.feedback.<a href="./src/resources/conversations/response/feedback.ts">create</a>(responseID, { ...params }) -> Feedback</code>
 - <code title="patch /conversations/{id}/response/{response_id}/feedback/{feedback_id}">client.conversations.response.feedback.<a href="./src/resources/conversations/response/feedback.ts">update</a>(feedbackID, { ...params }) -> Feedback</code>
+
+# McpServers
+
+Types:
+
+- <code><a href="./src/resources/mcp-servers.ts">TenantsUpsertRequest</a></code>
+
+Methods:
+
+- <code title="delete /mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.mcpServers.<a href="./src/resources/mcp-servers.ts">deleteTenant</a>(tenantKey, { ...params }) -> void</code>
+- <code title="post /mcpservers/{mcpserver_id}/tenants">client.mcpServers.<a href="./src/resources/mcp-servers.ts">upsertTenants</a>(mcpserverID, { ...params }) -> void</code>
