@@ -1,15 +1,19 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../core/resource';
-import * as MethodsAPI from './methods';
-import { Methods } from './methods';
+import * as TenantsAPI from './tenants';
+import { TenantCreateParams, TenantDeleteParams, Tenants } from './tenants';
 
 export class McpServers extends APIResource {
-  methods: MethodsAPI.Methods = new MethodsAPI.Methods(this._client);
+  tenants: TenantsAPI.Tenants = new TenantsAPI.Tenants(this._client);
 }
 
-McpServers.Methods = Methods;
+McpServers.Tenants = Tenants;
 
 export declare namespace McpServers {
-  export { Methods as Methods };
+  export {
+    Tenants as Tenants,
+    type TenantCreateParams as TenantCreateParams,
+    type TenantDeleteParams as TenantDeleteParams,
+  };
 }
