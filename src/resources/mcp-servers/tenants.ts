@@ -36,14 +36,14 @@ export class Tenants extends APIResource {
    *
    * @example
    * ```ts
-   * await client.mcpServers.tenants.delete(
-   *   'mcpserver_id',
-   *   'tenant_key',
-   * );
+   * await client.mcpServers.tenants.delete('mcpserver_id', {
+   *   tenant_key: 'tenant_key',
+   * });
    * ```
    */
-  delete(mcpserverID: string, tenantKey: string, options?: RequestOptions): APIPromise<void> {
-    return this._client.delete(path`/mcpservers/${mcpserverID}/tenants/${tenantKey}`, {
+  delete(mcpserverID: string, params: TenantDeleteParams, options?: RequestOptions): APIPromise<void> {
+    const { tenant_key } = params;
+    return this._client.delete(path`/mcpservers/${mcpserverID}/tenants/${tenant_key}`, {
       ...options,
       headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
@@ -68,6 +68,14 @@ export interface TenantCreateParams {
   tenant: { [key: string]: { [key: string]: unknown } };
 }
 
+export interface TenantDeleteParams {
+  tenant_key: string;
+}
+
 export declare namespace Tenants {
-  export { type TenantCreateResponse as TenantCreateResponse, type TenantCreateParams as TenantCreateParams };
+  export {
+    type TenantCreateResponse as TenantCreateResponse,
+    type TenantCreateParams as TenantCreateParams,
+    type TenantDeleteParams as TenantDeleteParams,
+  };
 }

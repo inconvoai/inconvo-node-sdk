@@ -30,8 +30,8 @@ describe('resource tenants', () => {
   });
 
   // Prism tests are disabled
-  test.skip('delete', async () => {
-    const responsePromise = client.mcpServers.tenants.delete('mcpserver_id', 'tenant_key');
+  test.skip('delete: only required params', async () => {
+    const responsePromise = client.mcpServers.tenants.delete('mcpserver_id', { tenant_key: 'tenant_key' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -39,5 +39,10 @@ describe('resource tenants', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('delete: required and optional params', async () => {
+    const response = await client.mcpServers.tenants.delete('mcpserver_id', { tenant_key: 'tenant_key' });
   });
 });

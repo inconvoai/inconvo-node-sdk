@@ -46,4 +46,4 @@ Types:
 Methods:
 
 - <code title="post /mcpservers/{mcpserver_id}/tenants">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">create</a>(mcpserverID, { ...params }) -> TenantCreateResponse</code>
-- <code title="delete /mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">delete</a>(mcpserverID, tenantKey) -> void</code>
+- <code title="delete /mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">delete</a>(mcpserverID, { ...params }) -> void</code>
