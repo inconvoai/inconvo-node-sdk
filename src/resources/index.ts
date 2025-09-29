@@ -9,9 +9,4 @@ export {
   type ConversationListParams,
   type ConversationListResponsesConversationsCursor,
 } from './conversations/conversations';
-export {
-  McpServers,
-  type TenantsUpsertRequest,
-  type McpServerDeleteTenantParams,
-  type McpServerUpsertTenantsParams,
-} from './mcp-servers';
+export { McpServers } from './mcp-servers/mcp-servers';
