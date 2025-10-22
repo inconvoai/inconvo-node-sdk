@@ -1,6 +1,7 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../core/resource';
+import * as ResponseAPI from './response';
 import * as FeedbackAPI from './feedback';
 import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams } from './feedback';
 import { APIPromise } from '../../../core/api-promise';
@@ -19,6 +20,18 @@ export class Response extends APIResource {
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse> {
     return this._client.post(path`/conversations/${id}/response`, { body, ...options });
+  }
+
+  /**
+   * Get a response
+   */
+  retrieve(
+    responseID: string,
+    params: ResponseRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<ResponseRetrieveResponse> {
+    const { id } = params;
+    return this._client.get(path`/conversations/${id}/response/${responseID}`, options);
   }
 }
 
@@ -62,6 +75,69 @@ export interface ResponseCreateResponse {
   table?: Table;
 }
 
+export interface ResponseRetrieveResponse {
+  /**
+   * Unique identifier for the response
+   */
+  id: string;
+
+  input: ResponseRetrieveResponse.Input;
+
+  output: ResponseRetrieveResponse.Output;
+
+  /**
+   * Array of trace steps
+   */
+  trace: Array<ResponseRetrieveResponse.Trace>;
+}
+
+export namespace ResponseRetrieveResponse {
+  export interface Input {
+    /**
+     * Additional context as key-value pairs
+     */
+    context: { [key: string]: unknown };
+
+    /**
+     * The input message
+     */
+    message: string;
+  }
+
+  export interface Output {
+    /**
+     * The response text
+     */
+    text: string;
+
+    /**
+     * Type of the output
+     */
+    type: 'text' | 'chart' | 'table';
+
+    chart?: ResponseAPI.Chart;
+
+    table?: ResponseAPI.Table;
+  }
+
+  export interface Trace {
+    /**
+     * Input data for the trace step
+     */
+    input: unknown;
+
+    /**
+     * Name of the trace step
+     */
+    name: string;
+
+    /**
+     * Output data from the trace step
+     */
+    output: unknown;
+  }
+}
+
 export interface ResponseCreateParams {
   message: string;
 
@@ -72,6 +148,10 @@ export interface ResponseCreateParams {
   stream?: boolean;
 }
 
+export interface ResponseRetrieveParams {
+  id: string;
+}
+
 Response.FeedbackResource = FeedbackResource;
 
 export declare namespace Response {
@@ -79,7 +159,9 @@ export declare namespace Response {
     type Chart as Chart,
     type Table as Table,
     type ResponseCreateResponse as ResponseCreateResponse,
+    type ResponseRetrieveResponse as ResponseRetrieveResponse,
     type ResponseCreateParams as ResponseCreateParams,
+    type ResponseRetrieveParams as ResponseRetrieveParams,
   };
 
   export {
