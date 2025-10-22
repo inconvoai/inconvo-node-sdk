@@ -49,8 +49,8 @@ export class Response extends APIResource {
     params: ResponseRetrieveParams,
     options?: RequestOptions,
   ): APIPromise<ResponseRetrieveResponse> {
-    const { id } = params;
-    return this._client.get(path`/conversations/${id}/response/${responseID}`, options);
+    const { conversation_id } = params;
+    return this._client.get(path`/conversations/${conversation_id}/response/${responseID}`, options);
   }
 
   private _createStreaming(
@@ -230,7 +230,7 @@ export interface ResponseCreateParams {
 }
 
 export interface ResponseRetrieveParams {
-  id: string;
+  conversation_id: string;
 }
 
 Response.FeedbackResource = FeedbackResource;
