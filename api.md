@@ -24,7 +24,7 @@ Types:
 Methods:
 
 - <code title="post /conversations/{id}/response">client.conversations.response.<a href="./src/resources/conversations/response/response.ts">create</a>(id, { ...params }) -> ResponseCreateResponse</code>
-- <code title="get /conversations/{id}/response/{response_id}">client.conversations.response.<a href="./src/resources/conversations/response/response.ts">retrieve</a>(responseID, { ...params }) -> ResponseRetrieveResponse</code>
+- <code title="get /conversations/{conversation_id}/response/{response_id}">client.conversations.response.<a href="./src/resources/conversations/response/response.ts">retrieve</a>(responseID, { ...params }) -> ResponseRetrieveResponse</code>
 
 ### Feedback
 
