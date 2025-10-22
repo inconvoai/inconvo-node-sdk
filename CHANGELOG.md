@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2025-10-22)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **api:** manual updates ([8bb8ee1](https://github.com/ten-dev/inconvo-node-sdk/commit/8bb8ee13347122eecfcb7578864bb494817a0f83))
+
+
+### Chores
+
+* **internal:** remove .eslintcache ([7d48bbb](https://github.com/ten-dev/inconvo-node-sdk/commit/7d48bbba362426ed32e152fafdeeef452c14a00c))
+* **internal:** use npm pack for build uploads ([d8cfbb7](https://github.com/ten-dev/inconvo-node-sdk/commit/d8cfbb7c91171eaf0832a369ed9f9c27da8721c3))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([f508f9f](https://github.com/ten-dev/inconvo-node-sdk/commit/f508f9fe77025d147f2f2d79038dd1406c4c4dd2))
+
 ## 0.1.0-alpha.23 (2025-09-29)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
