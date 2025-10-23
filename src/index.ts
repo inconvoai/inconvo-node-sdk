@@ -11,7 +11,7 @@ export type {
   ResponseStreamEvent,
   ResponseStreamEventType,
   ResponseCreatedEvent,
-  ResponseAgentStepEvent,
+  ResponseProgressEvent,
   ResponseCompletedEvent,
 } from './resources/conversations/response/response';
 export {
