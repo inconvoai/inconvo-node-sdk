@@ -43,7 +43,7 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Inconvo.ConversationCreateParams = { context: { replace: 'me' } };
+const params: Inconvo.ConversationCreateParams = { context: { replace: 'me_test' } };
 const conversation: Inconvo.ConversationCreateResponse = await client.conversations.create(params);
 ```
 
@@ -57,15 +57,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const conversation = await client.conversations.create({ context: { replace: 'me' } }).catch(async (err) => {
-  if (err instanceof Inconvo.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const conversation = await client.conversations
+  .create({ context: { replace: 'me_test' } })
+  .catch(async (err) => {
+    if (err instanceof Inconvo.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -97,7 +99,7 @@ const client = new Inconvo({
 });
 
 // Or, configure per-request:
-await client.conversations.create({ context: { replace: 'me' } }, {
+await client.conversations.create({ context: { replace: 'me_test' } }, {
   maxRetries: 5,
 });
 ```
@@ -114,7 +116,7 @@ const client = new Inconvo({
 });
 
 // Override per-request:
-await client.conversations.create({ context: { replace: 'me' } }, {
+await client.conversations.create({ context: { replace: 'me_test' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -168,12 +170,12 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Inconvo();
 
-const response = await client.conversations.create({ context: { replace: 'me' } }).asResponse();
+const response = await client.conversations.create({ context: { replace: 'me_test' } }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: conversation, response: raw } = await client.conversations
-  .create({ context: { replace: 'me' } })
+  .create({ context: { replace: 'me_test' } })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(conversation.id);
