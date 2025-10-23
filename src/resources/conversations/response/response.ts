@@ -115,7 +115,7 @@ export interface ResponseCreateResponse {
 /**
  * Event types for streaming responses
  */
-export type ResponseStreamEventType = 'response.created' | 'response.agent_step' | 'response.completed';
+export type ResponseStreamEventType = 'response.created' | 'response.progress' | 'response.completed';
 
 export interface BaseResponseStreamEvent {
   type: ResponseStreamEventType;
@@ -126,9 +126,8 @@ export interface ResponseCreatedEvent extends BaseResponseStreamEvent {
   type: 'response.created';
 }
 
-export interface ResponseAgentStepEvent extends BaseResponseStreamEvent {
-  type: 'response.agent_step';
-  step: string;
+export interface ResponseProgressEvent extends BaseResponseStreamEvent {
+  type: 'response.progress';
   message: string;
 }
 
@@ -137,7 +136,7 @@ export interface ResponseCompletedEvent extends BaseResponseStreamEvent {
   response: ResponseCreateResponse;
 }
 
-export type ResponseStreamEvent = ResponseCreatedEvent | ResponseAgentStepEvent | ResponseCompletedEvent;
+export type ResponseStreamEvent = ResponseCreatedEvent | ResponseProgressEvent | ResponseCompletedEvent;
 
 /**
  * Response type for streaming create response - wraps SSEStream with typed events
@@ -166,7 +165,7 @@ export declare namespace Response {
     type ResponseStreamEventType as ResponseStreamEventType,
     type BaseResponseStreamEvent as BaseResponseStreamEvent,
     type ResponseCreatedEvent as ResponseCreatedEvent,
-    type ResponseAgentStepEvent as ResponseAgentStepEvent,
+    type ResponseProgressEvent as ResponseProgressEvent,
     type ResponseCompletedEvent as ResponseCompletedEvent,
     type ResponseStreamEvent as ResponseStreamEvent,
   };
