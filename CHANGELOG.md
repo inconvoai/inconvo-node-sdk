@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.27 (2025-10-23)
+
+Full Changelog: [v0.1.0-alpha.26...v0.1.0-alpha.27](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.26...v0.1.0-alpha.27)
+
+### Features
+
+* **response:** update event types to replace ResponseAgentStepEvent with ResponseProgressEvent ([df71088](https://github.com/ten-dev/inconvo-node-sdk/commit/df7108878d825fc8b95df65713f831d82af28b3c))
+
 ## 0.1.0-alpha.26 (2025-10-23)
 
 Full Changelog: [v0.1.0-alpha.25...v0.1.0-alpha.26](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.25...v0.1.0-alpha.26)
