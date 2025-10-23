@@ -9,3 +9,4 @@ export {
   type ConversationListParams,
   type ConversationListResponsesConversationsCursor,
 } from './conversations/conversations';
+export { McpServers } from './mcp-servers/mcp-servers';

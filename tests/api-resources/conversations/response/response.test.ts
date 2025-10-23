@@ -8,7 +8,7 @@ const client = new Inconvo({
 });
 
 describe('resource response', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.conversations.response.create('id', {
       message: 'message',
@@ -22,8 +22,29 @@ describe('resource response', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.conversations.response.create('id', { message: 'message', stream: true });
+  });
+
+  // Prism tests are disabled
+  test.skip('retrieve: only required params', async () => {
+    const responsePromise = client.conversations.response.retrieve('response_id', {
+      conversation_id: 'conversation_id',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('retrieve: required and optional params', async () => {
+    const response = await client.conversations.response.retrieve('response_id', {
+      conversation_id: 'conversation_id',
+    });
   });
 });

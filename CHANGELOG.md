@@ -1,5 +1,166 @@
 # Changelog
 
+## 0.1.0-alpha.26 (2025-10-23)
+
+Full Changelog: [v0.1.0-alpha.25...v0.1.0-alpha.26](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.25...v0.1.0-alpha.26)
+
+### Features
+
+* **api:** attempt new version ([4f4ae85](https://github.com/ten-dev/inconvo-node-sdk/commit/4f4ae859033ff552b6a853dd9f56bc99b12e8797))
+
+## 0.1.0-alpha.25 (2025-10-22)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Features
+
+* **api:** manual updates ([9a2172d](https://github.com/ten-dev/inconvo-node-sdk/commit/9a2172d46d520d05a4e9b9e8e5933e6c7ec5ac81))
+
+## 0.1.0-alpha.24 (2025-10-22)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
+### Features
+
+* **api:** manual updates ([8bb8ee1](https://github.com/ten-dev/inconvo-node-sdk/commit/8bb8ee13347122eecfcb7578864bb494817a0f83))
+
+
+### Chores
+
+* **internal:** remove .eslintcache ([7d48bbb](https://github.com/ten-dev/inconvo-node-sdk/commit/7d48bbba362426ed32e152fafdeeef452c14a00c))
+* **internal:** use npm pack for build uploads ([d8cfbb7](https://github.com/ten-dev/inconvo-node-sdk/commit/d8cfbb7c91171eaf0832a369ed9f9c27da8721c3))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([f508f9f](https://github.com/ten-dev/inconvo-node-sdk/commit/f508f9fe77025d147f2f2d79038dd1406c4c4dd2))
+
+## 0.1.0-alpha.23 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Bug Fixes
+
+* **api:** delete mcp server tenant function signature ([b04ebe5](https://github.com/ten-dev/inconvo-node-sdk/commit/b04ebe5249d1b0684c3e3f74e0e2bbb47050f70f))
+
+## 0.1.0-alpha.22 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Features
+
+* **api:** mcp servers bodyparamname + param ordering ([f55d1cc](https://github.com/ten-dev/inconvo-node-sdk/commit/f55d1ccaa0bb2b6606f4254d5e9f6605f8e28741))
+
+## 0.1.0-alpha.21 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Bug Fixes
+
+* **api:** mcp_servers stainless config ([313797d](https://github.com/ten-dev/inconvo-node-sdk/commit/313797dd26e90839423532e87b347d31e438b206))
+
+## 0.1.0-alpha.20 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Features
+
+* **api:** mcpserver updates ([ca5ad96](https://github.com/ten-dev/inconvo-node-sdk/commit/ca5ad960125e00497322e0ce17c2e1752c5aa152))
+
+## 0.1.0-alpha.19 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
+
+## 0.1.0-alpha.18 (2025-09-29)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Features
+
+* **api:** add mcpservers ([4471689](https://github.com/ten-dev/inconvo-node-sdk/commit/447168988004b119d02235176c9c5025ad9b6be4))
+
+## 0.1.0-alpha.17 (2025-09-27)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Performance Improvements
+
+* faster formatting ([0c7de56](https://github.com/ten-dev/inconvo-node-sdk/commit/0c7de5670eabfe0691fbadb498fafaecf066f884))
+
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([0a20d69](https://github.com/ten-dev/inconvo-node-sdk/commit/0a20d69dc134a6f4cf3594d174f9e29b3a0b5b08))
+* **internal:** codegen related update ([8fc7a08](https://github.com/ten-dev/inconvo-node-sdk/commit/8fc7a08ac2d9a6aee38c43741ea6eb42a5a6a9d7))
+* **internal:** fix incremental formatting in some cases ([2cfa7e5](https://github.com/ten-dev/inconvo-node-sdk/commit/2cfa7e579a9e5afb645506f40432e70ebbf5cac8))
+* **internal:** ignore .eslintcache ([bdf4548](https://github.com/ten-dev/inconvo-node-sdk/commit/bdf454820cbee180b1fca18aa43471adf594ffcf))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([561ae80](https://github.com/ten-dev/inconvo-node-sdk/commit/561ae80e136c9b6723277238b1590c8f306f7e31))
+
+## 0.1.0-alpha.16 (2025-09-09)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([cb2672c](https://github.com/ten-dev/inconvo-node-sdk/commit/cb2672c72f6c92f5156a798479491c831ed220f8))
+
+
+### Chores
+
+* ci build action ([6e56077](https://github.com/ten-dev/inconvo-node-sdk/commit/6e56077257debf0bc390fb30d0108e6ae0d404c9))
+
+## 0.1.0-alpha.15 (2025-08-29)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Features
+
+* **mcp:** add code execution tool ([fef3698](https://github.com/ten-dev/inconvo-node-sdk/commit/fef3698e72ec48e00e472e02fd1c287918a82e3e))
+
+
+### Chores
+
+* add package to package.json ([31505f6](https://github.com/ten-dev/inconvo-node-sdk/commit/31505f6ef9bd2ae00f47d2417197f74f686c4248))
+* **client:** qualify global Blob ([d41aabc](https://github.com/ten-dev/inconvo-node-sdk/commit/d41aabc091ead6c29b4e06e27eedf67761af2582))
+* **deps:** update dependency @types/node to v20.17.58 ([74e64f6](https://github.com/ten-dev/inconvo-node-sdk/commit/74e64f6e9897852c6cbef5364855164d29013ca5))
+* **internal:** codegen related update ([26e1d40](https://github.com/ten-dev/inconvo-node-sdk/commit/26e1d40c722621710fcbff572be0ec9e174a37ec))
+* **internal:** formatting change ([5c5f31d](https://github.com/ten-dev/inconvo-node-sdk/commit/5c5f31d9aeb109da0f939874d35fb698bb2fc294))
+* **internal:** update global Error reference ([864f44e](https://github.com/ten-dev/inconvo-node-sdk/commit/864f44e1a8a2cda801e230314e42d479acb6447b))
+* update CI script ([2645da1](https://github.com/ten-dev/inconvo-node-sdk/commit/2645da1b81e33dba0fdfbc178314fa5a836ac0c5))
+
+## 0.1.0-alpha.14 (2025-08-09)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Chores
+
+* **internal:** update comment in script ([37d3fb5](https://github.com/ten-dev/inconvo-node-sdk/commit/37d3fb5f8d71a934aab6588195c042821d0e9965))
+* update @stainless-api/prism-cli to v5.15.0 ([b52c0dc](https://github.com/ten-dev/inconvo-node-sdk/commit/b52c0dcfcfcf6cbb56dae5b8f1b73487f5fe311a))
+
+## 0.1.0-alpha.13 (2025-08-07)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Features
+
+* **api:** update via SDK Studio ([6feb2cf](https://github.com/ten-dev/inconvo-node-sdk/commit/6feb2cf8ad144a68bc9aa5652d4e36115a50c015))
+* **api:** update via SDK Studio ([85bbe07](https://github.com/ten-dev/inconvo-node-sdk/commit/85bbe07f0063f0e646420a975c2444ac238d10e1))
+
+## 0.1.0-alpha.12 (2025-08-07)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Features
+
+* **api:** update via SDK Studio ([6956b68](https://github.com/ten-dev/inconvo-node-sdk/commit/6956b6867ee1c1d5c19ac834cd9e3f300e1c0cda))
+* **api:** update via SDK Studio ([815ca5c](https://github.com/ten-dev/inconvo-node-sdk/commit/815ca5c0aee238e3fe4a4df24c108a63faa60686))
+* **api:** update via SDK Studio ([0cc6021](https://github.com/ten-dev/inconvo-node-sdk/commit/0cc60210febf61925421f7694ecf1ed80c92804b))
+* **api:** update via SDK Studio ([f57aa12](https://github.com/ten-dev/inconvo-node-sdk/commit/f57aa12fb1bbeed008e3e14a9de722e3fe2e49c0))
+
+## 0.1.0-alpha.11 (2025-08-07)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Chores
+
+* **internal:** move publish config ([81b3dc3](https://github.com/ten-dev/inconvo-node-sdk/commit/81b3dc3f9c552c94be0be2947030eda447a93a55))
+
 ## 0.1.0-alpha.10 (2025-08-03)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)

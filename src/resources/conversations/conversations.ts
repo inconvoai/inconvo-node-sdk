@@ -2,7 +2,15 @@
 
 import { APIResource } from '../../core/resource';
 import * as ResponseAPI from './response/response';
-import { Chart, Response, ResponseCreateParams, ResponseCreateResponse, Table } from './response/response';
+import {
+  Chart,
+  Response,
+  ResponseCreateParams,
+  ResponseCreateResponse,
+  ResponseRetrieveParams,
+  ResponseRetrieveResponse,
+  Table,
+} from './response/response';
 import { APIPromise } from '../../core/api-promise';
 import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from '../../core/pagination';
 import { RequestOptions } from '../../internal/request-options';
@@ -112,6 +120,8 @@ export declare namespace Conversations {
     type Chart as Chart,
     type Table as Table,
     type ResponseCreateResponse as ResponseCreateResponse,
+    type ResponseRetrieveResponse as ResponseRetrieveResponse,
     type ResponseCreateParams as ResponseCreateParams,
+    type ResponseRetrieveParams as ResponseRetrieveParams,
   };
 }

@@ -28,6 +28,7 @@ import {
   Conversations,
   InconvoConversation,
 } from './resources/conversations/conversations';
+import { McpServers } from './resources/mcp-servers/mcp-servers';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -363,7 +364,7 @@ export class Inconvo {
     const response = await this.fetchWithTimeout(url, req, timeout, controller).catch(castToError);
     const headersTime = Date.now();
 
-    if (response instanceof Error) {
+    if (response instanceof globalThis.Error) {
       const retryMessage = `retrying, ${retriesRemaining} attempts remaining`;
       if (options.signal?.aborted) {
         throw new Errors.APIUserAbortError();
@@ -689,7 +690,7 @@ export class Inconvo {
         // Preserve legacy string encoding behavior for now
         headers.values.has('content-type')) ||
       // `Blob` is superset of `File`
-      body instanceof Blob ||
+      ((globalThis as any).Blob && body instanceof (globalThis as any).Blob) ||
       // `FormData` -> `multipart/form-data`
       body instanceof FormData ||
       // `URLSearchParams` -> `application/x-www-form-urlencoded`
@@ -729,8 +730,12 @@ export class Inconvo {
   static toFile = Uploads.toFile;
 
   conversations: API.Conversations = new API.Conversations(this);
+  mcpServers: API.McpServers = new API.McpServers(this);
 }
+
 Inconvo.Conversations = Conversations;
+Inconvo.McpServers = McpServers;
+
 export declare namespace Inconvo {
   export type RequestOptions = Opts.RequestOptions;
 
@@ -749,4 +754,6 @@ export declare namespace Inconvo {
     type ConversationCreateParams as ConversationCreateParams,
     type ConversationListParams as ConversationListParams,
   };
+
+  export { McpServers as McpServers };
 }
