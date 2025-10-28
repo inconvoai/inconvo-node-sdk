@@ -83,11 +83,11 @@ export class Response extends APIResource {
 }
 
 export interface Chart {
-  data: Array<Chart.Data>;
+  data: Chart.Data;
 
   title: string;
 
-  type: 'line' | 'bar';
+  type: 'bar' | 'line';
 
   xLabel: string;
 
@@ -96,9 +96,17 @@ export interface Chart {
 
 export namespace Chart {
   export interface Data {
-    label: string;
+    datasets: Array<Data.Dataset>;
 
-    value: number;
+    labels: Array<string>;
+  }
+
+  export namespace Data {
+    export interface Dataset {
+      name: string;
+
+      values: Array<number>;
+    }
   }
 }
 
