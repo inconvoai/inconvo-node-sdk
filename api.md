@@ -49,3 +49,15 @@ Methods:
 
 - <code title="post /mcpservers/{mcpserver_id}/tenants">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">create</a>(mcpserverID, { ...params }) -> TenantCreateResponse</code>
 - <code title="delete /mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">delete</a>(mcpserverID, { ...params }) -> void</code>
+
+# Agents
+
+## DataSummary
+
+Types:
+
+- <code><a href="./src/resources/agents/data-summary.ts">DataSummaryRetrieveResponse</a></code>
+
+Methods:
+
+- <code title="get /agents/data-summary">client.agents.dataSummary.<a href="./src/resources/agents/data-summary.ts">retrieve</a>() -> DataSummaryRetrieveResponse</code>
