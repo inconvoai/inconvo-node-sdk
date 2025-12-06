@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.30 (2025-12-06)
+
+Full Changelog: [v0.1.0-alpha.29...v0.1.0-alpha.30](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.29...v0.1.0-alpha.30)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([7993f50](https://github.com/ten-dev/inconvo-node-sdk/commit/7993f50c6c02b2dae901af495c104795a3da8df4))
+* **mcp:** return correct lines on typescript errors ([7335ccc](https://github.com/ten-dev/inconvo-node-sdk/commit/7335cccb02f95de56677906d022920c8346b2271))
+
+
+### Chores
+
+* **client:** fix logger property type ([5e55a48](https://github.com/ten-dev/inconvo-node-sdk/commit/5e55a4836d08f86644cc85128d2c99ff65289897))
+* **internal:** codegen related update ([be2360e](https://github.com/ten-dev/inconvo-node-sdk/commit/be2360e0a0f2bde991f52ee98f04f8a67b1a88ad))
+* **internal:** upgrade eslint ([c141d58](https://github.com/ten-dev/inconvo-node-sdk/commit/c141d58bea22e40d42f3ababeb97e34d7d8034a6))
+
 ## 0.1.0-alpha.29 (2025-12-01)
 
 Full Changelog: [v0.1.0-alpha.28...v0.1.0-alpha.29](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.28...v0.1.0-alpha.29)
