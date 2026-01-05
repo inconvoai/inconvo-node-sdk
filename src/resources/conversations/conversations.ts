@@ -68,6 +68,9 @@ export namespace InconvoConversation {
      */
     id?: string;
 
+    /**
+     * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
+     */
     chart?: ResponseAPI.Chart;
 
     table?: ResponseAPI.Table;
