@@ -35,33 +35,10 @@ export class Response extends APIResource {
   }
 }
 
-export interface Chart {
-  data: Chart.Data;
-
-  title: string;
-
-  type: 'bar' | 'line';
-
-  xLabel: string;
-
-  yLabel: string;
-}
-
-export namespace Chart {
-  export interface Data {
-    datasets: Array<Data.Dataset>;
-
-    labels: Array<string>;
-  }
-
-  export namespace Data {
-    export interface Dataset {
-      name: string;
-
-      values: Array<number>;
-    }
-  }
-}
+/**
+ * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
+ */
+export type Chart = { [key: string]: unknown };
 
 export interface Table {
   body: Array<Array<string>>;
@@ -78,6 +55,9 @@ export interface ResponseCreateResponse {
 
   type: 'text' | 'chart' | 'table';
 
+  /**
+   * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
+   */
   chart?: Chart;
 
   table?: Table;
@@ -123,6 +103,9 @@ export namespace ResponseRetrieveResponse {
      */
     type: 'text' | 'chart' | 'table';
 
+    /**
+     * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
+     */
     chart?: ResponseAPI.Chart;
 
     table?: ResponseAPI.Table;
