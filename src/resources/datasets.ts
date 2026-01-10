@@ -24,6 +24,13 @@ export class Datasets extends APIResource {
     const { context } = params;
     return this._client.delete(path`/datasets/${filename}`, { query: { context }, ...options });
   }
+
+  /**
+   * Upload dataset file
+   */
+  upload(body: DatasetUploadParams, options?: RequestOptions): APIPromise<Dataset> {
+    return this._client.post('/datasets', { body, ...options });
+  }
 }
 
 export interface Dataset {
@@ -56,6 +63,36 @@ export interface DatasetDeleteParams {
   context: { [key: string]: string | number };
 }
 
+export interface DatasetUploadParams {
+  file: DatasetUploadParams.File;
+
+  requestContext: { [key: string]: string | number };
+}
+
+export namespace DatasetUploadParams {
+  export interface File {
+    /**
+     * Base64-encoded file content
+     */
+    content: string;
+
+    /**
+     * Filename (e.g., "data.csv")
+     */
+    name: string;
+
+    /**
+     * MIME type (e.g., "text/csv", "application/json")
+     */
+    contentType?: string;
+
+    /**
+     * Optional notes or description for the dataset
+     */
+    notes?: string;
+  }
+}
+
 export declare namespace Datasets {
   export {
     type Dataset as Dataset,
@@ -63,5 +100,6 @@ export declare namespace Datasets {
     type DatasetDeleteResponse as DatasetDeleteResponse,
     type DatasetListParams as DatasetListParams,
     type DatasetDeleteParams as DatasetDeleteParams,
+    type DatasetUploadParams as DatasetUploadParams,
   };
 }
