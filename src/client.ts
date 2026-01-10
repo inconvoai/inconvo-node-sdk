@@ -25,6 +25,7 @@ import {
   DatasetDeleteResponse,
   DatasetListParams,
   DatasetListResponse,
+  DatasetUploadParams,
   Datasets,
 } from './resources/datasets';
 import { Agents } from './resources/agents/agents';
@@ -779,5 +780,6 @@ export declare namespace Inconvo {
     type DatasetDeleteResponse as DatasetDeleteResponse,
     type DatasetListParams as DatasetListParams,
     type DatasetDeleteParams as DatasetDeleteParams,
+    type DatasetUploadParams as DatasetUploadParams,
   };
 }
