@@ -74,3 +74,4 @@ Methods:
 
 - <code title="get /datasets">client.datasets.<a href="./src/resources/datasets.ts">list</a>({ ...params }) -> DatasetListResponse</code>
 - <code title="delete /datasets/{filename}">client.datasets.<a href="./src/resources/datasets.ts">delete</a>(filename, { ...params }) -> DatasetDeleteResponse</code>
+- <code title="post /datasets">client.datasets.<a href="./src/resources/datasets.ts">upload</a>({ ...params }) -> Dataset</code>
