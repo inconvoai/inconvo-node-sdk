@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.32 (2026-01-10)
+
+Full Changelog: [v0.1.0-alpha.31...v0.1.0-alpha.32](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.31...v0.1.0-alpha.32)
+
+### Features
+
+* **api:** manual updates ([a5fcbd2](https://github.com/ten-dev/inconvo-node-sdk/commit/a5fcbd23f6484277d6a8889b6b74d329ed2a3618))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([a7b9277](https://github.com/ten-dev/inconvo-node-sdk/commit/a7b92770b293763a61de4899194775c370246e34))
+
 ## 0.1.0-alpha.31 (2026-01-05)
 
 Full Changelog: [v0.1.0-alpha.30...v0.1.0-alpha.31](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.30...v0.1.0-alpha.31)
