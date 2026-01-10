@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.33 (2026-01-10)
+
+Full Changelog: [v0.1.0-alpha.32...v0.1.0-alpha.33](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.32...v0.1.0-alpha.33)
+
+### Features
+
+* **api:** manual updates ([e697525](https://github.com/ten-dev/inconvo-node-sdk/commit/e697525b05d38b15461b080d981d49bcb21561f2))
+
 ## 0.1.0-alpha.32 (2026-01-10)
 
 Full Changelog: [v0.1.0-alpha.31...v0.1.0-alpha.32](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.31...v0.1.0-alpha.32)
