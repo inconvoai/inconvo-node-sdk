@@ -49,50 +49,6 @@ const conversation: Inconvo.ConversationCreateResponse = await client.conversati
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
 
-## File uploads
-
-Request parameters that correspond to file uploads can be passed in many different forms:
-
-- `File` (or an object with the same structure)
-- a `fetch` `Response` (or an object with the same structure)
-- an `fs.ReadStream`
-- the return value of our `toFile` helper
-
-```ts
-import fs from 'fs';
-import Inconvo, { toFile } from '@inconvoai/node';
-
-const client = new Inconvo();
-
-// If you have access to Node `fs` we recommend using `fs.createReadStream()`:
-await client.datasets.upload({
-  file: fs.createReadStream('/path/to/file'),
-  requestContext: 'requestContext',
-});
-
-// Or if you have the web `File` API you can pass a `File` instance:
-await client.datasets.upload({
-  file: new File(['my bytes'], 'file'),
-  requestContext: 'requestContext',
-});
-
-// You can also pass a `fetch` `Response`:
-await client.datasets.upload({
-  file: await fetch('https://somesite/file'),
-  requestContext: 'requestContext',
-});
-
-// Finally, if none of the above are convenient, you can use our `toFile` helper:
-await client.datasets.upload({
-  file: await toFile(Buffer.from('my bytes'), 'file'),
-  requestContext: 'requestContext',
-});
-await client.datasets.upload({
-  file: await toFile(new Uint8Array([0, 1, 2]), 'file'),
-  requestContext: 'requestContext',
-});
-```
-
 ## Handling errors
 
 When the library is unable to connect to the API,
