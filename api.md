@@ -61,3 +61,17 @@ Types:
 Methods:
 
 - <code title="get /agents/data-summary">client.agents.dataSummary.<a href="./src/resources/agents/data-summary.ts">retrieve</a>() -> DataSummaryRetrieveResponse</code>
+
+# Datasets
+
+Types:
+
+- <code><a href="./src/resources/datasets.ts">Dataset</a></code>
+- <code><a href="./src/resources/datasets.ts">DatasetListResponse</a></code>
+- <code><a href="./src/resources/datasets.ts">DatasetDeleteResponse</a></code>
+
+Methods:
+
+- <code title="get /datasets">client.datasets.<a href="./src/resources/datasets.ts">list</a>({ ...params }) -> DatasetListResponse</code>
+- <code title="delete /datasets/{filename}">client.datasets.<a href="./src/resources/datasets.ts">delete</a>(filename, { ...params }) -> DatasetDeleteResponse</code>
+- <code title="post /datasets">client.datasets.<a href="./src/resources/datasets.ts">upload</a>({ ...params }) -> Dataset</code>

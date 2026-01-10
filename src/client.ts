@@ -19,6 +19,15 @@ import { AbstractPage, type ConversationsCursorParams, ConversationsCursorRespon
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
+import {
+  Dataset,
+  DatasetDeleteParams,
+  DatasetDeleteResponse,
+  DatasetListParams,
+  DatasetListResponse,
+  DatasetUploadParams,
+  Datasets,
+} from './resources/datasets';
 import { Agents } from './resources/agents/agents';
 import {
   ConversationCreateParams,
@@ -733,11 +742,13 @@ export class Inconvo {
   conversations: API.Conversations = new API.Conversations(this);
   mcpServers: API.McpServers = new API.McpServers(this);
   agents: API.Agents = new API.Agents(this);
+  datasets: API.Datasets = new API.Datasets(this);
 }
 
 Inconvo.Conversations = Conversations;
 Inconvo.McpServers = McpServers;
 Inconvo.Agents = Agents;
+Inconvo.Datasets = Datasets;
 
 export declare namespace Inconvo {
   export type RequestOptions = Opts.RequestOptions;
@@ -761,4 +772,14 @@ export declare namespace Inconvo {
   export { McpServers as McpServers };
 
   export { Agents as Agents };
+
+  export {
+    Datasets as Datasets,
+    type Dataset as Dataset,
+    type DatasetListResponse as DatasetListResponse,
+    type DatasetDeleteResponse as DatasetDeleteResponse,
+    type DatasetListParams as DatasetListParams,
+    type DatasetDeleteParams as DatasetDeleteParams,
+    type DatasetUploadParams as DatasetUploadParams,
+  };
 }
