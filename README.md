@@ -170,7 +170,9 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Inconvo();
 
-const response = await client.conversations.create({ context: { replace: 'me_test' } }).asResponse();
+const response = await client.conversations
+  .create({ context: { replace: 'me_test' } })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 

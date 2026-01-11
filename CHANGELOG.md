@@ -1,5 +1,47 @@
 # Changelog
 
+## 0.1.0-alpha.34 (2026-01-10)
+
+Full Changelog: [v0.1.0-alpha.33...v0.1.0-alpha.34](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.33...v0.1.0-alpha.34)
+
+### Features
+
+* **api:** manual updates ([2ef1451](https://github.com/ten-dev/inconvo-node-sdk/commit/2ef1451e47c8c7fefdbd885ccfaf1859f3473b0a))
+
+## 0.1.0-alpha.33 (2026-01-10)
+
+Full Changelog: [v0.1.0-alpha.32...v0.1.0-alpha.33](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.32...v0.1.0-alpha.33)
+
+### Features
+
+* **api:** manual updates ([e697525](https://github.com/ten-dev/inconvo-node-sdk/commit/e697525b05d38b15461b080d981d49bcb21561f2))
+
+## 0.1.0-alpha.32 (2026-01-10)
+
+Full Changelog: [v0.1.0-alpha.31...v0.1.0-alpha.32](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.31...v0.1.0-alpha.32)
+
+### Features
+
+* **api:** manual updates ([a5fcbd2](https://github.com/ten-dev/inconvo-node-sdk/commit/a5fcbd23f6484277d6a8889b6b74d329ed2a3618))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([a7b9277](https://github.com/ten-dev/inconvo-node-sdk/commit/a7b92770b293763a61de4899194775c370246e34))
+
+## 0.1.0-alpha.31 (2026-01-05)
+
+Full Changelog: [v0.1.0-alpha.30...v0.1.0-alpha.31](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.30...v0.1.0-alpha.31)
+
+### Features
+
+* **api:** change chart type to object for vega charts ([ea19a45](https://github.com/ten-dev/inconvo-node-sdk/commit/ea19a4596d382fb0351ed65ae7695d2c3b71ea64))
+
+
+### Chores
+
+* **internal:** codegen related update ([1732a13](https://github.com/ten-dev/inconvo-node-sdk/commit/1732a13af49ee36eb2c5ce286d2d7de4979e24a3))
+
 ## 0.1.0-alpha.30 (2025-12-06)
 
 Full Changelog: [v0.1.0-alpha.29...v0.1.0-alpha.30](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0-alpha.29...v0.1.0-alpha.30)
