@@ -20,12 +20,12 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import {
-  Dataset,
   DatasetDeleteParams,
   DatasetDeleteResponse,
   DatasetListParams,
   DatasetListResponse,
   DatasetUploadParams,
+  DatasetUploadResponse,
   Datasets,
 } from './resources/datasets';
 import { Agents } from './resources/agents/agents';
@@ -775,9 +775,9 @@ export declare namespace Inconvo {
 
   export {
     Datasets as Datasets,
-    type Dataset as Dataset,
     type DatasetListResponse as DatasetListResponse,
     type DatasetDeleteResponse as DatasetDeleteResponse,
+    type DatasetUploadResponse as DatasetUploadResponse,
     type DatasetListParams as DatasetListParams,
     type DatasetDeleteParams as DatasetDeleteParams,
     type DatasetUploadParams as DatasetUploadParams,

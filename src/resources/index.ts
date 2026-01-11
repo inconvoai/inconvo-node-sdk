@@ -12,9 +12,9 @@ export {
 } from './conversations/conversations';
 export {
   Datasets,
-  type Dataset,
   type DatasetListResponse,
   type DatasetDeleteResponse,
+  type DatasetUploadResponse,
   type DatasetListParams,
   type DatasetDeleteParams,
   type DatasetUploadParams,

@@ -28,31 +28,37 @@ export class Datasets extends APIResource {
   /**
    * Upload dataset file
    */
-  upload(body: DatasetUploadParams, options?: RequestOptions): APIPromise<Dataset> {
+  upload(body: DatasetUploadParams, options?: RequestOptions): APIPromise<DatasetUploadResponse> {
     return this._client.post('/datasets', { body, ...options });
   }
 }
 
-export interface Dataset {
-  contentType: string;
-
-  filename: string;
-
-  requestContext: { [key: string]: string | number };
-
-  size: number;
-
-  uploadedAt: string;
+export interface DatasetListResponse {
+  files: Array<string>;
 }
 
-export type DatasetListResponse = Array<Dataset>;
-
 export interface DatasetDeleteResponse {
-  filename: string;
-
-  message: string;
+  file: string;
 
   success: boolean;
+
+  error?: string;
+}
+
+export interface DatasetUploadResponse {
+  file: DatasetUploadResponse.File;
+
+  error?: string;
+}
+
+export namespace DatasetUploadResponse {
+  export interface File {
+    name: string;
+
+    path: string;
+
+    size: number;
+  }
 }
 
 export interface DatasetListParams {
@@ -95,9 +101,9 @@ export namespace DatasetUploadParams {
 
 export declare namespace Datasets {
   export {
-    type Dataset as Dataset,
     type DatasetListResponse as DatasetListResponse,
     type DatasetDeleteResponse as DatasetDeleteResponse,
+    type DatasetUploadResponse as DatasetUploadResponse,
     type DatasetListParams as DatasetListParams,
     type DatasetDeleteParams as DatasetDeleteParams,
     type DatasetUploadParams as DatasetUploadParams,
