@@ -46,7 +46,7 @@ describe('resource datasets', () => {
   test.skip('upload: only required params', async () => {
     const responsePromise = client.datasets.upload({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      requestContext: { foo: 'string' },
+      requestContext: 'requestContext',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -61,7 +61,7 @@ describe('resource datasets', () => {
   test.skip('upload: required and optional params', async () => {
     const response = await client.datasets.upload({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      requestContext: { foo: 'string' },
+      requestContext: 'requestContext',
       notes: 'notes',
     });
   });
