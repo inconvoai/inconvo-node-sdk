@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Inconvo from '@inconvoai/node';
+import Inconvo, { toFile } from '@inconvoai/node';
 
 const client = new Inconvo({
   apiKey: 'My API Key',
@@ -45,8 +45,8 @@ describe('resource datasets', () => {
   // Prism tests are disabled
   test.skip('upload: only required params', async () => {
     const responsePromise = client.datasets.upload({
-      file: { content: 'U3RhaW5sZXNzIHJvY2tz', name: 'name' },
-      requestContext: { foo: 'string' },
+      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      requestContext: 'requestContext',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -60,13 +60,9 @@ describe('resource datasets', () => {
   // Prism tests are disabled
   test.skip('upload: required and optional params', async () => {
     const response = await client.datasets.upload({
-      file: {
-        content: 'U3RhaW5sZXNzIHJvY2tz',
-        name: 'name',
-        contentType: 'contentType',
-        notes: 'notes',
-      },
-      requestContext: { foo: 'string' },
+      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      requestContext: 'requestContext',
+      notes: 'notes',
     });
   });
 });
