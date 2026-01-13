@@ -78,9 +78,9 @@ export interface DatasetUploadParams {
   file: Uploadable;
 
   /**
-   * JSON stringify your request context object JSON.stringify({ userId: 123 })
+   * Context values for scoping the file
    */
-  requestContext: string;
+  requestContext: { [key: string]: string | number };
 
   /**
    * Optional notes or description for the dataset
