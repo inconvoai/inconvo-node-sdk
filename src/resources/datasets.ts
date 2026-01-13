@@ -2,7 +2,9 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
+import { type Uploadable } from '../core/uploads';
 import { RequestOptions } from '../internal/request-options';
+import { multipartFormRequestOptions } from '../internal/uploads';
 import { path } from '../internal/utils/path';
 
 export class Datasets extends APIResource {
@@ -29,7 +31,7 @@ export class Datasets extends APIResource {
    * Upload dataset file
    */
   upload(body: DatasetUploadParams, options?: RequestOptions): APIPromise<DatasetUploadResponse> {
-    return this._client.post('/datasets', { body, ...options });
+    return this._client.post('/datasets', multipartFormRequestOptions({ body, ...options }, this._client));
   }
 }
 
@@ -70,33 +72,17 @@ export interface DatasetDeleteParams {
 }
 
 export interface DatasetUploadParams {
-  file: DatasetUploadParams.File;
+  /**
+   * The file to upload
+   */
+  file: Uploadable;
 
-  requestContext: { [key: string]: string | number };
-}
+  requestContext: string;
 
-export namespace DatasetUploadParams {
-  export interface File {
-    /**
-     * Base64-encoded file content
-     */
-    content: string;
-
-    /**
-     * Filename (e.g., "data.csv")
-     */
-    name: string;
-
-    /**
-     * MIME type (e.g., "text/csv", "application/json")
-     */
-    contentType?: string;
-
-    /**
-     * Optional notes or description for the dataset
-     */
-    notes?: string;
-  }
+  /**
+   * Optional notes or description for the dataset
+   */
+  notes?: string;
 }
 
 export declare namespace Datasets {

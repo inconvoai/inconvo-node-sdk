@@ -1,4 +1,4 @@
 configured_endpoints: 13
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/inconvo%2Finconvo-67262931d8183cc0466d865a3f205be04e89943f0d8dcd31b5847e13e512699b.yml
-openapi_spec_hash: 82a89c5b7b236880f146daa16703c809
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/inconvo%2Finconvo-4217b3a63ff1f77ae321602427cfe8ebcb3976712755159e758832e312905a20.yml
+openapi_spec_hash: 1b78d5c296ce8595f723fa4294eb9ceb
 config_hash: 874d7dfa8fbaf05e538ab1291bd458c3
