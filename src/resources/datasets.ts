@@ -78,9 +78,11 @@ export interface DatasetUploadParams {
   file: Uploadable;
 
   /**
-   * Context values for scoping the file
+   * Request context for scoping the file, as a JSON-encoded string. Pass your
+   * context object through JSON.stringify() before sending. Example:
+   * JSON.stringify({ userId: 123, orgId: 456 })
    */
-  requestContext: { [key: string]: string | number };
+  requestContext: string;
 
   /**
    * Optional notes or description for the dataset
