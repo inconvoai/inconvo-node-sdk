@@ -10,7 +10,7 @@ const client = new Inconvo({
 describe('resource conversations', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.conversations.create({ context: { foo: 'bar' } });
+    const responsePromise = client.conversations.create({ userContext: { foo: 'bar' } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource conversations', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.conversations.create({ context: { foo: 'bar' } });
+    const response = await client.conversations.create({ userContext: { foo: 'bar' } });
   });
 
   // Prism tests are disabled
@@ -55,9 +55,9 @@ describe('resource conversations', () => {
     await expect(
       client.conversations.list(
         {
-          context: { foo: 'string' },
           cursor: 'cursor',
           limit: 1,
+          userContext: { foo: 'string' },
         },
         { path: '/_stainless_unknown_path' },
       ),

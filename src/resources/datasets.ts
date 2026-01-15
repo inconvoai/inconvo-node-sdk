@@ -23,8 +23,8 @@ export class Datasets extends APIResource {
     params: DatasetDeleteParams,
     options?: RequestOptions,
   ): APIPromise<DatasetDeleteResponse> {
-    const { context } = params;
-    return this._client.delete(path`/datasets/${filename}`, { query: { context }, ...options });
+    const { userContext } = params;
+    return this._client.delete(path`/datasets/${filename}`, { query: { userContext }, ...options });
   }
 
   /**
@@ -64,11 +64,11 @@ export namespace DatasetUploadResponse {
 }
 
 export interface DatasetListParams {
-  context: { [key: string]: string | number };
+  userContext: { [key: string]: string | number };
 }
 
 export interface DatasetDeleteParams {
-  context: { [key: string]: string | number };
+  userContext: { [key: string]: string | number };
 }
 
 export interface DatasetUploadParams {
@@ -82,7 +82,7 @@ export interface DatasetUploadParams {
    * context object through JSON.stringify() before sending. Example:
    * JSON.stringify({ userId: 123, orgId: 456 })
    */
-  requestContext: string;
+  userContext: string;
 
   /**
    * Optional notes or description for the dataset
