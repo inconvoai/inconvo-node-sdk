@@ -132,14 +132,14 @@ export interface ResponseRetrieveResponse {
 export namespace ResponseRetrieveResponse {
   export interface Input {
     /**
-     * Additional context as key-value pairs
-     */
-    context: { [key: string]: unknown };
-
-    /**
      * The input message
      */
     message: string;
+
+    /**
+     * Additional context as key-value pairs
+     */
+    userContext: { [key: string]: unknown };
   }
 
   export interface Output {

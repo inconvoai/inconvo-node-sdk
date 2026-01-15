@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0 (2026-01-15)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* **api:** manual updates ([4b0644d](https://github.com/ten-dev/inconvo-node-sdk/commit/4b0644db9397e37158211722d2c6068ccad62256))
+
+
+### Chores
+
+* fix typo in descriptions ([bef3b0f](https://github.com/ten-dev/inconvo-node-sdk/commit/bef3b0fafd270454d8cbd810f7709772cd16912c))
+* **internal:** upgrade babel, qs, js-yaml ([974406d](https://github.com/ten-dev/inconvo-node-sdk/commit/974406d8dd6e2189c6f43f3aa1848be837e0422a))
+
 ## 0.2.0 (2026-01-13)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.1.0...v0.2.0)

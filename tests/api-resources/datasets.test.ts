@@ -10,7 +10,7 @@ const client = new Inconvo({
 describe('resource datasets', () => {
   // Prism tests are disabled
   test.skip('list: only required params', async () => {
-    const responsePromise = client.datasets.list({ context: { foo: 'string' } });
+    const responsePromise = client.datasets.list({ userContext: { foo: 'string' } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,12 +22,12 @@ describe('resource datasets', () => {
 
   // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
-    const response = await client.datasets.list({ context: { foo: 'string' } });
+    const response = await client.datasets.list({ userContext: { foo: 'string' } });
   });
 
   // Prism tests are disabled
   test.skip('delete: only required params', async () => {
-    const responsePromise = client.datasets.delete('filename', { context: { foo: 'string' } });
+    const responsePromise = client.datasets.delete('filename', { userContext: { foo: 'string' } });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -39,14 +39,14 @@ describe('resource datasets', () => {
 
   // Prism tests are disabled
   test.skip('delete: required and optional params', async () => {
-    const response = await client.datasets.delete('filename', { context: { foo: 'string' } });
+    const response = await client.datasets.delete('filename', { userContext: { foo: 'string' } });
   });
 
   // Prism tests are disabled
   test.skip('upload: only required params', async () => {
     const responsePromise = client.datasets.upload({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      requestContext: 'requestContext',
+      userContext: 'userContext',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -61,7 +61,7 @@ describe('resource datasets', () => {
   test.skip('upload: required and optional params', async () => {
     const response = await client.datasets.upload({
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      requestContext: 'requestContext',
+      userContext: 'userContext',
       notes: 'notes',
     });
   });

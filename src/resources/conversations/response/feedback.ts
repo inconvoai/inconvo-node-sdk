@@ -39,39 +39,39 @@ export interface Feedback {
 
 export interface FeedbackCreateParams {
   /**
-   * Path param:
+   * Path param
    */
   id: string;
 
   /**
-   * Body param:
+   * Body param
    */
   rating: 'positive' | 'negative';
 
   /**
-   * Body param:
+   * Body param
    */
   comment?: string;
 }
 
 export interface FeedbackUpdateParams {
   /**
-   * Path param:
+   * Path param
    */
   id: string;
 
   /**
-   * Path param:
+   * Path param
    */
   response_id: string;
 
   /**
-   * Body param:
+   * Body param
    */
   comment?: string;
 
   /**
-   * Body param:
+   * Body param
    */
   rating?: 'positive' | 'negative';
 }
