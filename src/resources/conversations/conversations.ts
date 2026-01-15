@@ -52,9 +52,9 @@ export type ConversationListResponsesConversationsCursor = ConversationsCursor<C
 export interface InconvoConversation {
   id: string;
 
-  context: { [key: string]: string | number };
-
   messages: Array<InconvoConversation.Message>;
+
+  userContext: { [key: string]: string | number };
 }
 
 export namespace InconvoConversation {
@@ -86,24 +86,24 @@ export interface ConversationListResponse {
 
   createdAt: string;
 
-  requestContext: { [key: string]: string | number };
-
   title: string;
+
+  userContext: { [key: string]: string | number };
 }
 
 export interface ConversationCreateParams {
   /**
    * Context key-values used for tenancy / filtering.
    */
-  context: { [key: string]: unknown };
+  userContext: { [key: string]: unknown };
 }
 
 export interface ConversationListParams extends ConversationsCursorParams {
   /**
-   * Arbitrary context filters, encoded as a deep object. Example: GET
-   * /conversations?context[userId]=42&context[orgId]=12
+   * Arbitrary userContext filters, encoded as a deep object. Example: GET
+   * /conversations?userContext[userId]=42&userContext[orgId]=12
    */
-  context?: { [key: string]: string | number };
+  userContext?: { [key: string]: string | number };
 }
 
 Conversations.Response = Response;

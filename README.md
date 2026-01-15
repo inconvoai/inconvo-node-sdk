@@ -26,7 +26,7 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const conversation = await client.conversations.create({ context: { replace: 'me' } });
+const conversation = await client.conversations.create({ userContext: { foo: 'bar' } });
 
 console.log(conversation.id);
 ```
@@ -43,7 +43,7 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Inconvo.ConversationCreateParams = { context: { replace: 'me_test' } };
+const params: Inconvo.ConversationCreateParams = { userContext: { foo: 'bar' } };
 const conversation: Inconvo.ConversationCreateResponse = await client.conversations.create(params);
 ```
 
@@ -67,29 +67,26 @@ const client = new Inconvo();
 // If you have access to Node `fs` we recommend using `fs.createReadStream()`:
 await client.datasets.upload({
   file: fs.createReadStream('/path/to/file'),
-  requestContext: 'requestContext',
+  userContext: 'userContext',
 });
 
 // Or if you have the web `File` API you can pass a `File` instance:
-await client.datasets.upload({
-  file: new File(['my bytes'], 'file'),
-  requestContext: 'requestContext',
-});
+await client.datasets.upload({ file: new File(['my bytes'], 'file'), userContext: 'userContext' });
 
 // You can also pass a `fetch` `Response`:
 await client.datasets.upload({
   file: await fetch('https://somesite/file'),
-  requestContext: 'requestContext',
+  userContext: 'userContext',
 });
 
 // Finally, if none of the above are convenient, you can use our `toFile` helper:
 await client.datasets.upload({
   file: await toFile(Buffer.from('my bytes'), 'file'),
-  requestContext: 'requestContext',
+  userContext: 'userContext',
 });
 await client.datasets.upload({
   file: await toFile(new Uint8Array([0, 1, 2]), 'file'),
-  requestContext: 'requestContext',
+  userContext: 'userContext',
 });
 ```
 
@@ -102,7 +99,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 const conversation = await client.conversations
-  .create({ context: { replace: 'me_test' } })
+  .create({ userContext: { foo: 'bar' } })
   .catch(async (err) => {
     if (err instanceof Inconvo.APIError) {
       console.log(err.status); // 400
@@ -143,7 +140,7 @@ const client = new Inconvo({
 });
 
 // Or, configure per-request:
-await client.conversations.create({ context: { replace: 'me_test' } }, {
+await client.conversations.create({ userContext: { foo: 'bar' } }, {
   maxRetries: 5,
 });
 ```
@@ -160,7 +157,7 @@ const client = new Inconvo({
 });
 
 // Override per-request:
-await client.conversations.create({ context: { replace: 'me_test' } }, {
+await client.conversations.create({ userContext: { foo: 'bar' } }, {
   timeout: 5 * 1000,
 });
 ```
@@ -214,14 +211,12 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Inconvo();
 
-const response = await client.conversations
-  .create({ context: { replace: 'me_test' } })
-  .asResponse();
+const response = await client.conversations.create({ userContext: { foo: 'bar' } }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: conversation, response: raw } = await client.conversations
-  .create({ context: { replace: 'me_test' } })
+  .create({ userContext: { foo: 'bar' } })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(conversation.id);
