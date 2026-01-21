@@ -9,15 +9,7 @@ export {
   type ContextDeleteParams,
   type ContextUploadParams,
 } from './context';
-export {
-  Datasets,
-  type DatasetListResponse,
-  type DatasetDeleteResponse,
-  type DatasetUploadResponse,
-  type DatasetListParams,
-  type DatasetDeleteParams,
-  type DatasetUploadParams,
-} from './datasets';
+export { Datasets } from './datasets';
 export {
   User,
   type UserListResponse,
