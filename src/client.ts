@@ -29,15 +29,7 @@ import {
   Conversations,
   InconvoConversation,
 } from './resources/conversations/conversations';
-import {
-  DatasetDeleteParams,
-  DatasetDeleteResponse,
-  DatasetListParams,
-  DatasetListResponse,
-  DatasetUploadParams,
-  DatasetUploadResponse,
-  Datasets,
-} from './resources/datasets/datasets';
+import { Datasets } from './resources/datasets/datasets';
 import { McpServers } from './resources/mcp-servers/mcp-servers';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -773,13 +765,5 @@ export declare namespace Inconvo {
 
   export { Agents as Agents };
 
-  export {
-    Datasets as Datasets,
-    type DatasetListResponse as DatasetListResponse,
-    type DatasetDeleteResponse as DatasetDeleteResponse,
-    type DatasetUploadResponse as DatasetUploadResponse,
-    type DatasetListParams as DatasetListParams,
-    type DatasetDeleteParams as DatasetDeleteParams,
-    type DatasetUploadParams as DatasetUploadParams,
-  };
+  export { Datasets as Datasets };
 }

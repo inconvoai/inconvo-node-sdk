@@ -10,13 +10,5 @@ export {
   type ConversationListParams,
   type ConversationListResponsesConversationsCursor,
 } from './conversations/conversations';
-export {
-  Datasets,
-  type DatasetListResponse,
-  type DatasetDeleteResponse,
-  type DatasetUploadResponse,
-  type DatasetListParams,
-  type DatasetDeleteParams,
-  type DatasetUploadParams,
-} from './datasets/datasets';
+export { Datasets } from './datasets/datasets';
 export { McpServers } from './mcp-servers/mcp-servers';

@@ -64,18 +64,6 @@ Methods:
 
 # Datasets
 
-Types:
-
-- <code><a href="./src/resources/datasets/datasets.ts">DatasetListResponse</a></code>
-- <code><a href="./src/resources/datasets/datasets.ts">DatasetDeleteResponse</a></code>
-- <code><a href="./src/resources/datasets/datasets.ts">DatasetUploadResponse</a></code>
-
-Methods:
-
-- <code title="get /datasets">client.datasets.<a href="./src/resources/datasets/datasets.ts">list</a>({ ...params }) -> DatasetListResponse</code>
-- <code title="delete /datasets/{filename}">client.datasets.<a href="./src/resources/datasets/datasets.ts">delete</a>(filename, { ...params }) -> DatasetDeleteResponse</code>
-- <code title="post /datasets">client.datasets.<a href="./src/resources/datasets/datasets.ts">upload</a>({ ...params }) -> DatasetUploadResponse</code>
-
 ## User
 
 Types:
