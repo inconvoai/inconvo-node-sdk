@@ -19,15 +19,6 @@ import { AbstractPage, type ConversationsCursorParams, ConversationsCursorRespon
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import {
-  DatasetDeleteParams,
-  DatasetDeleteResponse,
-  DatasetListParams,
-  DatasetListResponse,
-  DatasetUploadParams,
-  DatasetUploadResponse,
-  Datasets,
-} from './resources/datasets';
 import { Agents } from './resources/agents/agents';
 import {
   ConversationCreateParams,
@@ -38,6 +29,7 @@ import {
   Conversations,
   InconvoConversation,
 } from './resources/conversations/conversations';
+import { Datasets } from './resources/datasets/datasets';
 import { McpServers } from './resources/mcp-servers/mcp-servers';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -773,13 +765,5 @@ export declare namespace Inconvo {
 
   export { Agents as Agents };
 
-  export {
-    Datasets as Datasets,
-    type DatasetListResponse as DatasetListResponse,
-    type DatasetDeleteResponse as DatasetDeleteResponse,
-    type DatasetUploadResponse as DatasetUploadResponse,
-    type DatasetListParams as DatasetListParams,
-    type DatasetDeleteParams as DatasetDeleteParams,
-    type DatasetUploadParams as DatasetUploadParams,
-  };
+  export { Datasets as Datasets };
 }

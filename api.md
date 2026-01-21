@@ -64,14 +64,30 @@ Methods:
 
 # Datasets
 
+## User
+
 Types:
 
-- <code><a href="./src/resources/datasets.ts">DatasetListResponse</a></code>
-- <code><a href="./src/resources/datasets.ts">DatasetDeleteResponse</a></code>
-- <code><a href="./src/resources/datasets.ts">DatasetUploadResponse</a></code>
+- <code><a href="./src/resources/datasets/user.ts">UserListResponse</a></code>
+- <code><a href="./src/resources/datasets/user.ts">UserDeleteResponse</a></code>
+- <code><a href="./src/resources/datasets/user.ts">UserUploadResponse</a></code>
 
 Methods:
 
-- <code title="get /datasets">client.datasets.<a href="./src/resources/datasets.ts">list</a>({ ...params }) -> DatasetListResponse</code>
-- <code title="delete /datasets/{filename}">client.datasets.<a href="./src/resources/datasets.ts">delete</a>(filename, { ...params }) -> DatasetDeleteResponse</code>
-- <code title="post /datasets">client.datasets.<a href="./src/resources/datasets.ts">upload</a>({ ...params }) -> DatasetUploadResponse</code>
+- <code title="get /datasets/user/{userIdentifier}">client.datasets.user.<a href="./src/resources/datasets/user.ts">list</a>(userIdentifier) -> UserListResponse</code>
+- <code title="delete /datasets/user/{userIdentifier}/{filename}">client.datasets.user.<a href="./src/resources/datasets/user.ts">delete</a>(filename, { ...params }) -> UserDeleteResponse</code>
+- <code title="post /datasets/user/{userIdentifier}">client.datasets.user.<a href="./src/resources/datasets/user.ts">upload</a>(userIdentifier, { ...params }) -> UserUploadResponse</code>
+
+## Context
+
+Types:
+
+- <code><a href="./src/resources/datasets/context.ts">ContextListResponse</a></code>
+- <code><a href="./src/resources/datasets/context.ts">ContextDeleteResponse</a></code>
+- <code><a href="./src/resources/datasets/context.ts">ContextUploadResponse</a></code>
+
+Methods:
+
+- <code title="get /datasets/context/{contextKey}/{contextValue}">client.datasets.context.<a href="./src/resources/datasets/context.ts">list</a>(contextValue, { ...params }) -> ContextListResponse</code>
+- <code title="delete /datasets/context/{contextKey}/{contextValue}/{filename}">client.datasets.context.<a href="./src/resources/datasets/context.ts">delete</a>(filename, { ...params }) -> ContextDeleteResponse</code>
+- <code title="post /datasets/context/{contextKey}/{contextValue}">client.datasets.context.<a href="./src/resources/datasets/context.ts">upload</a>(contextValue, { ...params }) -> ContextUploadResponse</code>

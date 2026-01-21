@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 (2026-01-21)
+
+Full Changelog: [v0.3.1...v0.4.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.3.1...v0.4.0)
+
+### Features
+
+* add RESTful dataset endpoints and userIdentifier support ([464a796](https://github.com/ten-dev/inconvo-node-sdk/commit/464a7967c85c22a11cbbf2984aa35b8e7619681e))
+* **api:** manual updates ([91d2993](https://github.com/ten-dev/inconvo-node-sdk/commit/91d29933211ee718e518bf59b2da436f49f002d5))
+* **api:** manual updates ([eabb4ab](https://github.com/ten-dev/inconvo-node-sdk/commit/eabb4abeb04c70187973c558d6bd7cdcbb89f69e))
+
 ## 0.3.1 (2026-01-17)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.3.0...v0.3.1)

@@ -1,0 +1,153 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { APIResource } from '../../core/resource';
+import { APIPromise } from '../../core/api-promise';
+import { type Uploadable } from '../../core/uploads';
+import { RequestOptions } from '../../internal/request-options';
+import { multipartFormRequestOptions } from '../../internal/uploads';
+import { path } from '../../internal/utils/path';
+
+export class Context extends APIResource {
+  /**
+   * List all dataset files scoped to a context value. These files are shared with
+   * all users who have this context value.
+   *
+   * @example
+   * ```ts
+   * const contexts = await client.datasets.context.list(
+   *   'org_456',
+   *   { contextKey: 'orgId' },
+   * );
+   * ```
+   */
+  list(
+    contextValue: string,
+    params: ContextListParams,
+    options?: RequestOptions,
+  ): APIPromise<ContextListResponse> {
+    const { contextKey } = params;
+    return this._client.get(path`/datasets/context/${contextKey}/${contextValue}`, options);
+  }
+
+  /**
+   * Delete a dataset file scoped to a context value.
+   *
+   * @example
+   * ```ts
+   * const context = await client.datasets.context.delete(
+   *   'shared_data.csv',
+   *   { contextKey: 'orgId', contextValue: 'org_456' },
+   * );
+   * ```
+   */
+  delete(
+    filename: string,
+    params: ContextDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<ContextDeleteResponse> {
+    const { contextKey, contextValue } = params;
+    return this._client.delete(path`/datasets/context/${contextKey}/${contextValue}/${filename}`, options);
+  }
+
+  /**
+   * Upload a dataset file scoped to a context value. This file will be shared with
+   * all users who have this context value.
+   *
+   * @example
+   * ```ts
+   * const response = await client.datasets.context.upload(
+   *   'org_456',
+   *   {
+   *     contextKey: 'orgId',
+   *     file: fs.createReadStream('path/to/file'),
+   *   },
+   * );
+   * ```
+   */
+  upload(
+    contextValue: string,
+    params: ContextUploadParams,
+    options?: RequestOptions,
+  ): APIPromise<ContextUploadResponse> {
+    const { contextKey, ...body } = params;
+    return this._client.post(
+      path`/datasets/context/${contextKey}/${contextValue}`,
+      multipartFormRequestOptions({ body, ...options }, this._client),
+    );
+  }
+}
+
+export interface ContextListResponse {
+  files: Array<string>;
+}
+
+export interface ContextDeleteResponse {
+  file: string;
+
+  success: boolean;
+
+  error?: string;
+}
+
+export interface ContextUploadResponse {
+  file: ContextUploadResponse.File;
+
+  error?: string;
+}
+
+export namespace ContextUploadResponse {
+  export interface File {
+    name: string;
+
+    path: string;
+
+    size: number;
+  }
+}
+
+export interface ContextListParams {
+  /**
+   * The context key (e.g., "orgId", "teamId")
+   */
+  contextKey: string;
+}
+
+export interface ContextDeleteParams {
+  /**
+   * The context key (e.g., "orgId", "teamId")
+   */
+  contextKey: string;
+
+  /**
+   * The context value
+   */
+  contextValue: string;
+}
+
+export interface ContextUploadParams {
+  /**
+   * Path param: The context key (e.g., "orgId", "teamId")
+   */
+  contextKey: string;
+
+  /**
+   * Body param: The file to upload (CSV or JSON, max 10MB)
+   */
+  file: Uploadable;
+
+  /**
+   * Body param: Optional notes or description for the dataset
+   */
+  notes?: string;
+}
+
+export declare namespace Context {
+  export {
+    type ContextListResponse as ContextListResponse,
+    type ContextDeleteResponse as ContextDeleteResponse,
+    type ContextUploadResponse as ContextUploadResponse,
+    type ContextListParams as ContextListParams,
+    type ContextDeleteParams as ContextDeleteParams,
+    type ContextUploadParams as ContextUploadParams,
+  };
+}

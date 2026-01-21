@@ -21,6 +21,13 @@ export class Conversations extends APIResource {
 
   /**
    * Create conversation
+   *
+   * @example
+   * ```ts
+   * const conversation = await client.conversations.create({
+   *   userIdentifier: 'user_123',
+   * });
+   * ```
    */
   create(body: ConversationCreateParams, options?: RequestOptions): APIPromise<ConversationCreateResponse> {
     return this._client.post('/conversations', { body, ...options });
@@ -28,6 +35,12 @@ export class Conversations extends APIResource {
 
   /**
    * Retrieve conversation
+   *
+   * @example
+   * ```ts
+   * const inconvoConversation =
+   *   await client.conversations.retrieve('id');
+   * ```
    */
   retrieve(id: string, options?: RequestOptions): APIPromise<InconvoConversation> {
     return this._client.get(path`/conversations/${id}`, options);
@@ -35,6 +48,14 @@ export class Conversations extends APIResource {
 
   /**
    * List conversations
+   *
+   * @example
+   * ```ts
+   * // Automatically fetches more pages as needed.
+   * for await (const conversationListResponse of client.conversations.list()) {
+   *   // ...
+   * }
+   * ```
    */
   list(
     query: ConversationListParams | null | undefined = {},
@@ -55,6 +76,11 @@ export interface InconvoConversation {
   messages: Array<InconvoConversation.Message>;
 
   userContext: { [key: string]: string | number };
+
+  /**
+   * Unique identifier for the end-user (may be null for legacy conversations)
+   */
+  userIdentifier?: string | null;
 }
 
 export namespace InconvoConversation {
@@ -89,13 +115,24 @@ export interface ConversationListResponse {
   title: string;
 
   userContext: { [key: string]: string | number };
+
+  /**
+   * Unique identifier for the end-user (may be null for legacy conversations)
+   */
+  userIdentifier?: string | null;
 }
 
 export interface ConversationCreateParams {
   /**
-   * Context key-values used for tenancy / filtering.
+   * Unique identifier for the end-user (1-256 chars). Allowed characters:
+   * alphanumeric, underscore, hyphen, colon, period, at symbol.
    */
-  userContext: { [key: string]: unknown };
+  userIdentifier: string;
+
+  /**
+   * Optional context key-values for additional filtering/tenancy.
+   */
+  userContext?: { [key: string]: unknown };
 }
 
 export interface ConversationListParams extends ConversationsCursorParams {
@@ -104,6 +141,11 @@ export interface ConversationListParams extends ConversationsCursorParams {
    * /conversations?userContext[userId]=42&userContext[orgId]=12
    */
   userContext?: { [key: string]: string | number };
+
+  /**
+   * Filter by user identifier
+   */
+  userIdentifier?: string;
 }
 
 Conversations.Response = Response;
