@@ -78,9 +78,9 @@ export interface InconvoConversation {
   userContext: { [key: string]: string | number };
 
   /**
-   * Unique identifier for the end-user
+   * Unique identifier for the end-user (may be null for legacy conversations)
    */
-  userIdentifier: string;
+  userIdentifier?: string | null;
 }
 
 export namespace InconvoConversation {
@@ -117,9 +117,9 @@ export interface ConversationListResponse {
   userContext: { [key: string]: string | number };
 
   /**
-   * Unique identifier for the end-user
+   * Unique identifier for the end-user (may be null for legacy conversations)
    */
-  userIdentifier: string;
+  userIdentifier?: string | null;
 }
 
 export interface ConversationCreateParams {
