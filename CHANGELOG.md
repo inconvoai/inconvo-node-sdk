@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2026-01-17)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.3.0...v0.3.1)
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([4ed9970](https://github.com/ten-dev/inconvo-node-sdk/commit/4ed9970bbf98a77e0d78e5409f13a21f01adb98a))
+
 ## 0.3.0 (2026-01-15)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.2.0...v0.3.0)
