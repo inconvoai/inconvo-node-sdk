@@ -8,6 +8,15 @@ import { path } from '../../../internal/utils/path';
 export class FeedbackResource extends APIResource {
   /**
    * Create feedback
+   *
+   * @example
+   * ```ts
+   * const feedback =
+   *   await client.conversations.response.feedback.create(
+   *     'response_id',
+   *     { id: 'id', rating: 'positive' },
+   *   );
+   * ```
    */
   create(responseID: string, params: FeedbackCreateParams, options?: RequestOptions): APIPromise<Feedback> {
     const { id, ...body } = params;
@@ -19,6 +28,15 @@ export class FeedbackResource extends APIResource {
 
   /**
    * Update feedback
+   *
+   * @example
+   * ```ts
+   * const feedback =
+   *   await client.conversations.response.feedback.update(
+   *     'feedback_id',
+   *     { id: 'id', response_id: 'response_id' },
+   *   );
+   * ```
    */
   update(feedbackID: string, params: FeedbackUpdateParams, options?: RequestOptions): APIPromise<Feedback> {
     const { id, response_id, ...body } = params;

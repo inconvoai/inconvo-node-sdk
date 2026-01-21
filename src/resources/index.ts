@@ -18,5 +18,5 @@ export {
   type DatasetListParams,
   type DatasetDeleteParams,
   type DatasetUploadParams,
-} from './datasets';
+} from './datasets/datasets';
 export { McpServers } from './mcp-servers/mcp-servers';
