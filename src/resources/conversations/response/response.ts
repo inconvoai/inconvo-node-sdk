@@ -13,6 +13,14 @@ export class Response extends APIResource {
 
   /**
    * Create response (sync or streamed)
+   *
+   * @example
+   * ```ts
+   * const response = await client.conversations.response.create(
+   *   'id',
+   *   { message: 'message' },
+   * );
+   * ```
    */
   create(
     id: string,
@@ -24,6 +32,15 @@ export class Response extends APIResource {
 
   /**
    * Get a response
+   *
+   * @example
+   * ```ts
+   * const response =
+   *   await client.conversations.response.retrieve(
+   *     'response_id',
+   *     { conversation_id: 'conversation_id' },
+   *   );
+   * ```
    */
   retrieve(
     responseID: string,
