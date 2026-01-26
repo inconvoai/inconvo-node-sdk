@@ -7,13 +7,10 @@ const client = new Inconvo({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource context', () => {
+describe('resource user', () => {
   // Prism tests are disabled
   test.skip('list: only required params', async () => {
-    const responsePromise = client.datasets.context.list('org_456', {
-      agentId: 'agentId',
-      contextKey: 'orgId',
-    });
+    const responsePromise = client.agents.datasets.user.list('user_123', { agentId: 'agentId' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,18 +22,14 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
-    const response = await client.datasets.context.list('org_456', {
-      agentId: 'agentId',
-      contextKey: 'orgId',
-    });
+    const response = await client.agents.datasets.user.list('user_123', { agentId: 'agentId' });
   });
 
   // Prism tests are disabled
   test.skip('delete: only required params', async () => {
-    const responsePromise = client.datasets.context.delete('shared_data.csv', {
+    const responsePromise = client.agents.datasets.user.delete('data.csv', {
       agentId: 'agentId',
-      contextKey: 'orgId',
-      contextValue: 'org_456',
+      userIdentifier: 'user_123',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -49,18 +42,16 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('delete: required and optional params', async () => {
-    const response = await client.datasets.context.delete('shared_data.csv', {
+    const response = await client.agents.datasets.user.delete('data.csv', {
       agentId: 'agentId',
-      contextKey: 'orgId',
-      contextValue: 'org_456',
+      userIdentifier: 'user_123',
     });
   });
 
   // Prism tests are disabled
   test.skip('upload: only required params', async () => {
-    const responsePromise = client.datasets.context.upload('org_456', {
+    const responsePromise = client.agents.datasets.user.upload('user_123', {
       agentId: 'agentId',
-      contextKey: 'orgId',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
@@ -74,9 +65,8 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('upload: required and optional params', async () => {
-    const response = await client.datasets.context.upload('org_456', {
+    const response = await client.agents.datasets.user.upload('user_123', {
       agentId: 'agentId',
-      contextKey: 'orgId',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       notes: 'notes',
     });

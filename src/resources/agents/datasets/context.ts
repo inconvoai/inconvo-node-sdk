@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
-import { APIPromise } from '../../core/api-promise';
-import { type Uploadable } from '../../core/uploads';
-import { RequestOptions } from '../../internal/request-options';
-import { multipartFormRequestOptions } from '../../internal/uploads';
-import { path } from '../../internal/utils/path';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { type Uploadable } from '../../../core/uploads';
+import { RequestOptions } from '../../../internal/request-options';
+import { multipartFormRequestOptions } from '../../../internal/uploads';
+import { path } from '../../../internal/utils/path';
 
 export class Context extends APIResource {
   /**
@@ -14,7 +14,7 @@ export class Context extends APIResource {
    *
    * @example
    * ```ts
-   * const contexts = await client.datasets.context.list(
+   * const contexts = await client.agents.datasets.context.list(
    *   'org_456',
    *   { agentId: 'agentId', contextKey: 'orgId' },
    * );
@@ -34,7 +34,7 @@ export class Context extends APIResource {
    *
    * @example
    * ```ts
-   * const context = await client.datasets.context.delete(
+   * const context = await client.agents.datasets.context.delete(
    *   'shared_data.csv',
    *   {
    *     agentId: 'agentId',
@@ -62,14 +62,12 @@ export class Context extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.datasets.context.upload(
-   *   'org_456',
-   *   {
+   * const response =
+   *   await client.agents.datasets.context.upload('org_456', {
    *     agentId: 'agentId',
    *     contextKey: 'orgId',
    *     file: fs.createReadStream('path/to/file'),
-   *   },
-   * );
+   *   });
    * ```
    */
   upload(

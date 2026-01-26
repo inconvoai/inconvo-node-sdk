@@ -71,29 +71,29 @@ import Inconvo, { toFile } from '@inconvoai/node';
 const client = new Inconvo();
 
 // If you have access to Node `fs` we recommend using `fs.createReadStream()`:
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
   agentId: 'agentId',
   file: fs.createReadStream('/path/to/file'),
 });
 
 // Or if you have the web `File` API you can pass a `File` instance:
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
   agentId: 'agentId',
   file: new File(['my bytes'], 'file'),
 });
 
 // You can also pass a `fetch` `Response`:
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
   agentId: 'agentId',
   file: await fetch('https://somesite/file'),
 });
 
 // Finally, if none of the above are convenient, you can use our `toFile` helper:
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
   agentId: 'agentId',
   file: await toFile(Buffer.from('my bytes'), 'file'),
 });
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
   agentId: 'agentId',
   file: await toFile(new Uint8Array([0, 1, 2]), 'file'),
 });

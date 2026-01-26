@@ -62,32 +62,32 @@ Methods:
 - <code title="post /agents/{agentId}/conversations/{convo_id}/response/{response_id}/feedback">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">create</a>(responseID, { ...params }) -> Feedback</code>
 - <code title="patch /agents/{agentId}/conversations/{convo_id}/response/{response_id}/feedback/{feedback_id}">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">update</a>(feedbackID, { ...params }) -> Feedback</code>
 
-# Datasets
+## Datasets
 
-## User
-
-Types:
-
-- <code><a href="./src/resources/datasets/user.ts">UserListResponse</a></code>
-- <code><a href="./src/resources/datasets/user.ts">UserDeleteResponse</a></code>
-- <code><a href="./src/resources/datasets/user.ts">UserUploadResponse</a></code>
-
-Methods:
-
-- <code title="get /agents/{agentId}/datasets/user/{userIdentifier}">client.datasets.user.<a href="./src/resources/datasets/user.ts">list</a>(userIdentifier, { ...params }) -> UserListResponse</code>
-- <code title="delete /agents/{agentId}/datasets/user/{userIdentifier}/{filename}">client.datasets.user.<a href="./src/resources/datasets/user.ts">delete</a>(filename, { ...params }) -> UserDeleteResponse</code>
-- <code title="post /agents/{agentId}/datasets/user/{userIdentifier}">client.datasets.user.<a href="./src/resources/datasets/user.ts">upload</a>(userIdentifier, { ...params }) -> UserUploadResponse</code>
-
-## Context
+### User
 
 Types:
 
-- <code><a href="./src/resources/datasets/context.ts">ContextListResponse</a></code>
-- <code><a href="./src/resources/datasets/context.ts">ContextDeleteResponse</a></code>
-- <code><a href="./src/resources/datasets/context.ts">ContextUploadResponse</a></code>
+- <code><a href="./src/resources/agents/datasets/user.ts">UserListResponse</a></code>
+- <code><a href="./src/resources/agents/datasets/user.ts">UserDeleteResponse</a></code>
+- <code><a href="./src/resources/agents/datasets/user.ts">UserUploadResponse</a></code>
 
 Methods:
 
-- <code title="get /agents/{agentId}/datasets/context/{contextKey}/{contextValue}">client.datasets.context.<a href="./src/resources/datasets/context.ts">list</a>(contextValue, { ...params }) -> ContextListResponse</code>
-- <code title="delete /agents/{agentId}/datasets/context/{contextKey}/{contextValue}/{filename}">client.datasets.context.<a href="./src/resources/datasets/context.ts">delete</a>(filename, { ...params }) -> ContextDeleteResponse</code>
-- <code title="post /agents/{agentId}/datasets/context/{contextKey}/{contextValue}">client.datasets.context.<a href="./src/resources/datasets/context.ts">upload</a>(contextValue, { ...params }) -> ContextUploadResponse</code>
+- <code title="get /agents/{agentId}/datasets/user/{userIdentifier}">client.agents.datasets.user.<a href="./src/resources/agents/datasets/user.ts">list</a>(userIdentifier, { ...params }) -> UserListResponse</code>
+- <code title="delete /agents/{agentId}/datasets/user/{userIdentifier}/{filename}">client.agents.datasets.user.<a href="./src/resources/agents/datasets/user.ts">delete</a>(filename, { ...params }) -> UserDeleteResponse</code>
+- <code title="post /agents/{agentId}/datasets/user/{userIdentifier}">client.agents.datasets.user.<a href="./src/resources/agents/datasets/user.ts">upload</a>(userIdentifier, { ...params }) -> UserUploadResponse</code>
+
+### Context
+
+Types:
+
+- <code><a href="./src/resources/agents/datasets/context.ts">ContextListResponse</a></code>
+- <code><a href="./src/resources/agents/datasets/context.ts">ContextDeleteResponse</a></code>
+- <code><a href="./src/resources/agents/datasets/context.ts">ContextUploadResponse</a></code>
+
+Methods:
+
+- <code title="get /agents/{agentId}/datasets/context/{contextKey}/{contextValue}">client.agents.datasets.context.<a href="./src/resources/agents/datasets/context.ts">list</a>(contextValue, { ...params }) -> ContextListResponse</code>
+- <code title="delete /agents/{agentId}/datasets/context/{contextKey}/{contextValue}/{filename}">client.agents.datasets.context.<a href="./src/resources/agents/datasets/context.ts">delete</a>(filename, { ...params }) -> ContextDeleteResponse</code>
+- <code title="post /agents/{agentId}/datasets/context/{contextKey}/{contextValue}">client.agents.datasets.context.<a href="./src/resources/agents/datasets/context.ts">upload</a>(contextValue, { ...params }) -> ContextUploadResponse</code>

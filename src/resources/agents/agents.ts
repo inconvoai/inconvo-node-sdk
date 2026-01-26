@@ -14,14 +14,18 @@ import {
   Conversations,
   InconvoConversation,
 } from './conversations/conversations';
+import * as DatasetsAPI from './datasets/datasets';
+import { Datasets } from './datasets/datasets';
 
 export class Agents extends APIResource {
   dataSummary: DataSummaryAPI.DataSummary = new DataSummaryAPI.DataSummary(this._client);
   conversations: ConversationsAPI.Conversations = new ConversationsAPI.Conversations(this._client);
+  datasets: DatasetsAPI.Datasets = new DatasetsAPI.Datasets(this._client);
 }
 
 Agents.DataSummary = DataSummary;
 Agents.Conversations = Conversations;
+Agents.Datasets = Datasets;
 
 export declare namespace Agents {
   export { DataSummary as DataSummary, type DataSummaryRetrieveResponse as DataSummaryRetrieveResponse };
@@ -36,4 +40,6 @@ export declare namespace Agents {
     type ConversationRetrieveParams as ConversationRetrieveParams,
     type ConversationListParams as ConversationListParams,
   };
+
+  export { Datasets as Datasets };
 }

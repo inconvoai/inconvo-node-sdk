@@ -20,7 +20,6 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { Agents } from './resources/agents/agents';
-import { Datasets } from './resources/datasets/datasets';
 import { McpServers } from './resources/mcp-servers/mcp-servers';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -724,12 +723,10 @@ export class Inconvo {
 
   mcpServers: API.McpServers = new API.McpServers(this);
   agents: API.Agents = new API.Agents(this);
-  datasets: API.Datasets = new API.Datasets(this);
 }
 
 Inconvo.McpServers = McpServers;
 Inconvo.Agents = Agents;
-Inconvo.Datasets = Datasets;
 
 export declare namespace Inconvo {
   export type RequestOptions = Opts.RequestOptions;
@@ -743,6 +740,4 @@ export declare namespace Inconvo {
   export { McpServers as McpServers };
 
   export { Agents as Agents };
-
-  export { Datasets as Datasets };
 }
