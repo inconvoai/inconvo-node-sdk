@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../../core/resource';
 import { APIPromise } from '../../../core/api-promise';
-import { buildHeaders } from '../../../internal/headers';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
@@ -41,18 +40,23 @@ export class Tenants extends APIResource {
    *
    * @example
    * ```ts
-   * await client.agents.mcpServers.tenants.delete(
-   *   'mcpserver_id',
-   *   { agentId: 'agentId', tenant_key: 'tenant_key' },
-   * );
+   * const tenant =
+   *   await client.agents.mcpServers.tenants.delete(
+   *     'mcpserver_id',
+   *     { agentId: 'agentId', tenant_key: 'tenant_key' },
+   *   );
    * ```
    */
-  delete(mcpserverID: string, params: TenantDeleteParams, options?: RequestOptions): APIPromise<void> {
+  delete(
+    mcpserverID: string,
+    params: TenantDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<TenantDeleteResponse> {
     const { agentId, tenant_key } = params;
-    return this._client.delete(path`/agents/${agentId}/mcpservers/${mcpserverID}/tenants/${tenant_key}`, {
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+    return this._client.delete(
+      path`/agents/${agentId}/mcpservers/${mcpserverID}/tenants/${tenant_key}`,
+      options,
+    );
   }
 }
 
@@ -63,6 +67,12 @@ export class Tenants extends APIResource {
  * - Values are JSON objects with arbitrary properties.
  */
 export type TenantCreateResponse = { [key: string]: { [key: string]: unknown } };
+
+export interface TenantDeleteResponse {
+  success: boolean;
+
+  tenantKey: string;
+}
 
 export interface TenantCreateParams {
   /**
@@ -91,6 +101,7 @@ export interface TenantDeleteParams {
 export declare namespace Tenants {
   export {
     type TenantCreateResponse as TenantCreateResponse,
+    type TenantDeleteResponse as TenantDeleteResponse,
     type TenantCreateParams as TenantCreateParams,
     type TenantDeleteParams as TenantDeleteParams,
   };
