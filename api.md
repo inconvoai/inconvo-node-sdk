@@ -1,16 +1,3 @@
-# McpServers
-
-## Tenants
-
-Types:
-
-- <code><a href="./src/resources/mcp-servers/tenants.ts">TenantCreateResponse</a></code>
-
-Methods:
-
-- <code title="post /agents/{agentId}/mcpservers/{mcpserver_id}/tenants">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">create</a>(mcpserverID, { ...params }) -> TenantCreateResponse</code>
-- <code title="delete /agents/{agentId}/mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.mcpServers.tenants.<a href="./src/resources/mcp-servers/tenants.ts">delete</a>(mcpserverID, { ...params }) -> void</code>
-
 # Agents
 
 ## DataSummary
@@ -91,3 +78,16 @@ Methods:
 - <code title="get /agents/{agentId}/datasets/context/{contextKey}/{contextValue}">client.agents.datasets.context.<a href="./src/resources/agents/datasets/context.ts">list</a>(contextValue, { ...params }) -> ContextListResponse</code>
 - <code title="delete /agents/{agentId}/datasets/context/{contextKey}/{contextValue}/{filename}">client.agents.datasets.context.<a href="./src/resources/agents/datasets/context.ts">delete</a>(filename, { ...params }) -> ContextDeleteResponse</code>
 - <code title="post /agents/{agentId}/datasets/context/{contextKey}/{contextValue}">client.agents.datasets.context.<a href="./src/resources/agents/datasets/context.ts">upload</a>(contextValue, { ...params }) -> ContextUploadResponse</code>
+
+## McpServers
+
+### Tenants
+
+Types:
+
+- <code><a href="./src/resources/agents/mcp-servers/tenants.ts">TenantCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /agents/{agentId}/mcpservers/{mcpserver_id}/tenants">client.agents.mcpServers.tenants.<a href="./src/resources/agents/mcp-servers/tenants.ts">create</a>(mcpserverID, { ...params }) -> TenantCreateResponse</code>
+- <code title="delete /agents/{agentId}/mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.agents.mcpServers.tenants.<a href="./src/resources/agents/mcp-servers/tenants.ts">delete</a>(mcpserverID, { ...params }) -> void</code>
