@@ -13,3 +13,4 @@ export {
 } from './conversations/index';
 export { DataSummary, type DataSummaryRetrieveResponse } from './data-summary';
 export { Datasets } from './datasets/index';
+export { McpServers } from './mcp-servers/index';

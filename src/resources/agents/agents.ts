@@ -16,16 +16,20 @@ import {
 } from './conversations/conversations';
 import * as DatasetsAPI from './datasets/datasets';
 import { Datasets } from './datasets/datasets';
+import * as McpServersAPI from './mcp-servers/mcp-servers';
+import { McpServers } from './mcp-servers/mcp-servers';
 
 export class Agents extends APIResource {
   dataSummary: DataSummaryAPI.DataSummary = new DataSummaryAPI.DataSummary(this._client);
   conversations: ConversationsAPI.Conversations = new ConversationsAPI.Conversations(this._client);
   datasets: DatasetsAPI.Datasets = new DatasetsAPI.Datasets(this._client);
+  mcpServers: McpServersAPI.McpServers = new McpServersAPI.McpServers(this._client);
 }
 
 Agents.DataSummary = DataSummary;
 Agents.Conversations = Conversations;
 Agents.Datasets = Datasets;
+Agents.McpServers = McpServers;
 
 export declare namespace Agents {
   export { DataSummary as DataSummary, type DataSummaryRetrieveResponse as DataSummaryRetrieveResponse };
@@ -42,4 +46,6 @@ export declare namespace Agents {
   };
 
   export { Datasets as Datasets };
+
+  export { McpServers as McpServers };
 }

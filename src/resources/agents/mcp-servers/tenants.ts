@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
-import { APIPromise } from '../../core/api-promise';
-import { buildHeaders } from '../../internal/headers';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { buildHeaders } from '../../../internal/headers';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class Tenants extends APIResource {
   /**
@@ -12,15 +12,16 @@ export class Tenants extends APIResource {
    *
    * @example
    * ```ts
-   * const tenant = await client.mcpServers.tenants.create(
-   *   'mcpserver_id',
-   *   {
-   *     agentId: 'agentId',
-   *     tenant: {
-   *       'fromapi@api.com': { organisationId: 'bar' },
+   * const tenant =
+   *   await client.agents.mcpServers.tenants.create(
+   *     'mcpserver_id',
+   *     {
+   *       agentId: 'agentId',
+   *       tenant: {
+   *         'fromapi@api.com': { organisationId: 'bar' },
+   *       },
    *     },
-   *   },
-   * );
+   *   );
    * ```
    */
   create(
@@ -40,10 +41,10 @@ export class Tenants extends APIResource {
    *
    * @example
    * ```ts
-   * await client.mcpServers.tenants.delete('mcpserver_id', {
-   *   agentId: 'agentId',
-   *   tenant_key: 'tenant_key',
-   * });
+   * await client.agents.mcpServers.tenants.delete(
+   *   'mcpserver_id',
+   *   { agentId: 'agentId', tenant_key: 'tenant_key' },
+   * );
    * ```
    */
   delete(mcpserverID: string, params: TenantDeleteParams, options?: RequestOptions): APIPromise<void> {
