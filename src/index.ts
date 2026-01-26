@@ -13,7 +13,7 @@ export type {
   ResponseCreatedEvent,
   ResponseProgressEvent,
   ResponseCompletedEvent,
-} from './resources/conversations/response/response';
+} from './resources/agents/conversations/response/response';
 export {
   InconvoError,
   APIError,
