@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.5.0 (2026-01-26)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** manual updates ([789e392](https://github.com/ten-dev/inconvo-node-sdk/commit/789e3921722bef728a95e1e46b0f4c95ca7465b9))
+* **api:** manual updates ([66fe43b](https://github.com/ten-dev/inconvo-node-sdk/commit/66fe43b7421f95e0a18f5474bc7f854fd3dc433d))
+* **api:** manual updates ([df7f2c3](https://github.com/ten-dev/inconvo-node-sdk/commit/df7f2c3a1fde09ea204e94fefd1815dced8b1562))
+* **api:** manual updates ([53db5fd](https://github.com/ten-dev/inconvo-node-sdk/commit/53db5fdb8db25892be7a02e53048a0c7c9126bc3))
+* **api:** manual updates ([7cb9c5a](https://github.com/ten-dev/inconvo-node-sdk/commit/7cb9c5ad787793dc78daf3de241554b3688fd99e))
+* **api:** manual updates ([ed2d2e2](https://github.com/ten-dev/inconvo-node-sdk/commit/ed2d2e23f65086647e5497080564232642405ab8))
+* **api:** manual updates ([c02e058](https://github.com/ten-dev/inconvo-node-sdk/commit/c02e0588f2a2c1fb34fdaf007fdf45c0e6b588d1))
+
+
+### Bug Fixes
+
+* correct import path for response types ([2c7f0b0](https://github.com/ten-dev/inconvo-node-sdk/commit/2c7f0b03f2b1d9885c72b272e892a170ff182d58))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([6046acd](https://github.com/ten-dev/inconvo-node-sdk/commit/6046acd9205e20d37a2d56dfe9aebc7b73f7df16))
+
 ## 0.4.0 (2026-01-21)
 
 Full Changelog: [v0.3.1...v0.4.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.3.1...v0.4.0)
