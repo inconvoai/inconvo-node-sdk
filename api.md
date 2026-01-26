@@ -60,7 +60,7 @@ Types:
 
 Methods:
 
-- <code title="get /agents/data-summary">client.agents.dataSummary.<a href="./src/resources/agents/data-summary.ts">retrieve</a>() -> DataSummaryRetrieveResponse</code>
+- <code title="get /agents/{agentId}/data-summary">client.agents.dataSummary.<a href="./src/resources/agents/data-summary.ts">retrieve</a>(agentID) -> DataSummaryRetrieveResponse</code>
 
 # Datasets
 
