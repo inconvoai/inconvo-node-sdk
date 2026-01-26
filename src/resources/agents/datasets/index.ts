@@ -15,6 +15,7 @@ export {
   type UserListResponse,
   type UserDeleteResponse,
   type UserUploadResponse,
+  type UserListParams,
   type UserDeleteParams,
   type UserUploadParams,
 } from './user';

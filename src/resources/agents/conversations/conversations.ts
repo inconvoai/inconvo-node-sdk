@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../../../core/resource';
 import * as ResponseAPI from './response/response';
 import {
   Chart,
@@ -11,10 +11,10 @@ import {
   ResponseRetrieveResponse,
   Table,
 } from './response/response';
-import { APIPromise } from '../../core/api-promise';
-import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from '../../core/pagination';
-import { RequestOptions } from '../../internal/request-options';
-import { path } from '../../internal/utils/path';
+import { APIPromise } from '../../../core/api-promise';
+import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from '../../../core/pagination';
+import { RequestOptions } from '../../../internal/request-options';
+import { path } from '../../../internal/utils/path';
 
 export class Conversations extends APIResource {
   response: ResponseAPI.Response = new ResponseAPI.Response(this._client);
@@ -24,13 +24,18 @@ export class Conversations extends APIResource {
    *
    * @example
    * ```ts
-   * const conversation = await client.conversations.create({
-   *   userIdentifier: 'user_123',
-   * });
+   * const conversation =
+   *   await client.agents.conversations.create('agentId', {
+   *     userIdentifier: 'user_123',
+   *   });
    * ```
    */
-  create(body: ConversationCreateParams, options?: RequestOptions): APIPromise<ConversationCreateResponse> {
-    return this._client.post('/conversations', { body, ...options });
+  create(
+    agentID: string,
+    body: ConversationCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<ConversationCreateResponse> {
+    return this._client.post(path`/agents/${agentID}/conversations`, { body, ...options });
   }
 
   /**
@@ -39,11 +44,18 @@ export class Conversations extends APIResource {
    * @example
    * ```ts
    * const inconvoConversation =
-   *   await client.conversations.retrieve('id');
+   *   await client.agents.conversations.retrieve('id', {
+   *     agentId: 'agentId',
+   *   });
    * ```
    */
-  retrieve(id: string, options?: RequestOptions): APIPromise<InconvoConversation> {
-    return this._client.get(path`/conversations/${id}`, options);
+  retrieve(
+    id: string,
+    params: ConversationRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<InconvoConversation> {
+    const { agentId } = params;
+    return this._client.get(path`/agents/${agentId}/conversations/${id}`, options);
   }
 
   /**
@@ -52,19 +64,23 @@ export class Conversations extends APIResource {
    * @example
    * ```ts
    * // Automatically fetches more pages as needed.
-   * for await (const conversationListResponse of client.conversations.list()) {
+   * for await (const conversationListResponse of client.agents.conversations.list(
+   *   'agentId',
+   * )) {
    *   // ...
    * }
    * ```
    */
   list(
+    agentID: string,
     query: ConversationListParams | null | undefined = {},
     options?: RequestOptions,
   ): PagePromise<ConversationListResponsesConversationsCursor, ConversationListResponse> {
-    return this._client.getAPIList('/conversations', ConversationsCursor<ConversationListResponse>, {
-      query,
-      ...options,
-    });
+    return this._client.getAPIList(
+      path`/agents/${agentID}/conversations`,
+      ConversationsCursor<ConversationListResponse>,
+      { query, ...options },
+    );
   }
 }
 
@@ -135,6 +151,13 @@ export interface ConversationCreateParams {
   userContext?: { [key: string]: unknown };
 }
 
+export interface ConversationRetrieveParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+}
+
 export interface ConversationListParams extends ConversationsCursorParams {
   /**
    * Arbitrary userContext filters, encoded as a deep object. Example: GET
@@ -157,6 +180,7 @@ export declare namespace Conversations {
     type ConversationListResponse as ConversationListResponse,
     type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
+    type ConversationRetrieveParams as ConversationRetrieveParams,
     type ConversationListParams as ConversationListParams,
   };
 

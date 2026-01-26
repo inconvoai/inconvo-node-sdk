@@ -4,6 +4,7 @@ export { McpServers } from './mcp-servers';
 export {
   Tenants,
   type TenantCreateResponse,
+  type TenantDeleteResponse,
   type TenantCreateParams,
   type TenantDeleteParams,
 } from './tenants';

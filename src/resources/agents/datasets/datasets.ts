@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
+import { APIResource } from '../../../core/resource';
 import * as ContextAPI from './context';
 import {
   Context,
@@ -16,6 +16,7 @@ import {
   User,
   UserDeleteParams,
   UserDeleteResponse,
+  UserListParams,
   UserListResponse,
   UserUploadParams,
   UserUploadResponse,
@@ -35,6 +36,7 @@ export declare namespace Datasets {
     type UserListResponse as UserListResponse,
     type UserDeleteResponse as UserDeleteResponse,
     type UserUploadResponse as UserUploadResponse,
+    type UserListParams as UserListParams,
     type UserDeleteParams as UserDeleteParams,
     type UserUploadParams as UserUploadParams,
   };

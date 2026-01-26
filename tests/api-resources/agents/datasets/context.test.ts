@@ -10,7 +10,10 @@ const client = new Inconvo({
 describe('resource context', () => {
   // Prism tests are disabled
   test.skip('list: only required params', async () => {
-    const responsePromise = client.datasets.context.list('org_456', { contextKey: 'orgId' });
+    const responsePromise = client.agents.datasets.context.list('org_456', {
+      agentId: 'agentId',
+      contextKey: 'orgId',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,12 +25,16 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('list: required and optional params', async () => {
-    const response = await client.datasets.context.list('org_456', { contextKey: 'orgId' });
+    const response = await client.agents.datasets.context.list('org_456', {
+      agentId: 'agentId',
+      contextKey: 'orgId',
+    });
   });
 
   // Prism tests are disabled
   test.skip('delete: only required params', async () => {
-    const responsePromise = client.datasets.context.delete('shared_data.csv', {
+    const responsePromise = client.agents.datasets.context.delete('shared_data.csv', {
+      agentId: 'agentId',
       contextKey: 'orgId',
       contextValue: 'org_456',
     });
@@ -42,7 +49,8 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('delete: required and optional params', async () => {
-    const response = await client.datasets.context.delete('shared_data.csv', {
+    const response = await client.agents.datasets.context.delete('shared_data.csv', {
+      agentId: 'agentId',
       contextKey: 'orgId',
       contextValue: 'org_456',
     });
@@ -50,7 +58,8 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('upload: only required params', async () => {
-    const responsePromise = client.datasets.context.upload('org_456', {
+    const responsePromise = client.agents.datasets.context.upload('org_456', {
+      agentId: 'agentId',
       contextKey: 'orgId',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
@@ -65,7 +74,8 @@ describe('resource context', () => {
 
   // Prism tests are disabled
   test.skip('upload: required and optional params', async () => {
-    const response = await client.datasets.context.upload('org_456', {
+    const response = await client.agents.datasets.context.upload('org_456', {
+      agentId: 'agentId',
       contextKey: 'orgId',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       notes: 'notes',

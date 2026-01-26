@@ -26,7 +26,9 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const conversation = await client.conversations.create({ userIdentifier: 'user_123' });
+const conversation = await client.agents.conversations.create('agentId', {
+  userIdentifier: 'user_123',
+});
 
 console.log(conversation.id);
 ```
@@ -43,11 +45,12 @@ const client = new Inconvo({
   apiKey: process.env['INCONVO_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Inconvo.ConversationCreateParams = {
+const params: Inconvo.Agents.ConversationCreateParams = {
   userIdentifier: 'user_123',
   userContext: { orgId: 'org_456' },
 };
-const conversation: Inconvo.ConversationCreateResponse = await client.conversations.create(params);
+const conversation: Inconvo.Agents.ConversationCreateResponse =
+  await client.agents.conversations.create('agentId', params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -68,19 +71,30 @@ import Inconvo, { toFile } from '@inconvoai/node';
 const client = new Inconvo();
 
 // If you have access to Node `fs` we recommend using `fs.createReadStream()`:
-await client.datasets.user.upload('user_123', { file: fs.createReadStream('/path/to/file') });
+await client.agents.datasets.user.upload('user_123', {
+  agentId: 'agentId',
+  file: fs.createReadStream('/path/to/file'),
+});
 
 // Or if you have the web `File` API you can pass a `File` instance:
-await client.datasets.user.upload('user_123', { file: new File(['my bytes'], 'file') });
+await client.agents.datasets.user.upload('user_123', {
+  agentId: 'agentId',
+  file: new File(['my bytes'], 'file'),
+});
 
 // You can also pass a `fetch` `Response`:
-await client.datasets.user.upload('user_123', { file: await fetch('https://somesite/file') });
+await client.agents.datasets.user.upload('user_123', {
+  agentId: 'agentId',
+  file: await fetch('https://somesite/file'),
+});
 
 // Finally, if none of the above are convenient, you can use our `toFile` helper:
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
+  agentId: 'agentId',
   file: await toFile(Buffer.from('my bytes'), 'file'),
 });
-await client.datasets.user.upload('user_123', {
+await client.agents.datasets.user.upload('user_123', {
+  agentId: 'agentId',
   file: await toFile(new Uint8Array([0, 1, 2]), 'file'),
 });
 ```
@@ -93,8 +107,8 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const conversation = await client.conversations
-  .create({
+const conversation = await client.agents.conversations
+  .create('agentId', {
     userIdentifier: 'user_123',
     userContext: { orgId: 'org_456' },
   })
@@ -138,7 +152,7 @@ const client = new Inconvo({
 });
 
 // Or, configure per-request:
-await client.conversations.create({
+await client.agents.conversations.create('agentId', {
   userIdentifier: 'user_123',
   userContext: { orgId: 'org_456' },
 }, {
@@ -158,7 +172,7 @@ const client = new Inconvo({
 });
 
 // Override per-request:
-await client.conversations.create({
+await client.agents.conversations.create('agentId', {
   userIdentifier: 'user_123',
   userContext: { orgId: 'org_456' },
 }, {
@@ -179,7 +193,7 @@ You can use the `for await … of` syntax to iterate through items across all pa
 async function fetchAllConversationListResponses(params) {
   const allConversationListResponses = [];
   // Automatically fetches more pages as needed.
-  for await (const conversationListResponse of client.conversations.list({
+  for await (const conversationListResponse of client.agents.conversations.list('agentId', {
     limit: 20,
     userIdentifier: 'user_123',
   })) {
@@ -192,7 +206,10 @@ async function fetchAllConversationListResponses(params) {
 Alternatively, you can request a single page at a time:
 
 ```ts
-let page = await client.conversations.list({ limit: 20, userIdentifier: 'user_123' });
+let page = await client.agents.conversations.list('agentId', {
+  limit: 20,
+  userIdentifier: 'user_123',
+});
 for (const conversationListResponse of page.items) {
   console.log(conversationListResponse);
 }
@@ -218,8 +235,8 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Inconvo();
 
-const response = await client.conversations
-  .create({
+const response = await client.agents.conversations
+  .create('agentId', {
     userIdentifier: 'user_123',
     userContext: { orgId: 'org_456' },
   })
@@ -227,8 +244,8 @@ const response = await client.conversations
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: conversation, response: raw } = await client.conversations
-  .create({
+const { data: conversation, response: raw } = await client.agents.conversations
+  .create('agentId', {
     userIdentifier: 'user_123',
     userContext: { orgId: 'org_456' },
   })
@@ -314,7 +331,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.conversations.create({
+client.agents.conversations.create({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',

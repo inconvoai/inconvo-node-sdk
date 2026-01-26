@@ -10,7 +10,7 @@ const client = new Inconvo({
 describe('resource dataSummary', () => {
   // Prism tests are disabled
   test.skip('retrieve', async () => {
-    const responsePromise = client.agents.dataSummary.retrieve();
+    const responsePromise = client.agents.dataSummary.retrieve('agentId');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;

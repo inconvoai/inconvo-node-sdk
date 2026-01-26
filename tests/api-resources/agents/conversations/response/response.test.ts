@@ -7,11 +7,12 @@ const client = new Inconvo({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource tenants', () => {
+describe('resource response', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.mcpServers.tenants.create('mcpserver_id', {
-      tenant: { 'fromapi@api.com': { organisationId: 'bar' } },
+    const responsePromise = client.agents.conversations.response.create('id', {
+      agentId: 'agentId',
+      message: 'message',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -24,14 +25,19 @@ describe('resource tenants', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.mcpServers.tenants.create('mcpserver_id', {
-      tenant: { 'fromapi@api.com': { organisationId: 'bar' } },
+    const response = await client.agents.conversations.response.create('id', {
+      agentId: 'agentId',
+      message: 'message',
+      stream: true,
     });
   });
 
   // Prism tests are disabled
-  test.skip('delete: only required params', async () => {
-    const responsePromise = client.mcpServers.tenants.delete('mcpserver_id', { tenant_key: 'tenant_key' });
+  test.skip('retrieve: only required params', async () => {
+    const responsePromise = client.agents.conversations.response.retrieve('response_id', {
+      agentId: 'agentId',
+      conversation_id: 'conversation_id',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,7 +48,10 @@ describe('resource tenants', () => {
   });
 
   // Prism tests are disabled
-  test.skip('delete: required and optional params', async () => {
-    const response = await client.mcpServers.tenants.delete('mcpserver_id', { tenant_key: 'tenant_key' });
+  test.skip('retrieve: required and optional params', async () => {
+    const response = await client.agents.conversations.response.retrieve('response_id', {
+      agentId: 'agentId',
+      conversation_id: 'conversation_id',
+    });
   });
 });

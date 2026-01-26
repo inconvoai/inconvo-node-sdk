@@ -1,13 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../core/resource';
+import { APIResource } from '../../../../core/resource';
 import * as ResponseAPI from './response';
 import * as FeedbackAPI from './feedback';
 import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams } from './feedback';
-import { APIPromise } from '../../../core/api-promise';
-import { RequestOptions } from '../../../internal/request-options';
-import { path } from '../../../internal/utils/path';
-import { SSEStream, createSSEStream } from '../../../core/sse-stream';
+import { APIPromise } from '../../../../core/api-promise';
+import { RequestOptions } from '../../../../internal/request-options';
+import { path } from '../../../../internal/utils/path';
+import { SSEStream, createSSEStream } from '../../../../core/sse-stream';
 
 export class Response extends APIResource {
   feedback: FeedbackAPI.FeedbackResource = new FeedbackAPI.FeedbackResource(this._client);
@@ -17,36 +17,38 @@ export class Response extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.conversations.response.create(
-   *   'id',
-   *   { message: 'message' },
-   * );
+   * const response =
+   *   await client.agents.conversations.response.create('id', {
+   *     agentId: 'agentId',
+   *     message: 'message',
+   *   });
    * ```
    */
   create(
     id: string,
-    body: ResponseCreateParams & { stream: true },
+    params: ResponseCreateParams & { stream: true },
     options?: RequestOptions,
   ): SSEStream<ResponseStreamEvent>;
   create(
     id: string,
-    body: ResponseCreateParams & { stream?: false },
+    params: ResponseCreateParams & { stream?: false },
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse>;
   create(
     id: string,
-    body: ResponseCreateParams,
+    params: ResponseCreateParams,
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse>;
   create(
     id: string,
-    body: ResponseCreateParams,
+    params: ResponseCreateParams,
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse> | SSEStream<ResponseStreamEvent> {
+    const { agentId, ...body } = params;
     if (body.stream === true) {
-      return this._createStreaming(id, body, options);
+      return this._createStreaming(id, agentId, body, options);
     }
-    return this._client.post(path`/conversations/${id}/response`, { body, ...options });
+    return this._client.post(path`/agents/${agentId}/conversations/${id}/response`, { body, ...options });
   }
 
   /**
@@ -55,9 +57,12 @@ export class Response extends APIResource {
    * @example
    * ```ts
    * const response =
-   *   await client.conversations.response.retrieve(
+   *   await client.agents.conversations.response.retrieve(
    *     'response_id',
-   *     { conversation_id: 'conversation_id' },
+   *     {
+   *       agentId: 'agentId',
+   *       conversation_id: 'conversation_id',
+   *     },
    *   );
    * ```
    */
@@ -66,13 +71,17 @@ export class Response extends APIResource {
     params: ResponseRetrieveParams,
     options?: RequestOptions,
   ): APIPromise<ResponseRetrieveResponse> {
-    const { conversation_id } = params;
-    return this._client.get(path`/conversations/${conversation_id}/response/${responseID}`, options);
+    const { agentId, conversation_id } = params;
+    return this._client.get(
+      path`/agents/${agentId}/conversations/${conversation_id}/response/${responseID}`,
+      options,
+    );
   }
 
   private _createStreaming(
     id: string,
-    body: ResponseCreateParams,
+    agentId: string,
+    body: Omit<ResponseCreateParams, 'agentId'>,
     options?: RequestOptions,
   ): SSEStream<ResponseStreamEvent> {
     // Create a controller for aborting the request if needed
@@ -90,7 +99,7 @@ export class Response extends APIResource {
     };
 
     // When __binaryResponse is true, post() returns the raw Response directly
-    const responsePromise = this._client.post(path`/conversations/${id}/response`, {
+    const responsePromise = this._client.post(path`/agents/${agentId}/conversations/${id}/response`, {
       body,
       ...requestOptions,
     }) as Promise<globalThis.Response>;
@@ -227,16 +236,29 @@ export type ResponseStreamEvent = ResponseCreatedEvent | ResponseProgressEvent |
 export type ResponseCreateStreamResponse = SSEStream<ResponseStreamEvent>;
 
 export interface ResponseCreateParams {
+  /**
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
+  /**
+   * Body param
+   */
   message: string;
 
   /**
-   * If true and the client sets `Accept: text/event-stream`, the API returns an SSE
-   * stream instead of a single JSON body.
+   * Body param: If true and the client sets `Accept: text/event-stream`, the API
+   * returns an SSE stream instead of a single JSON body.
    */
   stream?: boolean;
 }
 
 export interface ResponseRetrieveParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+
   conversation_id: string;
 }
 

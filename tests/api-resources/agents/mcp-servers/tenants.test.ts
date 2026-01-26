@@ -7,12 +7,12 @@ const client = new Inconvo({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource feedback', () => {
+describe('resource tenants', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.conversations.response.feedback.create('response_id', {
-      id: 'id',
-      rating: 'positive',
+    const responsePromise = client.agents.mcpServers.tenants.create('mcpserver_id', {
+      agentId: 'agentId',
+      tenant: { 'fromapi@api.com': { organisationId: 'bar' } },
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,18 +25,17 @@ describe('resource feedback', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.conversations.response.feedback.create('response_id', {
-      id: 'id',
-      rating: 'positive',
-      comment: 'comment',
+    const response = await client.agents.mcpServers.tenants.create('mcpserver_id', {
+      agentId: 'agentId',
+      tenant: { 'fromapi@api.com': { organisationId: 'bar' } },
     });
   });
 
   // Prism tests are disabled
-  test.skip('update: only required params', async () => {
-    const responsePromise = client.conversations.response.feedback.update('feedback_id', {
-      id: 'id',
-      response_id: 'response_id',
+  test.skip('delete: only required params', async () => {
+    const responsePromise = client.agents.mcpServers.tenants.delete('mcpserver_id', {
+      agentId: 'agentId',
+      tenant_key: 'tenant_key',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -48,12 +47,10 @@ describe('resource feedback', () => {
   });
 
   // Prism tests are disabled
-  test.skip('update: required and optional params', async () => {
-    const response = await client.conversations.response.feedback.update('feedback_id', {
-      id: 'id',
-      response_id: 'response_id',
-      comment: 'comment',
-      rating: 'positive',
+  test.skip('delete: required and optional params', async () => {
+    const response = await client.agents.mcpServers.tenants.delete('mcpserver_id', {
+      agentId: 'agentId',
+      tenant_key: 'tenant_key',
     });
   });
 });
