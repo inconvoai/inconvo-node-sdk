@@ -8,6 +8,12 @@ import { path } from '../../internal/utils/path';
 export class DataSummary extends APIResource {
   /**
    * Retrieve a summary of data available to the agent
+   *
+   * @example
+   * ```ts
+   * const dataSummary =
+   *   await client.agents.dataSummary.retrieve('agentId');
+   * ```
    */
   retrieve(agentID: string, options?: RequestOptions): APIPromise<DataSummaryRetrieveResponse> {
     return this._client.get(path`/agents/${agentID}/data-summary`, options);

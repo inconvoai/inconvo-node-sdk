@@ -13,11 +13,18 @@ export class User extends APIResource {
    *
    * @example
    * ```ts
-   * const users = await client.datasets.user.list('user_123');
+   * const users = await client.datasets.user.list('user_123', {
+   *   agentId: 'agentId',
+   * });
    * ```
    */
-  list(userIdentifier: string, options?: RequestOptions): APIPromise<UserListResponse> {
-    return this._client.get(path`/datasets/user/${userIdentifier}`, options);
+  list(
+    userIdentifier: string,
+    params: UserListParams,
+    options?: RequestOptions,
+  ): APIPromise<UserListResponse> {
+    const { agentId } = params;
+    return this._client.get(path`/agents/${agentId}/datasets/user/${userIdentifier}`, options);
   }
 
   /**
@@ -26,6 +33,7 @@ export class User extends APIResource {
    * @example
    * ```ts
    * const user = await client.datasets.user.delete('data.csv', {
+   *   agentId: 'agentId',
    *   userIdentifier: 'user_123',
    * });
    * ```
@@ -35,8 +43,8 @@ export class User extends APIResource {
     params: UserDeleteParams,
     options?: RequestOptions,
   ): APIPromise<UserDeleteResponse> {
-    const { userIdentifier } = params;
-    return this._client.delete(path`/datasets/user/${userIdentifier}/${filename}`, options);
+    const { agentId, userIdentifier } = params;
+    return this._client.delete(path`/agents/${agentId}/datasets/user/${userIdentifier}/${filename}`, options);
   }
 
   /**
@@ -46,17 +54,21 @@ export class User extends APIResource {
    * ```ts
    * const response = await client.datasets.user.upload(
    *   'user_123',
-   *   { file: fs.createReadStream('path/to/file') },
+   *   {
+   *     agentId: 'agentId',
+   *     file: fs.createReadStream('path/to/file'),
+   *   },
    * );
    * ```
    */
   upload(
     userIdentifier: string,
-    body: UserUploadParams,
+    params: UserUploadParams,
     options?: RequestOptions,
   ): APIPromise<UserUploadResponse> {
+    const { agentId, ...body } = params;
     return this._client.post(
-      path`/datasets/user/${userIdentifier}`,
+      path`/agents/${agentId}/datasets/user/${userIdentifier}`,
       multipartFormRequestOptions({ body, ...options }, this._client),
     );
   }
@@ -90,7 +102,19 @@ export namespace UserUploadResponse {
   }
 }
 
+export interface UserListParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+}
+
 export interface UserDeleteParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+
   /**
    * The user identifier
    */
@@ -99,12 +123,17 @@ export interface UserDeleteParams {
 
 export interface UserUploadParams {
   /**
-   * The file to upload (CSV or JSON, max 10MB)
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
+  /**
+   * Body param: The file to upload (CSV or JSON, max 10MB)
    */
   file: Uploadable;
 
   /**
-   * Optional notes or description for the dataset
+   * Body param: Optional notes or description for the dataset
    */
   notes?: string;
 }
@@ -114,6 +143,7 @@ export declare namespace User {
     type UserListResponse as UserListResponse,
     type UserDeleteResponse as UserDeleteResponse,
     type UserUploadResponse as UserUploadResponse,
+    type UserListParams as UserListParams,
     type UserDeleteParams as UserDeleteParams,
     type UserUploadParams as UserUploadParams,
   };

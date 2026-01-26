@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../core/resource';
+import { APIResource } from '../../../../core/resource';
 import * as ResponseAPI from './response';
 import * as FeedbackAPI from './feedback';
 import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams } from './feedback';
-import { APIPromise } from '../../../core/api-promise';
-import { RequestOptions } from '../../../internal/request-options';
-import { path } from '../../../internal/utils/path';
+import { APIPromise } from '../../../../core/api-promise';
+import { RequestOptions } from '../../../../internal/request-options';
+import { path } from '../../../../internal/utils/path';
 
 export class Response extends APIResource {
   feedback: FeedbackAPI.FeedbackResource = new FeedbackAPI.FeedbackResource(this._client);
@@ -16,18 +16,20 @@ export class Response extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.conversations.response.create(
-   *   'id',
-   *   { message: 'message' },
-   * );
+   * const response =
+   *   await client.agents.conversations.response.create('id', {
+   *     agentId: 'agentId',
+   *     message: 'message',
+   *   });
    * ```
    */
   create(
     id: string,
-    body: ResponseCreateParams,
+    params: ResponseCreateParams,
     options?: RequestOptions,
   ): APIPromise<ResponseCreateResponse> {
-    return this._client.post(path`/conversations/${id}/response`, { body, ...options });
+    const { agentId, ...body } = params;
+    return this._client.post(path`/agents/${agentId}/conversations/${id}/response`, { body, ...options });
   }
 
   /**
@@ -36,9 +38,12 @@ export class Response extends APIResource {
    * @example
    * ```ts
    * const response =
-   *   await client.conversations.response.retrieve(
+   *   await client.agents.conversations.response.retrieve(
    *     'response_id',
-   *     { conversation_id: 'conversation_id' },
+   *     {
+   *       agentId: 'agentId',
+   *       conversation_id: 'conversation_id',
+   *     },
    *   );
    * ```
    */
@@ -47,8 +52,11 @@ export class Response extends APIResource {
     params: ResponseRetrieveParams,
     options?: RequestOptions,
   ): APIPromise<ResponseRetrieveResponse> {
-    const { conversation_id } = params;
-    return this._client.get(path`/conversations/${conversation_id}/response/${responseID}`, options);
+    const { agentId, conversation_id } = params;
+    return this._client.get(
+      path`/agents/${agentId}/conversations/${conversation_id}/response/${responseID}`,
+      options,
+    );
   }
 }
 
@@ -147,16 +155,29 @@ export namespace ResponseRetrieveResponse {
 }
 
 export interface ResponseCreateParams {
+  /**
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
+  /**
+   * Body param
+   */
   message: string;
 
   /**
-   * If true and the client sets `Accept: text/event-stream`, the API returns an SSE
-   * stream instead of a single JSON body.
+   * Body param: If true and the client sets `Accept: text/event-stream`, the API
+   * returns an SSE stream instead of a single JSON body.
    */
   stream?: boolean;
 }
 
 export interface ResponseRetrieveParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+
   conversation_id: string;
 }
 

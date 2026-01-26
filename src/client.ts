@@ -20,15 +20,6 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { Agents } from './resources/agents/agents';
-import {
-  ConversationCreateParams,
-  ConversationCreateResponse,
-  ConversationListParams,
-  ConversationListResponse,
-  ConversationListResponsesConversationsCursor,
-  Conversations,
-  InconvoConversation,
-} from './resources/conversations/conversations';
 import { Datasets } from './resources/datasets/datasets';
 import { McpServers } from './resources/mcp-servers/mcp-servers';
 import { type Fetch } from './internal/builtin-types';
@@ -731,13 +722,11 @@ export class Inconvo {
 
   static toFile = Uploads.toFile;
 
-  conversations: API.Conversations = new API.Conversations(this);
   mcpServers: API.McpServers = new API.McpServers(this);
   agents: API.Agents = new API.Agents(this);
   datasets: API.Datasets = new API.Datasets(this);
 }
 
-Inconvo.Conversations = Conversations;
 Inconvo.McpServers = McpServers;
 Inconvo.Agents = Agents;
 Inconvo.Datasets = Datasets;
@@ -749,16 +738,6 @@ export declare namespace Inconvo {
   export {
     type ConversationsCursorParams as ConversationsCursorParams,
     type ConversationsCursorResponse as ConversationsCursorResponse,
-  };
-
-  export {
-    Conversations as Conversations,
-    type InconvoConversation as InconvoConversation,
-    type ConversationCreateResponse as ConversationCreateResponse,
-    type ConversationListResponse as ConversationListResponse,
-    type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
-    type ConversationCreateParams as ConversationCreateParams,
-    type ConversationListParams as ConversationListParams,
   };
 
   export { McpServers as McpServers };

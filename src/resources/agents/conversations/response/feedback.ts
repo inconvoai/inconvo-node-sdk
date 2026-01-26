@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../../core/resource';
-import { APIPromise } from '../../../core/api-promise';
-import { RequestOptions } from '../../../internal/request-options';
-import { path } from '../../../internal/utils/path';
+import { APIResource } from '../../../../core/resource';
+import { APIPromise } from '../../../../core/api-promise';
+import { RequestOptions } from '../../../../internal/request-options';
+import { path } from '../../../../internal/utils/path';
 
 export class FeedbackResource extends APIResource {
   /**
@@ -12,15 +12,19 @@ export class FeedbackResource extends APIResource {
    * @example
    * ```ts
    * const feedback =
-   *   await client.conversations.response.feedback.create(
+   *   await client.agents.conversations.response.feedback.create(
    *     'response_id',
-   *     { id: 'id', rating: 'positive' },
+   *     {
+   *       agentId: 'agentId',
+   *       id: 'id',
+   *       rating: 'positive',
+   *     },
    *   );
    * ```
    */
   create(responseID: string, params: FeedbackCreateParams, options?: RequestOptions): APIPromise<Feedback> {
-    const { id, ...body } = params;
-    return this._client.post(path`/conversations/${id}/response/${responseID}/feedback`, {
+    const { agentId, id, ...body } = params;
+    return this._client.post(path`/agents/${agentId}/conversations/${id}/response/${responseID}/feedback`, {
       body,
       ...options,
     });
@@ -32,18 +36,22 @@ export class FeedbackResource extends APIResource {
    * @example
    * ```ts
    * const feedback =
-   *   await client.conversations.response.feedback.update(
+   *   await client.agents.conversations.response.feedback.update(
    *     'feedback_id',
-   *     { id: 'id', response_id: 'response_id' },
+   *     {
+   *       agentId: 'agentId',
+   *       id: 'id',
+   *       response_id: 'response_id',
+   *     },
    *   );
    * ```
    */
   update(feedbackID: string, params: FeedbackUpdateParams, options?: RequestOptions): APIPromise<Feedback> {
-    const { id, response_id, ...body } = params;
-    return this._client.patch(path`/conversations/${id}/response/${response_id}/feedback/${feedbackID}`, {
-      body,
-      ...options,
-    });
+    const { agentId, id, response_id, ...body } = params;
+    return this._client.patch(
+      path`/agents/${agentId}/conversations/${id}/response/${response_id}/feedback/${feedbackID}`,
+      { body, ...options },
+    );
   }
 }
 
@@ -56,6 +64,11 @@ export interface Feedback {
 }
 
 export interface FeedbackCreateParams {
+  /**
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
   /**
    * Path param
    */
@@ -73,6 +86,11 @@ export interface FeedbackCreateParams {
 }
 
 export interface FeedbackUpdateParams {
+  /**
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
   /**
    * Path param
    */

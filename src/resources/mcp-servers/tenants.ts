@@ -15,6 +15,7 @@ export class Tenants extends APIResource {
    * const tenant = await client.mcpServers.tenants.create(
    *   'mcpserver_id',
    *   {
+   *     agentId: 'agentId',
    *     tenant: {
    *       'fromapi@api.com': { organisationId: 'bar' },
    *     },
@@ -27,8 +28,11 @@ export class Tenants extends APIResource {
     params: TenantCreateParams,
     options?: RequestOptions,
   ): APIPromise<TenantCreateResponse> {
-    const { tenant } = params;
-    return this._client.post(path`/mcpservers/${mcpserverID}/tenants`, { body: tenant, ...options });
+    const { agentId, tenant } = params;
+    return this._client.post(path`/agents/${agentId}/mcpservers/${mcpserverID}/tenants`, {
+      body: tenant,
+      ...options,
+    });
   }
 
   /**
@@ -37,13 +41,14 @@ export class Tenants extends APIResource {
    * @example
    * ```ts
    * await client.mcpServers.tenants.delete('mcpserver_id', {
+   *   agentId: 'agentId',
    *   tenant_key: 'tenant_key',
    * });
    * ```
    */
   delete(mcpserverID: string, params: TenantDeleteParams, options?: RequestOptions): APIPromise<void> {
-    const { tenant_key } = params;
-    return this._client.delete(path`/mcpservers/${mcpserverID}/tenants/${tenant_key}`, {
+    const { agentId, tenant_key } = params;
+    return this._client.delete(path`/agents/${agentId}/mcpservers/${mcpserverID}/tenants/${tenant_key}`, {
       ...options,
       headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
     });
@@ -60,7 +65,12 @@ export type TenantCreateResponse = { [key: string]: { [key: string]: unknown } }
 
 export interface TenantCreateParams {
   /**
-   * Arbitrary key-value mapping.
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
+  /**
+   * Body param: Arbitrary key-value mapping.
    *
    * - Keys are strings.
    * - Values are JSON objects with arbitrary properties.
@@ -69,6 +79,11 @@ export interface TenantCreateParams {
 }
 
 export interface TenantDeleteParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+
   tenant_key: string;
 }
 

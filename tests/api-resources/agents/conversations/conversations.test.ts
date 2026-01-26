@@ -10,7 +10,7 @@ const client = new Inconvo({
 describe('resource conversations', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.conversations.create({ userIdentifier: 'user_123' });
+    const responsePromise = client.agents.conversations.create('agentId', { userIdentifier: 'user_123' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,15 +22,15 @@ describe('resource conversations', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.conversations.create({
+    const response = await client.agents.conversations.create('agentId', {
       userIdentifier: 'user_123',
       userContext: { foo: 'bar' },
     });
   });
 
   // Prism tests are disabled
-  test.skip('retrieve', async () => {
-    const responsePromise = client.conversations.retrieve('id');
+  test.skip('retrieve: only required params', async () => {
+    const responsePromise = client.agents.conversations.retrieve('id', { agentId: 'agentId' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -41,8 +41,13 @@ describe('resource conversations', () => {
   });
 
   // Prism tests are disabled
+  test.skip('retrieve: required and optional params', async () => {
+    const response = await client.agents.conversations.retrieve('id', { agentId: 'agentId' });
+  });
+
+  // Prism tests are disabled
   test.skip('list', async () => {
-    const responsePromise = client.conversations.list();
+    const responsePromise = client.agents.conversations.list('agentId');
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -56,7 +61,8 @@ describe('resource conversations', () => {
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
-      client.conversations.list(
+      client.agents.conversations.list(
+        'agentId',
         {
           cursor: 'cursor',
           limit: 1,
