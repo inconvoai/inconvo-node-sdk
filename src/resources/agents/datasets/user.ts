@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIResource } from '../../core/resource';
-import { APIPromise } from '../../core/api-promise';
-import { type Uploadable } from '../../core/uploads';
-import { RequestOptions } from '../../internal/request-options';
-import { multipartFormRequestOptions } from '../../internal/uploads';
-import { path } from '../../internal/utils/path';
+import { APIResource } from '../../../core/resource';
+import { APIPromise } from '../../../core/api-promise';
+import { type Uploadable } from '../../../core/uploads';
+import { RequestOptions } from '../../../internal/request-options';
+import { multipartFormRequestOptions } from '../../../internal/uploads';
+import { path } from '../../../internal/utils/path';
 
 export class User extends APIResource {
   /**
@@ -13,9 +13,10 @@ export class User extends APIResource {
    *
    * @example
    * ```ts
-   * const users = await client.datasets.user.list('user_123', {
-   *   agentId: 'agentId',
-   * });
+   * const users = await client.agents.datasets.user.list(
+   *   'user_123',
+   *   { agentId: 'agentId' },
+   * );
    * ```
    */
   list(
@@ -32,10 +33,10 @@ export class User extends APIResource {
    *
    * @example
    * ```ts
-   * const user = await client.datasets.user.delete('data.csv', {
-   *   agentId: 'agentId',
-   *   userIdentifier: 'user_123',
-   * });
+   * const user = await client.agents.datasets.user.delete(
+   *   'data.csv',
+   *   { agentId: 'agentId', userIdentifier: 'user_123' },
+   * );
    * ```
    */
   delete(
@@ -52,7 +53,7 @@ export class User extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.datasets.user.upload(
+   * const response = await client.agents.datasets.user.upload(
    *   'user_123',
    *   {
    *     agentId: 'agentId',

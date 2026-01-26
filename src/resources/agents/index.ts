@@ -12,3 +12,4 @@ export {
   type ConversationListResponsesConversationsCursor,
 } from './conversations/index';
 export { DataSummary, type DataSummaryRetrieveResponse } from './data-summary';
+export { Datasets } from './datasets/index';
