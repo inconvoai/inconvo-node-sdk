@@ -59,8 +59,8 @@ Types:
 
 Methods:
 
-- <code title="post /agents/{agentId}/conversations/{id}/response/{response_id}/feedback">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">create</a>(responseID, { ...params }) -> Feedback</code>
-- <code title="patch /agents/{agentId}/conversations/{id}/response/{response_id}/feedback/{feedback_id}">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">update</a>(feedbackID, { ...params }) -> Feedback</code>
+- <code title="post /agents/{agentId}/conversations/{convo_id}/response/{response_id}/feedback">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">create</a>(responseID, { ...params }) -> Feedback</code>
+- <code title="patch /agents/{agentId}/conversations/{convo_id}/response/{response_id}/feedback/{feedback_id}">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">update</a>(feedbackID, { ...params }) -> Feedback</code>
 
 # Datasets
 
