@@ -3,13 +3,14 @@
 import { APIResource } from '../../core/resource';
 import { APIPromise } from '../../core/api-promise';
 import { RequestOptions } from '../../internal/request-options';
+import { path } from '../../internal/utils/path';
 
 export class DataSummary extends APIResource {
   /**
    * Retrieve a summary of data available to the agent
    */
-  retrieve(options?: RequestOptions): APIPromise<DataSummaryRetrieveResponse> {
-    return this._client.get('/agents/data-summary', options);
+  retrieve(agentID: string, options?: RequestOptions): APIPromise<DataSummaryRetrieveResponse> {
+    return this._client.get(path`/agents/${agentID}/data-summary`, options);
   }
 }
 
