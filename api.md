@@ -86,8 +86,9 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/agents/mcp-servers/tenants.ts">TenantCreateResponse</a></code>
+- <code><a href="./src/resources/agents/mcp-servers/tenants.ts">TenantDeleteResponse</a></code>
 
 Methods:
 
 - <code title="post /agents/{agentId}/mcpservers/{mcpserver_id}/tenants">client.agents.mcpServers.tenants.<a href="./src/resources/agents/mcp-servers/tenants.ts">create</a>(mcpserverID, { ...params }) -> TenantCreateResponse</code>
-- <code title="delete /agents/{agentId}/mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.agents.mcpServers.tenants.<a href="./src/resources/agents/mcp-servers/tenants.ts">delete</a>(mcpserverID, { ...params }) -> void</code>
+- <code title="delete /agents/{agentId}/mcpservers/{mcpserver_id}/tenants/{tenant_key}">client.agents.mcpServers.tenants.<a href="./src/resources/agents/mcp-servers/tenants.ts">delete</a>(mcpserverID, { ...params }) -> TenantDeleteResponse</code>
