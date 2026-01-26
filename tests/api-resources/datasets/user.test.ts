@@ -9,8 +9,8 @@ const client = new Inconvo({
 
 describe('resource user', () => {
   // Prism tests are disabled
-  test.skip('list', async () => {
-    const responsePromise = client.datasets.user.list('user_123');
+  test.skip('list: only required params', async () => {
+    const responsePromise = client.datasets.user.list('user_123', { agentId: 'agentId' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,8 +21,16 @@ describe('resource user', () => {
   });
 
   // Prism tests are disabled
+  test.skip('list: required and optional params', async () => {
+    const response = await client.datasets.user.list('user_123', { agentId: 'agentId' });
+  });
+
+  // Prism tests are disabled
   test.skip('delete: only required params', async () => {
-    const responsePromise = client.datasets.user.delete('data.csv', { userIdentifier: 'user_123' });
+    const responsePromise = client.datasets.user.delete('data.csv', {
+      agentId: 'agentId',
+      userIdentifier: 'user_123',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -34,12 +42,16 @@ describe('resource user', () => {
 
   // Prism tests are disabled
   test.skip('delete: required and optional params', async () => {
-    const response = await client.datasets.user.delete('data.csv', { userIdentifier: 'user_123' });
+    const response = await client.datasets.user.delete('data.csv', {
+      agentId: 'agentId',
+      userIdentifier: 'user_123',
+    });
   });
 
   // Prism tests are disabled
   test.skip('upload: only required params', async () => {
     const responsePromise = client.datasets.user.upload('user_123', {
+      agentId: 'agentId',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
@@ -54,6 +66,7 @@ describe('resource user', () => {
   // Prism tests are disabled
   test.skip('upload: required and optional params', async () => {
     const response = await client.datasets.user.upload('user_123', {
+      agentId: 'agentId',
       file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       notes: 'notes',
     });

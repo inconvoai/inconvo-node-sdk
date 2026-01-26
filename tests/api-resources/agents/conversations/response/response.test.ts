@@ -10,7 +10,8 @@ const client = new Inconvo({
 describe('resource response', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.conversations.response.create('id', {
+    const responsePromise = client.agents.conversations.response.create('id', {
+      agentId: 'agentId',
       message: 'message',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -24,12 +25,17 @@ describe('resource response', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.conversations.response.create('id', { message: 'message', stream: true });
+    const response = await client.agents.conversations.response.create('id', {
+      agentId: 'agentId',
+      message: 'message',
+      stream: true,
+    });
   });
 
   // Prism tests are disabled
   test.skip('retrieve: only required params', async () => {
-    const responsePromise = client.conversations.response.retrieve('response_id', {
+    const responsePromise = client.agents.conversations.response.retrieve('response_id', {
+      agentId: 'agentId',
       conversation_id: 'conversation_id',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -43,7 +49,8 @@ describe('resource response', () => {
 
   // Prism tests are disabled
   test.skip('retrieve: required and optional params', async () => {
-    const response = await client.conversations.response.retrieve('response_id', {
+    const response = await client.agents.conversations.response.retrieve('response_id', {
+      agentId: 'agentId',
       conversation_id: 'conversation_id',
     });
   });

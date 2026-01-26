@@ -16,7 +16,7 @@ export class Context extends APIResource {
    * ```ts
    * const contexts = await client.datasets.context.list(
    *   'org_456',
-   *   { contextKey: 'orgId' },
+   *   { agentId: 'agentId', contextKey: 'orgId' },
    * );
    * ```
    */
@@ -25,8 +25,8 @@ export class Context extends APIResource {
     params: ContextListParams,
     options?: RequestOptions,
   ): APIPromise<ContextListResponse> {
-    const { contextKey } = params;
-    return this._client.get(path`/datasets/context/${contextKey}/${contextValue}`, options);
+    const { agentId, contextKey } = params;
+    return this._client.get(path`/agents/${agentId}/datasets/context/${contextKey}/${contextValue}`, options);
   }
 
   /**
@@ -36,7 +36,11 @@ export class Context extends APIResource {
    * ```ts
    * const context = await client.datasets.context.delete(
    *   'shared_data.csv',
-   *   { contextKey: 'orgId', contextValue: 'org_456' },
+   *   {
+   *     agentId: 'agentId',
+   *     contextKey: 'orgId',
+   *     contextValue: 'org_456',
+   *   },
    * );
    * ```
    */
@@ -45,8 +49,11 @@ export class Context extends APIResource {
     params: ContextDeleteParams,
     options?: RequestOptions,
   ): APIPromise<ContextDeleteResponse> {
-    const { contextKey, contextValue } = params;
-    return this._client.delete(path`/datasets/context/${contextKey}/${contextValue}/${filename}`, options);
+    const { agentId, contextKey, contextValue } = params;
+    return this._client.delete(
+      path`/agents/${agentId}/datasets/context/${contextKey}/${contextValue}/${filename}`,
+      options,
+    );
   }
 
   /**
@@ -58,6 +65,7 @@ export class Context extends APIResource {
    * const response = await client.datasets.context.upload(
    *   'org_456',
    *   {
+   *     agentId: 'agentId',
    *     contextKey: 'orgId',
    *     file: fs.createReadStream('path/to/file'),
    *   },
@@ -69,9 +77,9 @@ export class Context extends APIResource {
     params: ContextUploadParams,
     options?: RequestOptions,
   ): APIPromise<ContextUploadResponse> {
-    const { contextKey, ...body } = params;
+    const { agentId, contextKey, ...body } = params;
     return this._client.post(
-      path`/datasets/context/${contextKey}/${contextValue}`,
+      path`/agents/${agentId}/datasets/context/${contextKey}/${contextValue}`,
       multipartFormRequestOptions({ body, ...options }, this._client),
     );
   }
@@ -107,12 +115,22 @@ export namespace ContextUploadResponse {
 
 export interface ContextListParams {
   /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+
+  /**
    * The context key (e.g., "orgId", "teamId")
    */
   contextKey: string;
 }
 
 export interface ContextDeleteParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+
   /**
    * The context key (e.g., "orgId", "teamId")
    */
@@ -125,6 +143,11 @@ export interface ContextDeleteParams {
 }
 
 export interface ContextUploadParams {
+  /**
+   * Path param: The unique identifier of the agent
+   */
+  agentId: string;
+
   /**
    * Path param: The context key (e.g., "orgId", "teamId")
    */
