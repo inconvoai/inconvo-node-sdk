@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.6.0 (2026-02-04)
+
+Full Changelog: [v0.5.0...v0.6.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.5.0...v0.6.0)
+
+### Features
+
+* **api:** manual updates ([ccc57de](https://github.com/inconvoai/inconvo-node-sdk/commit/ccc57ded5c5e187a6fed743f3da87358c67ec8c2))
+
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([e9eb0e7](https://github.com/inconvoai/inconvo-node-sdk/commit/e9eb0e75deb3c1bd82735b19375cf08f89d44e9e))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([8005d73](https://github.com/inconvoai/inconvo-node-sdk/commit/8005d73d3c83663a5b56e14a7a0c4a0048eaa1aa))
+* update SDK settings ([e11a070](https://github.com/inconvoai/inconvo-node-sdk/commit/e11a070d79b83918a3d48de2781412877c73ccf1))
+* update SDK settings ([530e895](https://github.com/inconvoai/inconvo-node-sdk/commit/530e8956f5c8b01297d4a5357884e001bdd334f7))
+* update SDK settings ([8c17faa](https://github.com/inconvoai/inconvo-node-sdk/commit/8c17faad951c80085707dbe10f7fdffff25e51c0))
+
 ## 0.5.0 (2026-01-26)
 
 Full Changelog: [v0.4.0...v0.5.0](https://github.com/ten-dev/inconvo-node-sdk/compare/v0.4.0...v0.5.0)
