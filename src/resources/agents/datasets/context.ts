@@ -10,7 +10,7 @@ import { path } from '../../../internal/utils/path';
 export class Context extends APIResource {
   /**
    * List all dataset files scoped to a context value. These files are shared with
-   * all users who have this context value.
+   * all users who have this context value. Requires User Context to be enabled.
    *
    * @example
    * ```ts
@@ -30,7 +30,8 @@ export class Context extends APIResource {
   }
 
   /**
-   * Delete a dataset file scoped to a context value.
+   * Delete a dataset file scoped to a context value. Requires User Context to be
+   * enabled.
    *
    * @example
    * ```ts
@@ -58,7 +59,8 @@ export class Context extends APIResource {
 
   /**
    * Upload a dataset file scoped to a context value. This file will be shared with
-   * all users who have this context value.
+   * all users who have this context value. Requires User Context to be enabled and
+   * contextKey to be defined in the schema.
    *
    * @example
    * ```ts

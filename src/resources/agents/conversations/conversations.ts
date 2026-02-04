@@ -91,7 +91,10 @@ export interface InconvoConversation {
 
   messages: Array<InconvoConversation.Message>;
 
-  userContext: { [key: string]: string | number };
+  /**
+   * User context values (null when user context is disabled)
+   */
+  userContext: { [key: string]: string | number } | null;
 
   /**
    * Unique identifier for the end-user (may be null for legacy conversations)
@@ -130,7 +133,10 @@ export interface ConversationListResponse {
 
   title: string;
 
-  userContext: { [key: string]: string | number };
+  /**
+   * User context values (null when user context is disabled)
+   */
+  userContext: { [key: string]: string | number } | null;
 
   /**
    * Unique identifier for the end-user (may be null for legacy conversations)
@@ -146,7 +152,9 @@ export interface ConversationCreateParams {
   userIdentifier: string;
 
   /**
-   * Optional context key-values for additional filtering/tenancy.
+   * Optional context key-values for additional filtering/tenancy. Required when User
+   * Context status is ENABLED. Must be omitted when User Context status is DISABLED.
+   * Requests fail when User Context is UNSET.
    */
   userContext?: { [key: string]: unknown };
 }

@@ -112,9 +112,9 @@ export namespace ResponseRetrieveResponse {
     message: string;
 
     /**
-     * Additional context as key-value pairs
+     * Additional context as key-value pairs (null when user context is disabled)
      */
-    userContext: { [key: string]: unknown };
+    userContext: { [key: string]: unknown } | null;
   }
 
   export interface Output {
