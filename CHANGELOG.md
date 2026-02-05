@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.1 (2026-02-05)
+
+Full Changelog: [v0.6.0...v0.6.1](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.0...v0.6.1)
+
+### Chores
+
+* **client:** restructure abort controller binding ([fb4ca88](https://github.com/inconvoai/inconvo-node-sdk/commit/fb4ca88a7917864e0839c3d51e1ef950b01080a8))
+
 ## 0.6.0 (2026-02-04)
 
 Full Changelog: [v0.5.0...v0.6.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.5.0...v0.6.0)
