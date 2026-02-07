@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.2 (2026-02-06)
+
+Full Changelog: [v0.6.1...v0.6.2](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.1...v0.6.2)
+
+### Bug Fixes
+
+* **client:** avoid removing abort listener too early ([a648f7e](https://github.com/inconvoai/inconvo-node-sdk/commit/a648f7ea69d4f7558a524a1f0fd6100f4fe972cf))
+
+
+### Chores
+
+* **internal:** fix pagination internals not accepting option promises ([9824a08](https://github.com/inconvoai/inconvo-node-sdk/commit/9824a0877743378ee5a27ce7e6426e4c4b91b5c6))
+
 ## 0.6.1 (2026-02-05)
 
 Full Changelog: [v0.6.0...v0.6.1](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.0...v0.6.1)
