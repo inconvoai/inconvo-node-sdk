@@ -2,13 +2,7 @@
 
 import { APIResource } from '../../../core/resource';
 import * as ResponseAPI from './response/response';
-import {
-  Chart,
-  Response,
-  ResponseRetrieveParams,
-  ResponseRetrieveResponse,
-  Table,
-} from './response/response';
+import { Chart, Response, ResponseCreateParams, ResponseCreateResponse, Table } from './response/response';
 import { APIPromise } from '../../../core/api-promise';
 import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -34,6 +28,26 @@ export class Conversations extends APIResource {
     options?: RequestOptions,
   ): APIPromise<ConversationCreateResponse> {
     return this._client.post(path`/agents/${agentID}/conversations`, { body, ...options });
+  }
+
+  /**
+   * Retrieve conversation
+   *
+   * @example
+   * ```ts
+   * const inconvoConversation =
+   *   await client.agents.conversations.retrieve('id', {
+   *     agentId: 'agentId',
+   *   });
+   * ```
+   */
+  retrieve(
+    id: string,
+    params: ConversationRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<InconvoConversation> {
+    const { agentId } = params;
+    return this._client.get(path`/agents/${agentId}/conversations/${id}`, options);
   }
 
   /**
@@ -137,6 +151,13 @@ export interface ConversationCreateParams {
   userContext?: { [key: string]: string | number | boolean };
 }
 
+export interface ConversationRetrieveParams {
+  /**
+   * The unique identifier of the agent
+   */
+  agentId: string;
+}
+
 export interface ConversationListParams extends ConversationsCursorParams {
   /**
    * Arbitrary userContext filters, encoded as a deep object. Example: GET
@@ -159,6 +180,7 @@ export declare namespace Conversations {
     type ConversationListResponse as ConversationListResponse,
     type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
+    type ConversationRetrieveParams as ConversationRetrieveParams,
     type ConversationListParams as ConversationListParams,
   };
 
@@ -166,7 +188,7 @@ export declare namespace Conversations {
     Response as Response,
     type Chart as Chart,
     type Table as Table,
-    type ResponseRetrieveResponse as ResponseRetrieveResponse,
-    type ResponseRetrieveParams as ResponseRetrieveParams,
+    type ResponseCreateResponse as ResponseCreateResponse,
+    type ResponseCreateParams as ResponseCreateParams,
   };
 }

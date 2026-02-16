@@ -29,6 +29,23 @@ describe('resource conversations', () => {
   });
 
   // Prism tests are disabled
+  test.skip('retrieve: only required params', async () => {
+    const responsePromise = client.agents.conversations.retrieve('id', { agentId: 'agentId' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('retrieve: required and optional params', async () => {
+    const response = await client.agents.conversations.retrieve('id', { agentId: 'agentId' });
+  });
+
+  // Prism tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.agents.conversations.list('agentId');
     const rawResponse = await responsePromise.asResponse();

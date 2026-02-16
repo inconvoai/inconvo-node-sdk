@@ -3,7 +3,7 @@
 import { APIResource } from '../../../../core/resource';
 import * as ResponseAPI from './response';
 import * as FeedbackAPI from './feedback';
-import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams } from './feedback';
+import { Feedback, FeedbackResource } from './feedback';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -129,7 +129,7 @@ export interface ResponseCreateResponse {
 
   message: string;
 
-  type: 'text' | 'chart' | 'table';
+  type: 'text' | 'chart' | 'table' | 'error';
 
   /**
    * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
@@ -138,6 +138,7 @@ export interface ResponseCreateResponse {
 
   table?: Table;
 }
+
 export interface ResponseRetrieveResponse {
   /**
    * Unique identifier for the response
@@ -203,6 +204,7 @@ export namespace ResponseRetrieveResponse {
     output: unknown;
   }
 }
+
 /**
  * Event types for streaming responses
  */
@@ -280,10 +282,5 @@ export declare namespace Response {
     type ResponseStreamEvent as ResponseStreamEvent,
   };
 
-  export {
-    FeedbackResource as FeedbackResource,
-    type Feedback as Feedback,
-    type FeedbackCreateParams as FeedbackCreateParams,
-    type FeedbackUpdateParams as FeedbackUpdateParams,
-  };
+  export { FeedbackResource as FeedbackResource, type Feedback as Feedback };
 }

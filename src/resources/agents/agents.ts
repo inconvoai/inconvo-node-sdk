@@ -10,6 +10,7 @@ import {
   ConversationListParams,
   ConversationListResponse,
   ConversationListResponsesConversationsCursor,
+  ConversationRetrieveParams,
   Conversations,
   InconvoConversation,
 } from './conversations/conversations';
@@ -40,6 +41,7 @@ export declare namespace Agents {
     type ConversationListResponse as ConversationListResponse,
     type ConversationListResponsesConversationsCursor as ConversationListResponsesConversationsCursor,
     type ConversationCreateParams as ConversationCreateParams,
+    type ConversationRetrieveParams as ConversationRetrieveParams,
     type ConversationListParams as ConversationListParams,
   };
 
