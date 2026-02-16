@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.0 (2026-02-16)
+
+Full Changelog: [v0.6.3...v0.7.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.3...v0.7.0)
+
+### Features
+
+* **api:** manual updates ([6b8bfc2](https://github.com/inconvoai/inconvo-node-sdk/commit/6b8bfc2246627b01704475d7cbd82fdeaf578258))
+* **api:** manual updates ([1110181](https://github.com/inconvoai/inconvo-node-sdk/commit/1110181ac36e686ee8594c3710c723b6f36f8a2e))
+* **api:** support boolean userContext fields ([0962782](https://github.com/inconvoai/inconvo-node-sdk/commit/096278288976494108864d817ce39d8487ac77e9))
+
 ## 0.6.3 (2026-02-12)
 
 Full Changelog: [v0.6.2...v0.6.3](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.2...v0.6.3)
