@@ -1,9 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../../../../core/resource';
-import * as ResponseAPI from './response';
 import * as FeedbackAPI from './feedback';
-import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams } from './feedback';
+import { Feedback, FeedbackResource } from './feedback';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -12,30 +11,24 @@ export class Response extends APIResource {
   feedback: FeedbackAPI.FeedbackResource = new FeedbackAPI.FeedbackResource(this._client);
 
   /**
-   * Get a response
+   * Create response (sync or streamed)
    *
    * @example
    * ```ts
    * const response =
-   *   await client.agents.conversations.response.retrieve(
-   *     'response_id',
-   *     {
-   *       agentId: 'agentId',
-   *       conversation_id: 'conversation_id',
-   *     },
-   *   );
+   *   await client.agents.conversations.response.create('id', {
+   *     agentId: 'agentId',
+   *     message: 'message',
+   *   });
    * ```
    */
-  retrieve(
-    responseID: string,
-    params: ResponseRetrieveParams,
+  create(
+    id: string,
+    params: ResponseCreateParams,
     options?: RequestOptions,
-  ): APIPromise<ResponseRetrieveResponse> {
-    const { agentId, conversation_id } = params;
-    return this._client.get(
-      path`/agents/${agentId}/conversations/${conversation_id}/response/${responseID}`,
-      options,
-    );
+  ): APIPromise<ResponseCreateResponse> {
+    const { agentId, ...body } = params;
+    return this._client.post(path`/agents/${agentId}/conversations/${id}/response`, { body, ...options });
   }
 }
 
@@ -50,79 +43,39 @@ export interface Table {
   head: Array<string>;
 }
 
-export interface ResponseRetrieveResponse {
-  /**
-   * Unique identifier for the response
-   */
+export interface ResponseCreateResponse {
   id: string;
 
-  input: ResponseRetrieveResponse.Input;
+  conversationId: string;
 
-  output: ResponseRetrieveResponse.Output;
+  message: string;
+
+  type: 'text' | 'chart' | 'table' | 'error';
 
   /**
-   * Array of trace steps
+   * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
    */
-  trace: Array<ResponseRetrieveResponse.Trace>;
+  chart?: Chart;
+
+  table?: Table;
 }
 
-export namespace ResponseRetrieveResponse {
-  export interface Input {
-    /**
-     * The input message
-     */
-    message: string;
-
-    /**
-     * Additional context as key-value pairs (null when user context is disabled)
-     */
-    userContext: { [key: string]: unknown } | null;
-  }
-
-  export interface Output {
-    /**
-     * The response text
-     */
-    text: string;
-
-    /**
-     * Type of the output
-     */
-    type: 'text' | 'chart' | 'table' | 'error';
-
-    /**
-     * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
-     */
-    chart?: ResponseAPI.Chart;
-
-    table?: ResponseAPI.Table;
-  }
-
-  export interface Trace {
-    /**
-     * Input data for the trace step
-     */
-    input: unknown;
-
-    /**
-     * Name of the trace step
-     */
-    name: string;
-
-    /**
-     * Output data from the trace step
-     */
-    output: unknown;
-  }
-}
-
-export interface ResponseRetrieveParams {
+export interface ResponseCreateParams {
   /**
-   * The unique identifier of the agent
+   * Path param: The unique identifier of the agent
    */
   agentId: string;
 
-  conversation_id: string;
+  /**
+   * Body param
+   */
+  message: string;
+
+  /**
+   * Body param: If true and the client sets `Accept: text/event-stream`, the API
+   * returns an SSE stream instead of a single JSON body.
+   */
+  stream?: boolean;
 }
 
 Response.FeedbackResource = FeedbackResource;
@@ -131,14 +84,9 @@ export declare namespace Response {
   export {
     type Chart as Chart,
     type Table as Table,
-    type ResponseRetrieveResponse as ResponseRetrieveResponse,
-    type ResponseRetrieveParams as ResponseRetrieveParams,
+    type ResponseCreateResponse as ResponseCreateResponse,
+    type ResponseCreateParams as ResponseCreateParams,
   };
 
-  export {
-    FeedbackResource as FeedbackResource,
-    type Feedback as Feedback,
-    type FeedbackCreateParams as FeedbackCreateParams,
-    type FeedbackUpdateParams as FeedbackUpdateParams,
-  };
+  export { FeedbackResource as FeedbackResource, type Feedback as Feedback };
 }
