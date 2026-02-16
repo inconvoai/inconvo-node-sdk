@@ -2,7 +2,15 @@
 
 import { APIResource } from '../../../core/resource';
 import * as ResponseAPI from './response/response';
-import { Chart, Response, ResponseCreateParams, ResponseCreateResponse, Table } from './response/response';
+import {
+  Chart,
+  Response,
+  ResponseCreateParams,
+  ResponseCreateResponse,
+  ResponseRetrieveParams,
+  ResponseRetrieveResponse,
+  Table,
+} from './response/response';
 import { APIPromise } from '../../../core/api-promise';
 import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from '../../../core/pagination';
 import { RequestOptions } from '../../../internal/request-options';
@@ -36,18 +44,19 @@ export class Conversations extends APIResource {
    * @example
    * ```ts
    * const inconvoConversation =
-   *   await client.agents.conversations.retrieve('id', {
-   *     agentId: 'agentId',
-   *   });
+   *   await client.agents.conversations.retrieve(
+   *     'conversation_id',
+   *     { agentId: 'agentId' },
+   *   );
    * ```
    */
   retrieve(
-    id: string,
+    conversationID: string,
     params: ConversationRetrieveParams,
     options?: RequestOptions,
   ): APIPromise<InconvoConversation> {
     const { agentId } = params;
-    return this._client.get(path`/agents/${agentId}/conversations/${id}`, options);
+    return this._client.get(path`/agents/${agentId}/conversations/${conversationID}`, options);
   }
 
   /**
@@ -189,6 +198,8 @@ export declare namespace Conversations {
     type Chart as Chart,
     type Table as Table,
     type ResponseCreateResponse as ResponseCreateResponse,
+    type ResponseRetrieveResponse as ResponseRetrieveResponse,
     type ResponseCreateParams as ResponseCreateParams,
+    type ResponseRetrieveParams as ResponseRetrieveParams,
   };
 }

@@ -7,12 +7,13 @@ const client = new Inconvo({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource response', () => {
+describe('resource feedback', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.agents.conversations.response.create('conversation_id', {
+    const responsePromise = client.agents.conversations.response.feedback.create('response_id', {
       agentId: 'agentId',
-      message: 'message',
+      conversation_id: 'conversation_id',
+      rating: 'positive',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -25,18 +26,20 @@ describe('resource response', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.agents.conversations.response.create('conversation_id', {
+    const response = await client.agents.conversations.response.feedback.create('response_id', {
       agentId: 'agentId',
-      message: 'message',
-      stream: true,
+      conversation_id: 'conversation_id',
+      rating: 'positive',
+      comment: 'comment',
     });
   });
 
   // Prism tests are disabled
-  test.skip('retrieve: only required params', async () => {
-    const responsePromise = client.agents.conversations.response.retrieve('response_id', {
+  test.skip('update: only required params', async () => {
+    const responsePromise = client.agents.conversations.response.feedback.update('feedback_id', {
       agentId: 'agentId',
       conversation_id: 'conversation_id',
+      response_id: 'response_id',
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -48,10 +51,13 @@ describe('resource response', () => {
   });
 
   // Prism tests are disabled
-  test.skip('retrieve: required and optional params', async () => {
-    const response = await client.agents.conversations.response.retrieve('response_id', {
+  test.skip('update: required and optional params', async () => {
+    const response = await client.agents.conversations.response.feedback.update('feedback_id', {
       agentId: 'agentId',
       conversation_id: 'conversation_id',
+      response_id: 'response_id',
+      comment: 'comment',
+      rating: 'positive',
     });
   });
 });
