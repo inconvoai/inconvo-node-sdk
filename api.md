@@ -21,7 +21,6 @@ Types:
 Methods:
 
 - <code title="post /agents/{agentId}/conversations">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">create</a>(agentID, { ...params }) -> ConversationCreateResponse</code>
-- <code title="get /agents/{agentId}/conversations/{id}">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">retrieve</a>(id, { ...params }) -> InconvoConversation</code>
 - <code title="get /agents/{agentId}/conversations">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">list</a>(agentID, { ...params }) -> ConversationListResponsesConversationsCursor</code>
 
 ### Response
@@ -30,12 +29,10 @@ Types:
 
 - <code><a href="./src/resources/agents/conversations/response/response.ts">Chart</a></code>
 - <code><a href="./src/resources/agents/conversations/response/response.ts">Table</a></code>
-- <code><a href="./src/resources/agents/conversations/response/response.ts">ResponseCreateResponse</a></code>
 - <code><a href="./src/resources/agents/conversations/response/response.ts">ResponseRetrieveResponse</a></code>
 
 Methods:
 
-- <code title="post /agents/{agentId}/conversations/{id}/response">client.agents.conversations.response.<a href="./src/resources/agents/conversations/response/response.ts">create</a>(id, { ...params }) -> ResponseCreateResponse</code>
 - <code title="get /agents/{agentId}/conversations/{conversation_id}/response/{response_id}">client.agents.conversations.response.<a href="./src/resources/agents/conversations/response/response.ts">retrieve</a>(responseID, { ...params }) -> ResponseRetrieveResponse</code>
 
 #### Feedback

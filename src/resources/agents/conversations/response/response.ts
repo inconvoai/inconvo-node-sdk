@@ -138,7 +138,6 @@ export interface ResponseCreateResponse {
 
   table?: Table;
 }
-
 export interface ResponseRetrieveResponse {
   /**
    * Unique identifier for the response
@@ -177,7 +176,7 @@ export namespace ResponseRetrieveResponse {
     /**
      * Type of the output
      */
-    type: 'text' | 'chart' | 'table';
+    type: 'text' | 'chart' | 'table' | 'error';
 
     /**
      * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
