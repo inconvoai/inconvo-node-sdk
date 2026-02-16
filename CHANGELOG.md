@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.3 (2026-02-12)
+
+Full Changelog: [v0.6.2...v0.6.3](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.2...v0.6.3)
+
+### Chores
+
+* **internal:** avoid type checking errors with ts-reset ([9a20886](https://github.com/inconvoai/inconvo-node-sdk/commit/9a2088635c5466d7a513a7f3f146ccf0be59db9a))
+
 ## 0.6.2 (2026-02-06)
 
 Full Changelog: [v0.6.1...v0.6.2](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.1...v0.6.2)
