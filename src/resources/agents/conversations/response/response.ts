@@ -3,7 +3,7 @@
 import { APIResource } from '../../../../core/resource';
 import * as ResponseAPI from './response';
 import * as FeedbackAPI from './feedback';
-import { Feedback, FeedbackResource } from './feedback';
+import { Feedback, FeedbackCreateParams, FeedbackResource, FeedbackUpdateParams } from './feedback';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -18,10 +18,10 @@ export class Response extends APIResource {
    * @example
    * ```ts
    * const response =
-   *   await client.agents.conversations.response.create('id', {
-   *     agentId: 'agentId',
-   *     message: 'message',
-   *   });
+   *   await client.agents.conversations.response.create(
+   *     'conversation_id',
+   *     { agentId: 'agentId', message: 'message' },
+   *   );
    * ```
    */
   create(
@@ -282,5 +282,10 @@ export declare namespace Response {
     type ResponseStreamEvent as ResponseStreamEvent,
   };
 
-  export { FeedbackResource as FeedbackResource, type Feedback as Feedback };
+  export {
+    FeedbackResource as FeedbackResource,
+    type Feedback as Feedback,
+    type FeedbackCreateParams as FeedbackCreateParams,
+    type FeedbackUpdateParams as FeedbackUpdateParams,
+  };
 }
