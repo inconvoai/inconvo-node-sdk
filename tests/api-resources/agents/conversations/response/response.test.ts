@@ -10,7 +10,7 @@ const client = new Inconvo({
 describe('resource response', () => {
   // Prism tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.agents.conversations.response.create('id', {
+    const responsePromise = client.agents.conversations.response.create('conversation_id', {
       agentId: 'agentId',
       message: 'message',
     });
@@ -25,7 +25,7 @@ describe('resource response', () => {
 
   // Prism tests are disabled
   test.skip('create: required and optional params', async () => {
-    const response = await client.agents.conversations.response.create('id', {
+    const response = await client.agents.conversations.response.create('conversation_id', {
       agentId: 'agentId',
       message: 'message',
       stream: true,

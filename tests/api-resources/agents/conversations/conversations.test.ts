@@ -24,13 +24,13 @@ describe('resource conversations', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.agents.conversations.create('agentId', {
       userIdentifier: 'user_123',
-      userContext: { foo: 'bar' },
+      userContext: { foo: 'string' },
     });
   });
 
   // Prism tests are disabled
   test.skip('retrieve: only required params', async () => {
-    const responsePromise = client.agents.conversations.retrieve('id', { agentId: 'agentId' });
+    const responsePromise = client.agents.conversations.retrieve('conversation_id', { agentId: 'agentId' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -42,7 +42,7 @@ describe('resource conversations', () => {
 
   // Prism tests are disabled
   test.skip('retrieve: required and optional params', async () => {
-    const response = await client.agents.conversations.retrieve('id', { agentId: 'agentId' });
+    const response = await client.agents.conversations.retrieve('conversation_id', { agentId: 'agentId' });
   });
 
   // Prism tests are disabled

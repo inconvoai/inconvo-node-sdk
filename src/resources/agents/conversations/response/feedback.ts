@@ -16,16 +16,16 @@ export class FeedbackResource extends APIResource {
    *     'response_id',
    *     {
    *       agentId: 'agentId',
-   *       convo_id: 'convo_id',
+   *       conversation_id: 'conversation_id',
    *       rating: 'positive',
    *     },
    *   );
    * ```
    */
   create(responseID: string, params: FeedbackCreateParams, options?: RequestOptions): APIPromise<Feedback> {
-    const { agentId, convo_id, ...body } = params;
+    const { agentId, conversation_id, ...body } = params;
     return this._client.post(
-      path`/agents/${agentId}/conversations/${convo_id}/response/${responseID}/feedback`,
+      path`/agents/${agentId}/conversations/${conversation_id}/response/${responseID}/feedback`,
       { body, ...options },
     );
   }
@@ -40,16 +40,16 @@ export class FeedbackResource extends APIResource {
    *     'feedback_id',
    *     {
    *       agentId: 'agentId',
-   *       convo_id: 'convo_id',
+   *       conversation_id: 'conversation_id',
    *       response_id: 'response_id',
    *     },
    *   );
    * ```
    */
   update(feedbackID: string, params: FeedbackUpdateParams, options?: RequestOptions): APIPromise<Feedback> {
-    const { agentId, convo_id, response_id, ...body } = params;
+    const { agentId, conversation_id, response_id, ...body } = params;
     return this._client.patch(
-      path`/agents/${agentId}/conversations/${convo_id}/response/${response_id}/feedback/${feedbackID}`,
+      path`/agents/${agentId}/conversations/${conversation_id}/response/${response_id}/feedback/${feedbackID}`,
       { body, ...options },
     );
   }
@@ -72,7 +72,7 @@ export interface FeedbackCreateParams {
   /**
    * Path param
    */
-  convo_id: string;
+  conversation_id: string;
 
   /**
    * Body param
@@ -94,7 +94,7 @@ export interface FeedbackUpdateParams {
   /**
    * Path param
    */
-  convo_id: string;
+  conversation_id: string;
 
   /**
    * Path param

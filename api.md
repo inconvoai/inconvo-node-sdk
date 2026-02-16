@@ -21,7 +21,7 @@ Types:
 Methods:
 
 - <code title="post /agents/{agentId}/conversations">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">create</a>(agentID, { ...params }) -> ConversationCreateResponse</code>
-- <code title="get /agents/{agentId}/conversations/{id}">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">retrieve</a>(id, { ...params }) -> InconvoConversation</code>
+- <code title="get /agents/{agentId}/conversations/{conversation_id}">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">retrieve</a>(conversationID, { ...params }) -> InconvoConversation</code>
 - <code title="get /agents/{agentId}/conversations">client.agents.conversations.<a href="./src/resources/agents/conversations/conversations.ts">list</a>(agentID, { ...params }) -> ConversationListResponsesConversationsCursor</code>
 
 ### Response
@@ -35,7 +35,7 @@ Types:
 
 Methods:
 
-- <code title="post /agents/{agentId}/conversations/{id}/response">client.agents.conversations.response.<a href="./src/resources/agents/conversations/response/response.ts">create</a>(id, { ...params }) -> ResponseCreateResponse</code>
+- <code title="post /agents/{agentId}/conversations/{conversation_id}/response">client.agents.conversations.response.<a href="./src/resources/agents/conversations/response/response.ts">create</a>(conversationID, { ...params }) -> ResponseCreateResponse</code>
 - <code title="get /agents/{agentId}/conversations/{conversation_id}/response/{response_id}">client.agents.conversations.response.<a href="./src/resources/agents/conversations/response/response.ts">retrieve</a>(responseID, { ...params }) -> ResponseRetrieveResponse</code>
 
 #### Feedback
@@ -46,8 +46,8 @@ Types:
 
 Methods:
 
-- <code title="post /agents/{agentId}/conversations/{convo_id}/response/{response_id}/feedback">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">create</a>(responseID, { ...params }) -> Feedback</code>
-- <code title="patch /agents/{agentId}/conversations/{convo_id}/response/{response_id}/feedback/{feedback_id}">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">update</a>(feedbackID, { ...params }) -> Feedback</code>
+- <code title="post /agents/{agentId}/conversations/{conversation_id}/response/{response_id}/feedback">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">create</a>(responseID, { ...params }) -> Feedback</code>
+- <code title="patch /agents/{agentId}/conversations/{conversation_id}/response/{response_id}/feedback/{feedback_id}">client.agents.conversations.response.feedback.<a href="./src/resources/agents/conversations/response/feedback.ts">update</a>(feedbackID, { ...params }) -> Feedback</code>
 
 ## Datasets
 

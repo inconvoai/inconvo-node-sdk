@@ -12,7 +12,7 @@ describe('resource feedback', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.agents.conversations.response.feedback.create('response_id', {
       agentId: 'agentId',
-      convo_id: 'convo_id',
+      conversation_id: 'conversation_id',
       rating: 'positive',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -28,7 +28,7 @@ describe('resource feedback', () => {
   test.skip('create: required and optional params', async () => {
     const response = await client.agents.conversations.response.feedback.create('response_id', {
       agentId: 'agentId',
-      convo_id: 'convo_id',
+      conversation_id: 'conversation_id',
       rating: 'positive',
       comment: 'comment',
     });
@@ -38,7 +38,7 @@ describe('resource feedback', () => {
   test.skip('update: only required params', async () => {
     const responsePromise = client.agents.conversations.response.feedback.update('feedback_id', {
       agentId: 'agentId',
-      convo_id: 'convo_id',
+      conversation_id: 'conversation_id',
       response_id: 'response_id',
     });
     const rawResponse = await responsePromise.asResponse();
@@ -54,7 +54,7 @@ describe('resource feedback', () => {
   test.skip('update: required and optional params', async () => {
     const response = await client.agents.conversations.response.feedback.update('feedback_id', {
       agentId: 'agentId',
-      convo_id: 'convo_id',
+      conversation_id: 'conversation_id',
       response_id: 'response_id',
       comment: 'comment',
       rating: 'positive',

@@ -44,18 +44,19 @@ export class Conversations extends APIResource {
    * @example
    * ```ts
    * const inconvoConversation =
-   *   await client.agents.conversations.retrieve('id', {
-   *     agentId: 'agentId',
-   *   });
+   *   await client.agents.conversations.retrieve(
+   *     'conversation_id',
+   *     { agentId: 'agentId' },
+   *   );
    * ```
    */
   retrieve(
-    id: string,
+    conversationID: string,
     params: ConversationRetrieveParams,
     options?: RequestOptions,
   ): APIPromise<InconvoConversation> {
     const { agentId } = params;
-    return this._client.get(path`/agents/${agentId}/conversations/${id}`, options);
+    return this._client.get(path`/agents/${agentId}/conversations/${conversationID}`, options);
   }
 
   /**
@@ -89,12 +90,12 @@ export type ConversationListResponsesConversationsCursor = ConversationsCursor<C
 export interface InconvoConversation {
   id: string;
 
-  messages: Array<InconvoConversation.Message>;
-
   /**
    * User context values (null when user context is disabled)
    */
-  userContext: { [key: string]: string | number } | null;
+  context: { [key: string]: string | number | boolean } | null;
+
+  messages: Array<InconvoConversation.Message>;
 
   /**
    * Unique identifier for the end-user (may be null for legacy conversations)
@@ -106,7 +107,7 @@ export namespace InconvoConversation {
   export interface Message {
     message: string;
 
-    type: 'text' | 'chart' | 'table';
+    type: 'text' | 'chart' | 'table' | 'error';
 
     /**
      * Present on Inconvo responses only
@@ -131,12 +132,12 @@ export interface ConversationListResponse {
 
   createdAt: string;
 
-  title: string;
+  title: string | null;
 
   /**
    * User context values (null when user context is disabled)
    */
-  userContext: { [key: string]: string | number } | null;
+  userContext: { [key: string]: string | number | boolean } | null;
 
   /**
    * Unique identifier for the end-user (may be null for legacy conversations)
@@ -147,7 +148,7 @@ export interface ConversationListResponse {
 export interface ConversationCreateParams {
   /**
    * Unique identifier for the end-user (1-256 chars). Allowed characters:
-   * alphanumeric, underscore, hyphen, colon, period, at symbol.
+   * alphanumeric, underscore, hyphen, period, at symbol.
    */
   userIdentifier: string;
 
@@ -156,7 +157,7 @@ export interface ConversationCreateParams {
    * Context status is ENABLED. Must be omitted when User Context status is DISABLED.
    * Requests fail when User Context is UNSET.
    */
-  userContext?: { [key: string]: unknown };
+  userContext?: { [key: string]: string | number | boolean };
 }
 
 export interface ConversationRetrieveParams {
@@ -171,7 +172,7 @@ export interface ConversationListParams extends ConversationsCursorParams {
    * Arbitrary userContext filters, encoded as a deep object. Example: GET
    * /conversations?userContext[userId]=42&userContext[orgId]=12
    */
-  userContext?: { [key: string]: string | number };
+  userContext?: { [key: string]: string | number | boolean };
 
   /**
    * Filter by user identifier

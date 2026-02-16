@@ -18,10 +18,10 @@ export class Response extends APIResource {
    * @example
    * ```ts
    * const response =
-   *   await client.agents.conversations.response.create('id', {
-   *     agentId: 'agentId',
-   *     message: 'message',
-   *   });
+   *   await client.agents.conversations.response.create(
+   *     'conversation_id',
+   *     { agentId: 'agentId', message: 'message' },
+   *   );
    * ```
    */
   create(
@@ -129,7 +129,7 @@ export interface ResponseCreateResponse {
 
   message: string;
 
-  type: 'text' | 'chart' | 'table';
+  type: 'text' | 'chart' | 'table' | 'error';
 
   /**
    * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
@@ -177,7 +177,7 @@ export namespace ResponseRetrieveResponse {
     /**
      * Type of the output
      */
-    type: 'text' | 'chart' | 'table';
+    type: 'text' | 'chart' | 'table' | 'error';
 
     /**
      * Charts use vega V5 spec https://vega.github.io/schema/vega/v5.json
@@ -204,6 +204,7 @@ export namespace ResponseRetrieveResponse {
     output: unknown;
   }
 }
+
 /**
  * Event types for streaming responses
  */
