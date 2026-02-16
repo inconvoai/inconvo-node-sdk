@@ -7,7 +7,6 @@ export {
   type ConversationCreateResponse,
   type ConversationListResponse,
   type ConversationCreateParams,
-  type ConversationRetrieveParams,
   type ConversationListParams,
   type ConversationListResponsesConversationsCursor,
 } from './conversations/index';

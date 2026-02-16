@@ -10,8 +10,6 @@ export {
   Response,
   type Chart,
   type Table,
-  type ResponseCreateResponse,
   type ResponseRetrieveResponse,
-  type ResponseCreateParams,
   type ResponseRetrieveParams,
 } from './response';
