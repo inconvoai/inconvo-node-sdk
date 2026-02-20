@@ -8,7 +8,7 @@ const client = new Inconvo({
 });
 
 describe('resource tenants', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.agents.mcpServers.tenants.create('mcpserver_id', {
       agentId: 'agentId',
@@ -23,7 +23,7 @@ describe('resource tenants', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.agents.mcpServers.tenants.create('mcpserver_id', {
       agentId: 'agentId',
@@ -31,7 +31,7 @@ describe('resource tenants', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete: only required params', async () => {
     const responsePromise = client.agents.mcpServers.tenants.delete('mcpserver_id', {
       agentId: 'agentId',
@@ -46,7 +46,7 @@ describe('resource tenants', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete: required and optional params', async () => {
     const response = await client.agents.mcpServers.tenants.delete('mcpserver_id', {
       agentId: 'agentId',

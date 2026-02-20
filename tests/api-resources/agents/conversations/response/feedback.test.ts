@@ -8,7 +8,7 @@ const client = new Inconvo({
 });
 
 describe('resource feedback', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.agents.conversations.response.feedback.create('response_id', {
       agentId: 'agentId',
@@ -24,7 +24,7 @@ describe('resource feedback', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.agents.conversations.response.feedback.create('response_id', {
       agentId: 'agentId',
@@ -34,7 +34,7 @@ describe('resource feedback', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update: only required params', async () => {
     const responsePromise = client.agents.conversations.response.feedback.update('feedback_id', {
       agentId: 'agentId',
@@ -50,7 +50,7 @@ describe('resource feedback', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('update: required and optional params', async () => {
     const response = await client.agents.conversations.response.feedback.update('feedback_id', {
       agentId: 'agentId',
