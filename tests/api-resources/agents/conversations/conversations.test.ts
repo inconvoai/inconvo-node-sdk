@@ -8,7 +8,7 @@ const client = new Inconvo({
 });
 
 describe('resource conversations', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.agents.conversations.create('agentId', { userIdentifier: 'user_123' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource conversations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.agents.conversations.create('agentId', {
       userIdentifier: 'user_123',
@@ -28,7 +28,7 @@ describe('resource conversations', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve: only required params', async () => {
     const responsePromise = client.agents.conversations.retrieve('conversation_id', { agentId: 'agentId' });
     const rawResponse = await responsePromise.asResponse();
@@ -40,12 +40,12 @@ describe('resource conversations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve: required and optional params', async () => {
     const response = await client.agents.conversations.retrieve('conversation_id', { agentId: 'agentId' });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.agents.conversations.list('agentId');
     const rawResponse = await responsePromise.asResponse();
@@ -57,7 +57,7 @@ describe('resource conversations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list: request options and params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
