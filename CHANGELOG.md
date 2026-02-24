@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.7.1 (2026-02-24)
+
+Full Changelog: [v0.7.0...v0.7.1](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.0...v0.7.1)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([b3a9b19](https://github.com/inconvoai/inconvo-node-sdk/commit/b3a9b19124ffbb990401e194b02ccfa7296658fa))
+
+
+### Chores
+
+* **internal/client:** fix form-urlencoded requests ([5fbb9ff](https://github.com/inconvoai/inconvo-node-sdk/commit/5fbb9ffd9c257f0b8ae8b7c32336a39bb122e0c4))
+* **internal:** remove mock server code ([13735b1](https://github.com/inconvoai/inconvo-node-sdk/commit/13735b1e6532cf041a29ee6bbff2616cfb1139a8))
+* update mock server docs ([3520a9e](https://github.com/inconvoai/inconvo-node-sdk/commit/3520a9efbf8c996669935e6aded0c0e680fe4e0f))
+
 ## 0.7.0 (2026-02-16)
 
 Full Changelog: [v0.6.3...v0.7.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.6.3...v0.7.0)
