@@ -60,7 +60,7 @@ $ yarn link @inconvoai/node
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @inconvoai/node
+$ pnpm link --global @inconvoai/node
 ```
 
 ## Running tests
