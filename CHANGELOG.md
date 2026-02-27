@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.2 (2026-02-27)
+
+Full Changelog: [v0.7.1...v0.7.2](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.1...v0.7.2)
+
+### Chores
+
+* **internal:** move stringifyQuery implementation to internal function ([05b0799](https://github.com/inconvoai/inconvo-node-sdk/commit/05b0799bfe0d57bca841c19243e58d66610393f1))
+
 ## 0.7.1 (2026-02-24)
 
 Full Changelog: [v0.7.0...v0.7.1](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.0...v0.7.1)
