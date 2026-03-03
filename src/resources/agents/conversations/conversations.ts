@@ -16,6 +16,9 @@ import { ConversationsCursor, type ConversationsCursorParams, PagePromise } from
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
+/**
+ * Create, list and retrieve conversation threads
+ */
 export class Conversations extends APIResource {
   response: ResponseAPI.Response = new ResponseAPI.Response(this._client);
 
