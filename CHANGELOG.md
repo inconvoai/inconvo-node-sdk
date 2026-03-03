@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.3 (2026-03-03)
+
+Full Changelog: [v0.7.2...v0.7.3](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.2...v0.7.3)
+
+### Chores
+
+* **internal:** codegen related update ([ea39207](https://github.com/inconvoai/inconvo-node-sdk/commit/ea39207de659089fe4db171509cd239f657953a6))
+
 ## 0.7.2 (2026-02-27)
 
 Full Changelog: [v0.7.1...v0.7.2](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.1...v0.7.2)

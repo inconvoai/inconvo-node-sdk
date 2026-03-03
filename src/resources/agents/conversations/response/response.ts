@@ -9,6 +9,9 @@ import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 import { SSEStream, createSSEStream } from '../../../../core/sse-stream';
 
+/**
+ * Send a user message and receive Inconvo's structured reply (synchronous or SSE stream)
+ */
 export class Response extends APIResource {
   feedback: FeedbackAPI.FeedbackResource = new FeedbackAPI.FeedbackResource(this._client);
 

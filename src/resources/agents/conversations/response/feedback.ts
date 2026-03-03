@@ -5,6 +5,9 @@ import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
 
+/**
+ * Attach or edit quality feedback on individual responses
+ */
 export class FeedbackResource extends APIResource {
   /**
    * Create feedback

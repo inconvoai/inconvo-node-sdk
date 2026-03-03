@@ -5,6 +5,9 @@ import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
 
+/**
+ * Manage MCP servers and their tenant mappings
+ */
 export class Tenants extends APIResource {
   /**
    * Create a tenant for an MCP Server
