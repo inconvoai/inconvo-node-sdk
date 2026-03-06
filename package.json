@@ -1,6 +1,6 @@
 {
   "name": "@inconvoai/node",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "The official TypeScript library for the Inconvo API",
   "author": "Inconvo <support@inconvo.ai>",
   "types": "dist/index.d.ts",
