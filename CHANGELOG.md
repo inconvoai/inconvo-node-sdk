@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.7.5 (2026-03-25)
+
+Full Changelog: [v0.7.4...v0.7.5](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.4...v0.7.5)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([1946e57](https://github.com/inconvoai/inconvo-node-sdk/commit/1946e57164d7c54429e8bd949b7dbd4c9dfd07c1))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([8371a42](https://github.com/inconvoai/inconvo-node-sdk/commit/8371a4248fc1668c3143e544dfea8de3fcf044f6))
+* **ci:** skip uploading artifacts on stainless-internal branches ([3df3d0f](https://github.com/inconvoai/inconvo-node-sdk/commit/3df3d0fe601c25fdd0a630d0f27caf63b7f8ce1a))
+* **internal:** tweak CI branches ([dfe62a0](https://github.com/inconvoai/inconvo-node-sdk/commit/dfe62a0636ea0225855afc0f2c5612a5b83060bd))
+* **internal:** update dependencies to address dependabot vulnerabilities ([b159928](https://github.com/inconvoai/inconvo-node-sdk/commit/b1599287ce150157c474151e2fe7604643a8dee4))
+* **internal:** update gitignore ([5528d07](https://github.com/inconvoai/inconvo-node-sdk/commit/5528d079263cf3288985899a9526f52c2e3113c8))
+* update placeholder string ([e274fab](https://github.com/inconvoai/inconvo-node-sdk/commit/e274fab345e37d2d233e34f27264871cc75e7416))
+
 ## 0.7.4 (2026-03-06)
 
 Full Changelog: [v0.7.3...v0.7.4](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.3...v0.7.4)
