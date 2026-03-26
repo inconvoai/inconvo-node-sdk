@@ -61,7 +61,7 @@ describe('resource context', () => {
     const responsePromise = client.agents.datasets.context.upload('org_456', {
       agentId: 'agentId',
       contextKey: 'orgId',
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -77,7 +77,7 @@ describe('resource context', () => {
     const response = await client.agents.datasets.context.upload('org_456', {
       agentId: 'agentId',
       contextKey: 'orgId',
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
+      file: await toFile(Buffer.from('Example data'), 'README.md'),
       notes: 'notes',
     });
   });
