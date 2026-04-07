@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.7 (2026-04-07)
+
+Full Changelog: [v0.7.6...v0.7.7](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.6...v0.7.7)
+
+### Chores
+
+* update SDK settings ([1f0c236](https://github.com/inconvoai/inconvo-node-sdk/commit/1f0c236bf5818519607f8264958442eee1526c52))
+
 ## 0.7.6 (2026-03-28)
 
 Full Changelog: [v0.7.5...v0.7.6](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.5...v0.7.6)
