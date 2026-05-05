@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.8.0 (2026-05-01)
+
+Full Changelog: [v0.7.8...v0.8.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.8...v0.8.0)
+
+### Features
+
+* support setting headers via env ([95f7c4b](https://github.com/inconvoai/inconvo-node-sdk/commit/95f7c4b63d74a8387b3328a71748238b6cf9075c))
+
+
+### Chores
+
+* **format:** run eslint and prettier separately ([71ec99a](https://github.com/inconvoai/inconvo-node-sdk/commit/71ec99a93edd79dd4e803d6b2f04b52248898e85))
+* **internal:** codegen related update ([efa8fa3](https://github.com/inconvoai/inconvo-node-sdk/commit/efa8fa30b12de73174406853e73be873965b984f))
+* **internal:** more robust bootstrap script ([d0ef8dd](https://github.com/inconvoai/inconvo-node-sdk/commit/d0ef8ddcd05e12e0b430205f0a92e259ca1c678c))
+
 ## 0.7.8 (2026-04-13)
 
 Full Changelog: [v0.7.7...v0.7.8](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.7...v0.7.8)
