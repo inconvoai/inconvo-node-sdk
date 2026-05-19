@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.8.1 (2026-05-19)
+
+Full Changelog: [v0.8.0...v0.8.1](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.8.0...v0.8.1)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([29bce19](https://github.com/inconvoai/inconvo-node-sdk/commit/29bce19670ca413822f1328af24aa34c2940b0c7))
+
+
+### Chores
+
+* redact api-key headers in debug logs ([7d1681b](https://github.com/inconvoai/inconvo-node-sdk/commit/7d1681b1469fe55644a3cdcb1a713897108d0d8f))
+* **tests:** remove redundant File import ([d7bc567](https://github.com/inconvoai/inconvo-node-sdk/commit/d7bc56725117e44888b1b2d99fe488fbd54e779b))
+
 ## 0.8.0 (2026-05-01)
 
 Full Changelog: [v0.7.8...v0.8.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.7.8...v0.8.0)
