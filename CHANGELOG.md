@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.9.0 (2026-07-18)
+
+Full Changelog: [v0.8.1...v0.9.0](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.8.1...v0.9.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([d7fd609](https://github.com/inconvoai/inconvo-node-sdk/commit/d7fd6097d7dedd629a10bd46efaaab50bd590c13))
+
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([03e09fb](https://github.com/inconvoai/inconvo-node-sdk/commit/03e09fb2e5da57c46f9b5965b2e7681b320b09e6))
+* **client:** send content-type header for requests with an omitted optional body ([bc77649](https://github.com/inconvoai/inconvo-node-sdk/commit/bc7764965b723b676eede42c3df538592a88f4d0))
+
+
+### Chores
+
+* **internal:** codegen related update ([8cb46a2](https://github.com/inconvoai/inconvo-node-sdk/commit/8cb46a23d96b81d92060babd76236c6587c45beb))
+* **internal:** codegen related update ([e262d3a](https://github.com/inconvoai/inconvo-node-sdk/commit/e262d3a3d253b55181ed65d1fb837d56dca5135a))
+
 ## 0.8.1 (2026-05-19)
 
 Full Changelog: [v0.8.0...v0.8.1](https://github.com/inconvoai/inconvo-node-sdk/compare/v0.8.0...v0.8.1)
